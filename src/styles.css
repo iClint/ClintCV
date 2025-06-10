@@ -34,6 +34,7 @@
   padding: 24px;
   width: 100%;
   background-color: var(--color-bg-page); /* Clean light background */
+  overflow-x: hidden;
 }
 
 .card {

@@ -1,53 +1,73 @@
 <div class="page-body">
   <main class="about__content">
+    <!-- Fun Facts Ticker Card -->
     <app-ticker
       title="Fun facts about me..."
       [items]="tickerConfig.items"
     ></app-ticker>
 
-    <section class="about__section card">
-      <h2>About Me</h2>
-
+    <!-- Profile Card -->
+    <section class="about__section card about__profile">
       <img
         class="about__img-inline"
         src="Clint-CV-Pic.png"
         alt="Clint's profile pic"
       />
-
+      <h2>About Me</h2>
       <p>
-        I’m Clint — a fullstack software engineer who builds scalable,
-        performant web applications across Angular, .NET, and Azure. I care
-        deeply about clean architecture, user experience, and delivering
-        real-world outcomes — without the bloat or bullshit.
+        I’m Clint — a fullstack software engineer with a track record in
+        scalable cloud backends, robust APIs, and modern UIs.
       </p>
+      <div class="about__quick-facts">
+        <strong>Philosophy:</strong> Clean code, fast shipping, zero bullshit<br />
+        <strong>Specialties:</strong> Angular, .NET, Azure, Real-time web apps
+      </div>
+    </section>
 
-      <p>
-        My journey into tech started in the 90s, coding in BASIC on a beige-box
-        8086. I studied Computing Studies through high school, but life took me
-        elsewhere. I ran a Cash-in-Transit business for over a decade before a
-        serious accident (and a global pandemic) forced a rethink.
-      </p>
+    <!-- How I Got Here Card -->
+    <section class="about__section card">
+      <h2>How I Got Here</h2>
+      <ul>
+        <li><strong>90s:</strong> Wrote BASIC on an 8086 beige box.</li>
+        <li>Ran a Cash-in-Transit business for 10+ years.</li>
+        <li>Life, accidents, and COVID forced a pivot into tech.</li>
+      </ul>
+    </section>
 
-      <p>
-        I pivoted fast — taking a role in Woolworths Online, where I honed my
-        customer skills and quick thinking under pressure. My curiosity pulled
-        me toward WooliesX, and I started building a portfolio on the side to
-        prove I belonged. I was selected as one of 12 candidates (out of 100+)
-        for a WooliesX pilot program into fullstack engineering. After an
-        intense 12-week bootcamp, I landed my first official tech role.
-      </p>
+    <!-- WooliesX Story Card -->
+    <section class="about__section card">
+      <h2>The WooliesX Jump</h2>
+      <ul>
+        <li>Started in Woolworths Online, mastering customer chaos.</li>
+        <li>
+          Built a portfolio, got noticed, and earned a spot in the WooliesX
+          fullstack pilot (12 out of 100+).
+        </li>
+        <li>
+          Smashed a 12-week engineering bootcamp, then landed my first dev gig.
+        </li>
+      </ul>
+    </section>
 
-      <p>
-        These days I write better code, ship smarter features, and work toward
-        scalable frontend/backend systems. I value stateless components, useful
-        tests, and clear commit messages. I don’t do cargo cult patterns or
-        endless meetings — I just get things done.
-      </p>
+    <!-- What I Do Now Card -->
+    <section class="about__section card">
+      <h2>What I Do Now</h2>
+      <ul>
+        <li>Architect and build scalable frontend and backend systems.</li>
+        <li>
+          Value stateless components, useful tests, and clear commit messages.
+        </li>
+        <li>Despise cargo cult patterns and endless meetings.</li>
+        <li>Deliver features, not excuses.</li>
+      </ul>
+    </section>
 
+    <!-- Outside of Work Card -->
+    <section class="about__section card">
+      <h2>Outside of Work</h2>
       <p>
-        Outside of work, I’m usually flying simulated helicopters in MSFS,
-        tuning my home lab, or questioning whether I really need a sixth
-        monitor. (Spoiler: I do.)
+        You’ll find me flying simulated helicopters in MSFS, tinkering with my
+        home lab, or justifying a sixth monitor purchase. (Spoiler: I do.)
       </p>
     </section>
   </main>
