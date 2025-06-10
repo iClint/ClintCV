@@ -8,7 +8,9 @@
     </div>
   </div>
   <!-- Progress bar -->
-  @if(showProgressBar){<mat-progress-bar
+  @if(!showProgressBar){
+  <div class="progress-bar-placeholer"></div>
+  } @if(showProgressBar){<mat-progress-bar
     class="progress-bar"
     mode="determinate"
     [value]="progress"

@@ -14,8 +14,8 @@ export const appConfig: ApplicationConfig = {
 export const Config = {
   header: {
     title: 'Clint Kingston',
-    subtitle: 'Software Engineer',
-    description: 'Building innovative solutions with Angular and beyond.',
+    subtitle: 'Fullstack Software Engineer',
+    description: 'Building innovative solutions with .Net, Angular and beyond,',
   },
   navMenu: {
     items: [

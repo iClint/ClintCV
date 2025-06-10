@@ -13,29 +13,24 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: relative;
   gap: 4px;
+  position: relative;
   padding: 12px;
-  background-color: transparent;
-  border-radius: 4px;
-  color: inherit;
+  color: var(--color-nav-link);
+  border-radius: 8px;
   text-decoration: none;
   opacity: 0.7;
-  transform-origin: left center;
-  will-change: transform;
-  transition: opacity 0.1s ease, background-color 0.3s ease, color 0.3s ease,
-    transform 0.2s ease;
 }
 
 .nav-menu__icon {
-  color: #ffffff;
+  color: var(--color-nav-link);
   transition: color 0.2s ease;
 }
 
 .nav-menu__link.active,
 .nav-menu__link:hover {
   opacity: 1;
-  background-color: #90caf9;
+  background-color: var(--color-primary);
   color: var(--color-text-dark);
 }
 
@@ -48,14 +43,14 @@
 .nav-menu__container:has(.nav-menu__link:hover)
   .nav-menu__link.active:not(:hover) {
   background-color: transparent;
-  color: inherit;
-  opacity: 0.5;
+  color: var(--color-text-light);
+  opacity: 1;
 }
 
 .nav-menu__container:has(.nav-menu__link:hover)
   .nav-menu__link.active:not(:hover)
   .nav-menu__icon {
-  color: #90caf9;
+  color: var(--color-text-light);
 }
 
 /* ---------- MOBILE MODE ---------- */
@@ -80,10 +75,9 @@
     right: 0;
     width: 90%;
     height: 100vh;
-    border-radius: 8px 0 0 16px;
+    border-radius: 16px 0 0 0;
     background-color: rgba(33, 33, 33, 0.95);
     padding: 24px;
-    gap: 16px;
     z-index: 1000;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
@@ -97,48 +91,46 @@
 
   .nav-menu__link {
     min-width: 100%;
-    gap: 8px;
-    color: white;
-    opacity: 1;
+    height: 80px;
+    color: var(--color-text-light);
+    opacity: 0.6;
   }
 
   .nav-menu__link:hover,
   .nav-menu__link:focus-visible {
-    background-color: #90caf9;
-    color: var(--color-text-dark);
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
     transform: scale(1.01);
   }
 
   .nav-menu__link:hover .nav-menu__icon,
   .nav-menu__link:focus-visible .nav-menu__icon {
-    color: var(--color-text-dark);
+    color: var(--color-text-light);
   }
 
   /* Reset active if another is hovered */
   .nav-menu__container:has(.nav-menu__link:hover)
     .nav-menu__link.active:not(:hover) {
     background-color: transparent;
-    color: var(--collor-text-light);
-    transform: none;
+    color: var(--color-text-light);
     opacity: 1;
   }
 
   .nav-menu__container:has(.nav-menu__link:hover)
     .nav-menu__link.active:not(:hover)
     .nav-menu__icon {
-    color: #90caf9;
+    color: var(--color-text-light);
   }
 
   /* Normal active state */
   .nav-menu__container:not(:has(.nav-menu__link:hover)) .nav-menu__link.active {
     background-color: #90caf9;
-    color: var(--color-text-dark);
-    transform: none;
+    color: var(--color-text-light);
   }
 
   .nav-menu__container:not(:has(.nav-menu__link:hover))
     .nav-menu__link.active
     .nav-menu__icon {
-    color: var(--color-text-dark);
+    color: var(--color-text-light);
   }
 }

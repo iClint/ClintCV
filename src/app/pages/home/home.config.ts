@@ -4,6 +4,7 @@ export const HomePageConfig = {
     { file: 'Apple.svg', label: 'Apple' },
     { file: 'Azure-Devops.svg', label: 'Azure Devops' },
     { file: 'Azure-SQL-Database.svg', label: 'Azure SQL Database' },
+    { file: 'csharp.svg', label: 'csharp' },
     { file: 'CSS3.svg', label: 'CSS3' },
     { file: 'Cypress.svg', label: 'Cypress' },
     { file: 'Docker.svg', label: 'Docker' },
@@ -14,18 +15,17 @@ export const HomePageConfig = {
     { file: 'Kubernetes.svg', label: 'Kubernetes' },
     { file: 'Linux.svg', label: 'Linux' },
     { file: 'MongoDB.svg', label: 'MongoDB' },
-    { file: 'NPM.svg', label: 'NPM' },
     { file: 'Node.js.svg', label: 'Node.js' },
+    { file: 'NPM.svg', label: 'NPM' },
     { file: 'NuGet.svg', label: 'NuGet' },
     { file: 'Postman.svg', label: 'Postman' },
     { file: 'TypeScript.svg', label: 'TypeScript' },
     { file: 'Windows-11.svg', label: 'Windows 11' },
-    { file: 'csharp.svg', label: 'csharp' },
   ],
 };
 
 export const HomeTickerConfig = {
-  title: 'Key takeaways...',
+  title: 'Highlights',
   items: [
     'Architected and rebuilt the Woolworths Order Tracking Portal into a real-time Angular 18 SPA used across millions of orders.',
 

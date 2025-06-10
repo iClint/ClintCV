@@ -3,6 +3,6 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: var(--color-bg-light);
+  background-color: var(--color-bg-footer);
   color: var(--color-text-light);
 }

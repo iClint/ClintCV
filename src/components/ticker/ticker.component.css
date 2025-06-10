@@ -1,8 +1,6 @@
 .ticker__container {
   margin: auto;
-  min-width: 80%;
-  max-width: 650px;
-  height: 100px;
+  max-width: 960px;
 }
 
 .ticker__ticker {
@@ -25,13 +23,20 @@
 }
 
 .ticker__text {
+  display: flex;
+  align-items: center;
   margin: 12px auto;
-  font-size: 24px;
+  min-height: 50px;
+  font-size: 16px;
   font-weight: lighter;
   font-style: italic;
-  color: grey;
+  color: var(--color-text-dark);
   text-align: center;
   line-height: 1.5;
+}
+
+.progress-bar-placeholer {
+  height: 4px;
 }
 
 .progress-bar {
