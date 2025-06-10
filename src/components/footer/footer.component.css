@@ -7,3 +7,13 @@
   background-color: var(--color-bg-footer);
   color: var(--color-text-light);
 }
+
+.footer__text {
+  margin-bottom: 8px;
+}
+
+.footer__disclaimer {
+  font-size: 10px;
+  color: var(--color-text-light-secondary);
+  text-align: center;
+}

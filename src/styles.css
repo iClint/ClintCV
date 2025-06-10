@@ -45,6 +45,10 @@
   max-width: 960px;
 }
 
+.centered {
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .page-body {
     padding: 8px;
