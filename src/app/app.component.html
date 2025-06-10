@@ -1,2 +1,7 @@
-<app-nx-welcome></app-nx-welcome>
+<app-header
+  [title]="config.header.title"
+  [subtitle]="config.header.subtitle"
+  [description]="config.header.description"
+  [navMenuItems]="config.navMenu.items"
+></app-header>
 <router-outlet></router-outlet>

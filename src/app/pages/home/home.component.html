@@ -1,0 +1,79 @@
+<div class="page-body">
+  <main class="home__content">
+    <app-ticker
+      [title]="tickerConfig.title"
+      [items]="tickerConfig.items"
+    ></app-ticker>
+    <section class="home__section">
+      <h2>The TL;DR</h2>
+      <p>
+        I solve problems with code, caffeine, and occasionally duct tape. I’ve
+        architected and built real-time systems, component libraries, and
+        tracking portals with obsessive attention to UX and performance.
+      </p>
+    </section>
+
+    <section class="home__section">
+      <h2>Past Achievements</h2>
+      <ul class="achievement-list">
+        <li>
+          <strong>Order Tracking Portal – Woolworths:</strong>
+          Rebuilt the entire platform from a static microfrontend to a
+          high-performance Angular 18 SPA. Implemented real-time updates via
+          event streams, optimized for both speed and scalability, and delivered
+          a seamless experience across millions of orders.
+        </li>
+
+        <li>
+          <strong>UI Uplift with Core Design System:</strong>
+          Integrated and aligned the app with WooliesX’s core design system,
+          replacing legacy components and styles with accessible, consistent,
+          and token-driven UI elements — without blocking development velocity.
+        </li>
+
+        <li>
+          <strong>Refactor & Streamlining:</strong>
+          Reduced technical debt across key components and services. Modularized
+          business logic, introduced stateless components, improved lazy
+          loading, and cut load time by shaving off redundant data fetches and
+          change detection overhead.
+        </li>
+
+        <li>
+          <strong>Real-time Driver Rating Initiative:</strong>
+          Designed and implemented a real-time driver feedback feature.
+          Delivered observable-driven UX, clean component architecture, and
+          end-to-end test coverage with Cypress. Took it from concept to
+          production under tight deadlines.
+        </li>
+      </ul>
+    </section>
+
+    <section class="home__section">
+      <h2>How I Work</h2>
+      <p>
+        I thrive in Agile environments — whether it’s fast-paced sprints with
+        Scrum or continuous flow using Kanban. I’m no stranger to daily
+        stand-ups, retros, or navigating a Jira board with 57 open tabs. I value
+        clean commits, honest feedback, and getting things shipped without
+        drama.
+      </p>
+    </section>
+
+    <section class="home__section tech-stack">
+      <h2>Tech Stack</h2>
+      <ul class="tech-stack__list">
+        @for(item of config.techStackIcons; track item.file) {
+        <li>
+          <img
+            src="{{ item.file }}"
+            alt="{{ item.label }}"
+            title="{{ item.label }}"
+          />
+        </li>
+        }
+      </ul>
+      <p>and learning more everyday...</p>
+    </section>
+  </main>
+</div>

@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { HeaderComponent } from 'src/components/header/header.component';
+import { Config } from './app.config';
 
 @Component({
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [RouterModule, HeaderComponent],
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'Clint Kingston';
-  subtitle = 'Software Engineer';
-  description = 'Building innovative solutions with Angular and beyond.';
+  config = Config;
 }

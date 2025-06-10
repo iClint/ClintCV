@@ -1,0 +1,39 @@
+.header__container {
+  padding: 16px 24px;
+  background: #1976d2; /* Primary blue */
+  color: #ffffff; /* Text on primary */
+}
+
+.header__top-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.header__title {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--collor-text-light); /* White title on primary bg */
+  margin: 0;
+}
+
+.header__subtitle {
+  font-size: 16px;
+  color: #e3f2fd; /* Light blue-grey for subtle contrast */
+  margin-top: 4px;
+}
+
+.header__description {
+  font-size: 14px;
+  color: #bbdefb; /* Even lighter blue for less emphasis */
+  margin-top: 2px;
+}
+
+.header__middle-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 4px;
+}

@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-bg-dark: #212121;
+  --color-primary: #90caf9;
+  --color-text-light: #ffffff;
+  --color-text-dark: #37474f;
+  --color-nav-link-focus: #ffffff;
+  --color-card-bg: #ffffff; /* White cards */
+  --color-card-shadow: rgba(0, 0, 0, 0.06);
+  --color-transparent-white: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  font-family: 'roboto', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page-body {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  width: 100%;
+  background-color: #f5f5f5; /* Clean light background */
+}
+
+@media (max-width: 768px) {
+  .page-body {
+    padding: 8px;
+  }
+}

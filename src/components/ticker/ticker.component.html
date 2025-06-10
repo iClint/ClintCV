@@ -1,0 +1,17 @@
+<div class="ticker__container">
+  @if(title){
+  <div class="ticker__heading">{{ title }}</div>
+  }
+  <div class="ticker__ticker" [@fade]="fadeState">
+    <div class="ticker__text">
+      {{ currentItem }}
+    </div>
+  </div>
+  <!-- Progress bar -->
+  @if(showProgressBar){<mat-progress-bar
+    class="progress-bar"
+    mode="determinate"
+    [value]="progress"
+  ></mat-progress-bar
+  >}
+</div>
