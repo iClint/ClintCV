@@ -14,11 +14,12 @@ import {
   animate,
   transition,
 } from '@angular/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-ticker',
   standalone: true,
-  imports: [CommonModule, MatProgressBarModule],
+  imports: [CommonModule, MatProgressBarModule, MatIconModule],
   templateUrl: './ticker.component.html',
   styleUrl: './ticker.component.css',
   animations: [
@@ -78,13 +79,36 @@ export class TickerComponent implements OnInit, OnDestroy {
     }, tickRate);
   }
 
-  nextItem() {
+  nextItem(index: number = 1): void {
     this.fadeState = 'hidden';
-    this.contentIndex = (this.contentIndex + 1) % this.items.length;
+    this.contentIndex = (this.contentIndex + index) % this.items.length;
     this.fadeState = 'visible';
   }
 
   ngOnDestroy(): void {
     if (this.timer) clearInterval(this.timer);
+  }
+
+  onClickNavigation(index: number): void {
+    this.isTransitioning = true;
+
+    // Start fade out
+    this.fadeState = 'hidden';
+
+    setTimeout(() => {
+      this.contentIndex = (this.contentIndex + index) % this.items.length;
+      this.fadeState = 'visible';
+      this.progress = 0;
+      this.isTransitioning = false;
+
+      this.resetTicker();
+    }, 400); // match fade-out duration
+  }
+
+  resetTicker(): void {
+    if (this.timer) clearInterval(this.timer);
+    this.progress = 0;
+    this.isTransitioning = false;
+    this.startTicker();
   }
 }

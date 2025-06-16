@@ -2,6 +2,7 @@
   padding: 16px 24px;
   background: var(--color-bg-header); /* Primary blue */
   color: var(--collor-text-light); /* Text on primary */
+  border-bottom: solid 2px rgb(0, 174, 255); /* Border color */
 }
 
 .header__top-row {

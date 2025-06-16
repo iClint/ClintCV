@@ -1,30 +1,25 @@
-<section class="contact card">
-  <h2>Contact Me</h2>
-  <ul>
-    <li>
-      <span><i class="fa-solid fa-envelope contact__icon"></i></span>
-      <a href="mailto:clintkingston@gmail.com">clintkingston&#64;gmail.com</a>
-    </li>
-    <li>
-      <span><i class="fa-brands fa-linkedin contact__icon"></i></span>
-      <a href="https://www.linkedin.com/in/clintkingston/" target="_blank"
-        >linkedin.com/in/clintkingston</a
-      >
-    </li>
-    <li>
-      <span><i class="fa-brands fa-github contact__icon"></i></span>
-      <a href="https://github.com/clintkingston" target="_blank"
-        >github.com/clintkingston</a
-      >
-    </li>
-    <!-- Optional -->
-    <li>
-      <span><i class="fa-solid fa-map-location-dot contact__icon"></i></span>
-      Sydney, Australia
-    </li>
-    <li>
-      <span><i class="fa-solid fa-file contact__icon"></i></span>
-      <a href="/ClintKingstonResume.pdf" download>Download Resume (PDF)</a>
-    </li>
-  </ul>
-</section>
+<main class="page-body">
+  <section class="contact__section card">
+    <h2>{{ config.title }}</h2>
+    <p>{{ config.description }}</p>
+    <div class="contact__links">
+      @for(link of config.links; track link.icon){<a
+        [href]="link.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="contact__link"
+        title="{{ link.label }}"
+        [attr.aria-label]="link.label"
+        ><i
+          class="contact__icons"
+          [class]="link.icon"
+          (mouseenter)="onMouseEnterIcon(link.label)"
+          (mouseleave)="onMouseLeaveIcon()"
+        ></i></a
+      >}
+    </div>
+    <div class="contact__dynamic-description-container">
+      <p class="contact__dynamic-description">{{ dynamicDescription }}</p>
+    </div>
+  </section>
+</main>

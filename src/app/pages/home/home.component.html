@@ -1,65 +1,59 @@
 <div class="page-body">
   <main class="home__content">
+    <!-- Ticker still works great -->
     <app-ticker
       [title]="tickerConfig.title"
       [items]="tickerConfig.items"
     ></app-ticker>
+
+    <!-- TL;DR: Your hook -->
     <section class="home__section card">
       <h2>The TL;DR</h2>
       <p>
-        I solve problems with code, caffeine, and occasionally duct tape. I’ve
-        architected and built real-time systems, component libraries, and
-        tracking portals with obsessive attention to UX and performance.
+        I solve problems with code, caffeine, and occasionally duct tape. I
+        architect performant real-time systems, build scalable UIs, and obsess
+        over UX and delivery velocity.
       </p>
     </section>
 
+    <!-- Core Achievements: the meat -->
     <section class="home__section card">
-      <h2>Past Achievements</h2>
+      <h2>Key Projects</h2>
       <ul class="achievement-list">
         <li>
-          <strong>Order Tracking Portal – Woolworths:</strong>
-          Rebuilt the entire platform from a static microfrontend to a
-          high-performance Angular 18 SPA. Implemented real-time updates via
-          event streams, optimized for both speed and scalability, and delivered
-          a seamless experience across millions of orders.
+          <strong>Order Tracking Portal – Woolworths:</strong> Rebuilt the
+          platform as a high-performance Angular 18 SPA with real-time event
+          streaming across millions of orders.
         </li>
-
         <li>
-          <strong>UI Uplift with Core Design System:</strong>
-          Integrated and aligned the app with WooliesX’s core design system,
-          replacing legacy components and styles with accessible, consistent,
-          and token-driven UI elements — without blocking development velocity.
+          <strong>Core Design System Alignment:</strong> Integrated token-based
+          design system elements, balancing accessibility with rapid development
+          velocity.
         </li>
-
         <li>
-          <strong>Refactor & Streamlining:</strong>
-          Reduced technical debt across key components and services. Modularized
-          business logic, introduced stateless components, improved lazy
-          loading, and cut load time by shaving off redundant data fetches and
-          change detection overhead.
+          <strong>Platform Refactor & Optimisation:</strong> Modularized logic,
+          stateless component design, lazy loading, and significant performance
+          gains.
         </li>
-
         <li>
-          <strong>Real-time Driver Rating Initiative:</strong>
-          Designed and implemented a real-time driver feedback feature.
-          Delivered observable-driven UX, clean component architecture, and
-          end-to-end test coverage with Cypress. Took it from concept to
-          production under tight deadlines.
+          <strong>Real-time Driver Rating:</strong> Delivered reactive driver
+          feedback using observable-driven architecture and full Cypress
+          coverage.
         </li>
       </ul>
     </section>
 
+    <!-- How you work -->
     <section class="home__section card">
       <h2>How I Work</h2>
       <p>
-        I thrive in Agile environments — whether it’s fast-paced sprints with
-        Scrum or continuous flow using Kanban. I’m no stranger to daily
-        stand-ups, retros, or navigating a Jira board with 57 open tabs. I value
-        clean commits, honest feedback, and getting things shipped without
-        drama.
+        Pragmatic, product-focused, Agile-native. I value clean commits, fast
+        feedback loops, and shipping useful features without drama. Daily
+        standups, sprint retros, and clean Jira boards are second nature.
       </p>
     </section>
 
+    <!-- Tech stack showcase -->
     <section class="home__section tech-stack card">
       <h2>Tech Stack</h2>
       <ul class="tech-stack__list">
@@ -73,7 +67,7 @@
         </li>
         }
       </ul>
-      <p class="tech-stack--centered">and learning more everyday...</p>
+      <p class="tech-stack--centered">... and learning more every day.</p>
     </section>
   </main>
 </div>

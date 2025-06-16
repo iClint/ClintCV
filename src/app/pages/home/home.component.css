@@ -6,7 +6,7 @@
 
 .home__section h2 {
   font-size: 20px;
-  color: #1976d2; /* Primary blue */
+  color: var(--color-heading-text);
   margin-bottom: 16px;
 }
 

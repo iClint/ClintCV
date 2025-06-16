@@ -7,13 +7,30 @@
       {{ currentItem }}
     </div>
   </div>
-  <!-- Progress bar -->
-  @if(!showProgressBar){
-  <div class="progress-bar-placeholer"></div>
-  } @if(showProgressBar){<mat-progress-bar
-    class="progress-bar"
-    mode="determinate"
-    [value]="progress"
-  ></mat-progress-bar
-  >}
+  <!-- ticcker controls -->
+  <div class="ticker__controls">
+    <div class="ticker__indicators">
+      <!-- Chevron for navigation -->
+      <mat-icon class="ticker__cheveron" (click)="onClickNavigation(-1)"
+        >chevron_left</mat-icon
+      >
+      <!-- Dots for each item -->
+      @for(item of items; track $index){
+      <div class="dot" [class.filled]="contentIndex == $index"></div>
+      }
+      <!-- Chevron for navigation -->
+      <mat-icon class="ticker__cheveron" (click)="onClickNavigation(1)"
+        >chevron_right</mat-icon
+      >
+    </div>
+    <!-- Progress bar -->
+    @if(!showProgressBar){
+    <div class="progress-bar-placeholer"></div>
+    } @if(showProgressBar){<mat-progress-bar
+      class="progress-bar"
+      mode="determinate"
+      [value]="progress"
+    ></mat-progress-bar
+    >}
+  </div>
 </div>

@@ -1,73 +1,81 @@
 <div class="page-body">
   <main class="about__content">
-    <!-- Fun Facts Ticker Card -->
+    <!-- Ticker for fun facts -->
     <app-ticker
       title="Fun facts about me..."
       [items]="tickerConfig.items"
     ></app-ticker>
 
-    <!-- Profile Card -->
-    <section class="about__section card about__profile">
-      <img
-        class="about__img-inline"
-        src="Clint-CV-Pic.png"
-        alt="Clint's profile pic"
-      />
+    <!-- Profile + Quick intro -->
+    <section class="about__section card">
       <h2>About Me</h2>
-      <p>
-        I’m Clint — a fullstack software engineer with a track record in
-        scalable cloud backends, robust APIs, and modern UIs.
-      </p>
-      <div class="about__quick-facts">
-        <strong>Philosophy:</strong> Clean code, fast shipping, zero bullshit<br />
-        <strong>Specialties:</strong> Angular, .NET, Azure, Real-time web apps
+      <div class="about__profile">
+        <span>
+          <img
+            class="about__img-inline"
+            src="Clint-CV-Pic.png"
+            alt="Clint's profile pic"
+          />
+        </span>
+        <span>
+          <p>
+            I'm Clint — fullstack engineer, ex-armored car operator, and
+            accidental career switcher. I build scalable systems, enjoy cutting
+            through complexity, and still like to ship fast.
+          </p>
+          <div class="about__quick-facts">
+            <strong>Philosophy:</strong> Clean code, fast shipping, zero fuss<br />
+            <strong>Specialties:</strong> Angular, .NET, Azure, Real-time web
+            apps
+          </div>
+        </span>
       </div>
     </section>
 
-    <!-- How I Got Here Card -->
+    <!-- Career origin story -->
     <section class="about__section card">
       <h2>How I Got Here</h2>
       <ul>
         <li><strong>90s:</strong> Wrote BASIC on an 8086 beige box.</li>
-        <li>Ran a Cash-in-Transit business for 10+ years.</li>
+        <li>
+          Ran a Cash-in-Transit business for 10+ years (yes, with guns and
+          armored vehicles).
+        </li>
         <li>Life, accidents, and COVID forced a pivot into tech.</li>
       </ul>
     </section>
 
-    <!-- WooliesX Story Card -->
+    <!-- WooliesX journey -->
     <section class="about__section card">
       <h2>The WooliesX Jump</h2>
       <ul>
-        <li>Started in Woolworths Online, mastering customer chaos.</li>
         <li>
-          Built a portfolio, got noticed, and earned a spot in the WooliesX
-          fullstack pilot (12 out of 100+).
+          Started in Woolworths Online, learned the art of customer chaos (I
+          mean service).
         </li>
         <li>
-          Smashed a 12-week engineering bootcamp, then landed my first dev gig.
+          Built a portfolio, landed a spot in WooliesX fullstack pilot tech
+          accelerator program(12 out of 100+ candidates).
+        </li>
+        <li>Smashed a 12-week bootcamp, earned my first dev gig.</li>
+        <li>
+          Now an associate fullstack engineerwith more than 3 years experience,
+          architecting real-time systems and building scalable UIs.
+        </li>
+        <li>
+          Eager to tackle new challenges and keep advancing my career to the
+          next level.
         </li>
       </ul>
     </section>
 
-    <!-- What I Do Now Card -->
-    <section class="about__section card">
-      <h2>What I Do Now</h2>
-      <ul>
-        <li>Architect and build scalable frontend and backend systems.</li>
-        <li>
-          Value stateless components, useful tests, and clear commit messages.
-        </li>
-        <li>Despise cargo cult patterns and endless meetings.</li>
-        <li>Deliver features, not excuses.</li>
-      </ul>
-    </section>
-
-    <!-- Outside of Work Card -->
+    <!-- Personal interests -->
     <section class="about__section card">
       <h2>Outside of Work</h2>
       <p>
-        You’ll find me flying simulated helicopters in MSFS, tinkering with my
-        home lab, or justifying a sixth monitor purchase. (Spoiler: I do.)
+        You’ll find me flying helicopters in MSFS, tinkering with my home lab,
+        or convincing myself that adding a sixth monitor is technically
+        necessary. (Spoiler: I already did.)
       </p>
     </section>
   </main>
