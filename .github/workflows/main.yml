@@ -25,10 +25,10 @@ jobs:
         run: npx nx test ClintCv
 
       - name: 🛠️ Build Angular app
-        run: npx nx build <your-app-name> --configuration=production --base-href=/ClintCV/
+        run: npx nx build ClintCv --configuration=production --base-href=/ClintCV/
 
       - name: 🚀 Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: dist/apps/<your-app-name>
+          folder: dist/apps/ClintCv
