@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  Input,
-  OnDestroy,
-  OnInit,
-} from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {
@@ -74,7 +68,7 @@ export class TickerComponent implements OnInit, OnDestroy {
           this.nextItem();
           this.progress = 0;
           this.isTransitioning = false;
-        }, 400); // tweak this value if you want longer pause
+        }, 400);
       }
     }, tickRate);
   }

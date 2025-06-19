@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TickerComponent } from './ticker.component';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 describe('FunFactsComponent', () => {
   let component: TickerComponent;
@@ -8,6 +9,7 @@ describe('FunFactsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [TickerComponent],
+      providers: [provideAnimations()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(TickerComponent);
