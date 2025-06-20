@@ -4,16 +4,17 @@
     <meta charset="UTF-8" />
     <title>Redirecting…</title>
     <script>
-      const redirectTo = '/' + location.pathname + location.search + location.hash;
+      const redirectTo =
+        '/' + location.pathname + location.search + location.hash;
       sessionStorage.setItem('redirectPath', redirectTo);
       location.href = '/index.html';
     </script>
   </head>
   <body>
     <p>Redirecting…</p>
-  </body>
-</html>
-  <body>
-    <p>If you are not redirected automatically, follow this <a href="/">link to the homepage</a>.</p>
+    <p>
+      If you are not redirected automatically, follow this
+      <a href="/">click here</a>.
+    </p>
   </body>
 </html>
