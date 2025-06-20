@@ -27,6 +27,9 @@ jobs:
       - name: 🛠️ Build Angular app
         run: npx nx build ClintCV --configuration=production --base-href=/
 
+      - name: 💾 Copy 404.html to dist folder
+        run: cp src/404.html dist/ClintCV/404.html
+
       - name: 🚀 Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
