@@ -8,6 +8,8 @@ if (redirectPath) {
   history.replaceState(null, '', redirectPath);
 }
 
-bootstrapApplication(AppComponent, appConfig).catch((err) =>
-  console.error(err)
-);
+window.addEventListener('DOMContentLoaded', () => {
+  bootstrapApplication(AppComponent, appConfig).catch((err) =>
+    console.error(err)
+  );
+});
