@@ -1,4 +1,4 @@
-export const AnoutTickerConfig = {
+export const AboutTickerConfig = {
   title: 'Fun facts about me...',
   items: [
     'I started coding in BASIC in the 90s… on a beige box with a CRT that weighed more than I did.',

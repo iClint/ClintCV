@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TickerComponent } from 'src/components/ticker/ticker.component';
-import { AnoutTickerConfig } from './About.config';
+import { AboutTickerConfig } from './About.config';
 
 @Component({
   selector: 'app-about',
@@ -10,5 +10,5 @@ import { AnoutTickerConfig } from './About.config';
   styleUrl: './about.component.css',
 })
 export class AboutComponent {
-  tickerConfig = AnoutTickerConfig;
+  tickerConfig = AboutTickerConfig;
 }

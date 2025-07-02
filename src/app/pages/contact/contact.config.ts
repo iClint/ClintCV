@@ -14,12 +14,12 @@ export const ContactConfig = {
     },
     {
       icon: 'fa-brands fa-github contact__icon',
-      url: '',
+      url: 'https://github.com/iClint',
       label: 'GitHub',
     },
     {
       icon: 'fa-solid fa-file contact__icon',
-      url: 'https://twitter.com/ClintKingston',
+      url: 'documents/Clint_Kingston_Resume-Current.pdf',
       label: 'Download CV',
     },
   ],
