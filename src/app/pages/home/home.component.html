@@ -19,12 +19,14 @@
     <!-- Core Achievements: the meat -->
     <section class="home__section card">
       <h2>Key Projects</h2>
+      <p>
+        As a core contributor to Woolworths’ Order Tracking Portal, I helped
+        rebuild the platform into a high-performance Angular 18 SPA that
+        delivers real-time order updates at national scale. My work spanned
+        design system integration, platform optimization, and reactive
+        architecture.
+      </p>
       <ul class="achievement-list">
-        <li>
-          <strong>Order Tracking Portal – Woolworths:</strong> Rebuilt the
-          platform as a high-performance Angular 18 SPA with real-time event
-          streaming across millions of orders.
-        </li>
         <li>
           <strong>Core Design System Alignment:</strong> Integrated token-based
           design system elements, balancing accessibility with rapid development
@@ -60,7 +62,7 @@
         @for(item of config.techStackIcons; track item.file) {
         <li>
           <img
-            src="{{ item.file }}"
+            src="/images/tech-stack-icons/{{ item.file }}"
             alt="{{ item.label }}"
             title="{{ item.label }}"
           />
