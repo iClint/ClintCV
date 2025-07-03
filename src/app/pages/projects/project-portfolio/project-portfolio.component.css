@@ -15,3 +15,18 @@ h3 {
 ul {
   margin: 16px 24px;
 }
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.project__images {
+  margin: auto;
+  max-width: 600px;
+}
+.project-image {
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 24px;
+  width: 100%;
+}
