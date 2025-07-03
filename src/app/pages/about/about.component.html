@@ -1,12 +1,10 @@
 <div class="page-body">
   <main class="about__content">
-    <!-- Ticker for fun facts -->
     <app-ticker
       title="Fun facts about me..."
       [items]="tickerConfig.items"
     ></app-ticker>
 
-    <!-- Profile + Quick intro -->
     <section class="about__section card">
       <h2>{{ content.aboutMe.title }}</h2>
       <div class="about__profile">
@@ -34,7 +32,6 @@
       </div>
     </section>
 
-    <!-- Career origin story -->
     <section class="about__section card">
       <h2>{{ content.howIGotHere.title }}</h2>
       <ul>
