@@ -8,25 +8,27 @@
 
     <!-- Profile + Quick intro -->
     <section class="about__section card">
-      <h2>About Me</h2>
+      <h2>{{ content.aboutMe.title }}</h2>
       <div class="about__profile">
         <span>
           <img
             class="about__img-inline"
-            src="images/Clint-CV-Pic.png"
-            alt="Clint's profile pic"
+            [src]="content.aboutMe.image.url"
+            [alt]="content.aboutMe.image.alt"
           />
         </span>
         <span>
           <p>
-            I'm Clint — fullstack engineer, ex-armored car operator, and
-            accidental career switcher. I build scalable systems, enjoy cutting
-            through complexity, and still like to ship fast.
+            {{ content.aboutMe.content }}
           </p>
           <div class="about__quick-facts">
-            <strong>Philosophy:</strong> Clean code, fast shipping, zero fuss<br />
-            <strong>Specialties:</strong> Angular, .NET, Azure, Real-time web
-            apps
+            <ul>
+              @for(item of content.aboutMe.quickFacts; track item.label) {
+              <li>
+                <strong>{{ item.label }}:</strong> {{ item.content }}
+              </li>
+              }
+            </ul>
           </div>
         </span>
       </div>
@@ -34,48 +36,29 @@
 
     <!-- Career origin story -->
     <section class="about__section card">
-      <h2>How I Got Here</h2>
+      <h2>{{ content.howIGotHere.title }}</h2>
       <ul>
-        <li><strong>90s:</strong> Wrote BASIC on an 8086 beige box.</li>
-        <li>
-          Ran a Cash-in-Transit business for 10+ years (yes, with guns and
-          armored vehicles).
-        </li>
-        <li>Life, accidents, and COVID forced a pivot into tech.</li>
+        @for(item of content.howIGotHere.list; track item) {
+        <li>{{ item }}</li>
+        }
       </ul>
     </section>
 
     <!-- WooliesX journey -->
     <section class="about__section card">
-      <h2>The WooliesX Jump</h2>
+      <h2>{{ content.profesionalJourney.title }}</h2>
       <ul>
-        <li>
-          Started in Woolworths Online, learned the art of customer chaos (I
-          mean service).
-        </li>
-        <li>
-          Built a portfolio, landed a spot in WooliesX fullstack pilot tech
-          accelerator program(12 out of 100+ candidates).
-        </li>
-        <li>Smashed a 12-week bootcamp, earned my first dev gig.</li>
-        <li>
-          Now an associate fullstack engineerwith more than 3 years experience,
-          architecting real-time systems and building scalable UIs.
-        </li>
-        <li>
-          Eager to tackle new challenges and keep advancing my career to the
-          next level.
-        </li>
+        @for(item of content.profesionalJourney.list; track item) {
+        <li>{{ item }}</li>
+        }
       </ul>
     </section>
 
     <!-- Personal interests -->
     <section class="about__section card">
-      <h2>Outside of Work</h2>
+      <h2>{{ content.OutSideOfWork.title }}</h2>
       <p>
-        You’ll find me flying helicopters in MSFS, tinkering with my home lab,
-        or convincing myself that adding a sixth monitor is technically
-        necessary. (Spoiler: I already did.)
+        {{ content.OutSideOfWork.content }}
       </p>
     </section>
   </main>
