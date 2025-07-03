@@ -30,6 +30,12 @@
   padding: 0;
 }
 
+h1,
+h2,
+h3 {
+  color: var(--color-heading-text);
+}
+
 h1 {
   font-size: 24px;
 }
