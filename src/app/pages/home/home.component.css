@@ -20,21 +20,17 @@
 .achievement-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 8px 0;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
 .achievement-list li {
-  background-color: #f1f8ff; /* light blue hint */
+  background-color: #f1f8ff;
   padding: 16px;
   border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-.tech-stack--centered {
-  text-align: center;
+  box-shadow: 0 1px 3px var(--color-card-shadow);
 }
 
 .tech-stack__list {

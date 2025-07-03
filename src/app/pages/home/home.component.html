@@ -1,65 +1,43 @@
 <div class="page-body">
   <main class="home__content">
-    <!-- Ticker still works great -->
     <app-ticker
       [title]="tickerConfig.title"
       [items]="tickerConfig.items"
     ></app-ticker>
 
-    <!-- TL;DR: Your hook -->
     <section class="home__section card">
-      <h2>The TL;DR</h2>
+      <h2>{{ content.tldr.title }}</h2>
       <p>
-        I solve problems with code, caffeine, and occasionally duct tape. I
-        architect performant real-time systems, build scalable UIs, and obsess
-        over UX and delivery velocity.
+        {{ content.tldr.content }}
       </p>
     </section>
 
-    <!-- Core Achievements: the meat -->
     <section class="home__section card">
-      <h2>Key Projects</h2>
+      <h2>{{ content.keyProjects.title }}</h2>
       <p>
-        As a core contributor to Woolworths’ Order Tracking Portal, I helped
-        rebuild the platform into a high-performance Angular 18 SPA that
-        delivers real-time order updates at national scale. My work spanned
-        design system integration, platform optimization, and reactive
-        architecture.
+        {{ content.keyProjects.content }}
       </p>
       <ul class="achievement-list">
+        @for(item of content.keyProjects.list; track item.label) {
         <li>
-          <strong>Core Design System Alignment:</strong> Integrated token-based
-          design system elements, balancing accessibility with rapid development
-          velocity.
+          <strong>{{ item.label }}:</strong> {{ item.content }}
         </li>
-        <li>
-          <strong>Platform Refactor & Optimisation:</strong> Modularized logic,
-          stateless component design, lazy loading, and significant performance
-          gains.
-        </li>
-        <li>
-          <strong>Real-time Driver Rating:</strong> Delivered reactive driver
-          feedback using observable-driven architecture and full Cypress
-          coverage.
-        </li>
+        }
       </ul>
     </section>
 
-    <!-- How you work -->
     <section class="home__section card">
-      <h2>How I Work</h2>
+      <h2>{{ content.howIWork.title }}</h2>
       <p>
-        Pragmatic, product-focused, Agile-native. I value clean commits, fast
-        feedback loops, and shipping useful features without drama. Daily
-        standups, sprint retros, and clean Jira boards are second nature.
+        {{ content.howIWork.content }}
       </p>
     </section>
 
-    <!-- Tech stack showcase -->
     <section class="home__section tech-stack card">
-      <h2>Tech Stack</h2>
+      <h2>{{ content.techStack.title }}</h2>
+      <p>{{ content.techStack.content }}</p>
       <ul class="tech-stack__list">
-        @for(item of config.techStackIcons; track item.file) {
+        @for(item of content.techStack.techStackIcons; track item.file) {
         <li>
           <img
             src="/images/tech-stack-icons/{{ item.file }}"
@@ -69,7 +47,6 @@
         </li>
         }
       </ul>
-      <p class="tech-stack--centered">... and learning more every day.</p>
     </section>
   </main>
 </div>

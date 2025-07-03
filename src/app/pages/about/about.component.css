@@ -48,24 +48,11 @@
   font-size: 1.05em;
 }
 
-ul {
-  padding: 12px;
-}
-
-li {
-  margin-bottom: 8px;
-  font-size: 16px;
-}
-
 /* Mobile-friendly: stack the image above the text */
 @media (max-width: 600px) {
   .about__img-inline {
     float: none;
     display: block;
     margin: 0 auto 16px auto;
-  }
-
-  .about__section p {
-    text-align: center;
   }
 }

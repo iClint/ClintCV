@@ -1,8 +1,8 @@
 .header__container {
   padding: 16px 24px;
-  background: var(--color-bg-header); /* Primary blue */
-  color: var(--collor-text-light); /* Text on primary */
-  border-bottom: solid 2px rgb(0, 174, 255); /* Border color */
+  background: var(--color-bg-header);
+  color: var(--collor-text-light);
+  border-bottom: solid 2px var(--color-header-border);
 }
 
 .header__top-row {
@@ -24,5 +24,5 @@
   font-size: var(--font-subtitle-size);
   font-weight: var(--font-subtitle-weight);
   color: var(--color-text-light-secondary);
-  margin-top: 4px;
+  margin: 2px 0 0 0;
 }
