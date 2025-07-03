@@ -1,24 +1,17 @@
 <div class="page-body">
   <div class="project__content card">
     <p>
-      This page showcases a collection of projects I'm proud of. It's a work in
-      progress, so check back regularly for updates as I continue to add more of
-      what I've been building.
+      {{ content.description }}
     </p>
     <ul>
+      @for(item of content.projects; track item.url) {
       <li>
-        <a class="project__title" [routerLink]="['/projects/project-otp']">
-          Woolworths Order Tracking Portal
+        <a class="project__title" [routerLink]="item.url">
+          <h4>{{ item.title }}</h4>
+          <p>{{ item.description }}</p>
         </a>
       </li>
-      <li>
-        <a
-          class="project__title"
-          [routerLink]="['/projects/project-portfolio']"
-        >
-          My Portfolio & Technical Blog/Online-Resume
-        </a>
-      </li>
+      }
     </ul>
   </div>
 </div>
