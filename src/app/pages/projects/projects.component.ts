@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { ProjectsPageContent } from './projects.config';
 
 @Component({
@@ -11,4 +11,10 @@ import { ProjectsPageContent } from './projects.config';
 })
 export class ProjectsComponent {
   content = ProjectsPageContent;
+
+  constructor(private router: Router) {}
+
+  navigate(url: string) {
+    this.router.navigate([url]);
+  }
 }

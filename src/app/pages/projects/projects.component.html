@@ -6,10 +6,10 @@
     <ul>
       @for(item of content.projects; track item.url) {
       <li>
-        <a class="project__title" [routerLink]="item.url">
+        <div class="project__title-block" (click)="navigate(item.url)">
           <h4>{{ item.title }}</h4>
           <p>{{ item.description }}</p>
-        </a>
+        </div>
       </li>
       }
     </ul>
