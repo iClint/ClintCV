@@ -1,4 +1,7 @@
 .header__container {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   padding: 16px 24px;
   background: var(--color-bg-header);
   color: var(--collor-text-light);
