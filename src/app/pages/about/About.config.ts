@@ -83,6 +83,6 @@ export const AboutPageContent = {
   },
   OutSideOfWork: {
     title: 'Outside of Work',
-    content: `When I’m not coding, you can find me tinkering with hardware, flying helicopters in MSFS inside a VR headset, tinkering with my home lab,or convincing myself that adding a sixth monitor is technicallynecessary. (Spoiler: I already did.) I’m also a big fan of coffee, and I’m not above using it as aperformance-enhancing drug.`,
+    content: `When I’m not coding, you can find me tinkering with hardware, flying helicopters in MSFS inside a VR headset, tinkering with my home lab, paddle boarding, or teaching myself new tech. I’m also a big fan of coffee, and I’m not above using it as a performance-enhancing drug.`,
   },
 };
