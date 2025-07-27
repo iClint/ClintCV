@@ -73,7 +73,7 @@ export const AboutPageContent = {
           accelerator program(12 out of 100+ candidates).`,
       `Smashed a 12-week bootcamp, earned my first dev gig.`,
       `Joined WooliesX in the Fulfilment dommain as a core contributor to the Order Tracking Portal.`,
-      `Now an associate fullstack engineerwith more than 3 years experience,
+      `Now an associate fullstack engineer with more than 3 years experience,
           architecting real-time systems and building scalable UIs.`,
       `Rebuilt the platform into a high-performance Angular 18 SPA that delivers real-time order updates at national scale.`,
       `Focused on design system integration, platform optimization, and reactive architecture.`,
