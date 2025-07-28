@@ -1,4 +1,4 @@
-import { ProjectHomeDiyModel } from 'src/app/models/ProjectHomeDiy.model';
+import { ProjectHomeDiyModel } from 'src/app/models/project-home-diy.model';
 
 export enum ContentType {
   IMAGE = 'image',

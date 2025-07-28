@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectOtpConfig } from './project-otp.config';
+import { ProjectOtpConfigModel } from 'src/app/models/project-otp.model';
 
 @Component({
   selector: 'app-project-otp',
@@ -9,5 +10,5 @@ import { ProjectOtpConfig } from './project-otp.config';
   styleUrl: './project-otp.component.css',
 })
 export class ProjectOtpComponent {
-  config = ProjectOtpConfig;
+  config: ProjectOtpConfigModel = ProjectOtpConfig;
 }
