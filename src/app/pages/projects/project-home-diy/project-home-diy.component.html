@@ -1,32 +1,37 @@
 <div class="page-body">
   <div class="project__content card">
     <h1>{{ projectHomeDiyConfig.title }}</h1>
-    @for(item of projectHomeDiyConfig.description;track $index) { @if(item.type
+    @for(item of projectHomeDiyConfig.description; track $index) { @if(item.type
     === 'image') {
     <div class="container">
       <img
         class="project__image--size-full"
         [src]="item.src"
-        alt="{{ item.alt }}"
+        [alt]="item.alt"
+        (click)="openImage(item.src, item.alt, item.label)"
       />
     </div>
     <p class="project__image-label">{{ item.label }}</p>
-
     } @else if(item.type === 'images') {
     <div class="container">
-      @for(image of item.src; track $index) {
-      <img class="project__image--size-small" [src]="image" alt="{{ image }}" />
+      @for(image of item.images; track $index) {
+      <img
+        class="project__image--size-small"
+        [src]="image.src"
+        [alt]="image.alt"
+        (click)="openImage(image.src, image.alt, item.label || '')"
+      />
       }
     </div>
     <p class="project__image-label">{{ item.label }}</p>
     } @else if(item.type === 'text') {
     <p>{{ item.content }}</p>
-    } @if (item.type === 'list') {
+    } @else if(item.type === 'list') {
     <ul>
-      @for(item of item.items; track $index) {
-      <li>{{ item }}</li>
+      @for(listItem of item.items; track $index) {
+      <li>{{ listItem }}</li>
       }
     </ul>
-    }}
+    } }
   </div>
 </div>

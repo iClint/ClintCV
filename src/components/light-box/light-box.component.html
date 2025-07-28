@@ -1,0 +1,7 @@
+@if(state.isOpen){
+<div class="light-box__overlay" (click)="close()">
+  <div class="light-box__close">Close X</div>
+  <img class="light-box__image" [src]="state.imageSrc" [alt]="state.imageAlt" />
+  <div class="light-box__label">{{ state.imageLabel }}</div>
+</div>
+}

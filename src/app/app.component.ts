@@ -4,13 +4,14 @@ import { filter, fromEvent, mergeMap, of, timer } from 'rxjs';
 import { HeaderComponent } from 'src/components/header/header.component';
 import { FooterComponent } from 'src/components/footer/footer.component';
 import { Config } from './app.config';
+import { LightBoxComponent } from 'src/components/light-box/light-box.component';
 
 declare let goatcounter: any;
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, HeaderComponent, FooterComponent],
+  imports: [RouterModule, HeaderComponent, FooterComponent, LightBoxComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

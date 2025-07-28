@@ -19,6 +19,8 @@ p {
 
 .project__image--size-small {
   max-width: 20%;
+  aspect-ratio: 4 / 3; /* maintain consistent shape */
+  object-fit: cover;
   border-radius: 16px;
   overflow: hidden;
 }
