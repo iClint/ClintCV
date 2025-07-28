@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { ProjectsPageContent } from './projects.config';
+import { ProjectsPageContentModel } from 'src/app/models/projects-config.model';
 
 @Component({
   selector: 'app-projects',
@@ -10,7 +11,7 @@ import { ProjectsPageContent } from './projects.config';
   styleUrl: './projects.component.css',
 })
 export class ProjectsComponent {
-  content = ProjectsPageContent;
+  content: ProjectsPageContentModel = ProjectsPageContent;
 
   constructor(private router: Router) {}
 

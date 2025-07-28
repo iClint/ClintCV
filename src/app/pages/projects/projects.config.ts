@@ -1,9 +1,11 @@
-export const ProjectsPageContent = {
+import { ProjectsPageContentModel } from 'src/app/models/projects-config.model';
+
+export const ProjectsPageContent: ProjectsPageContentModel = {
   title: 'Projects',
   description: `This page showcases a collection of projects I'm proud of. It's a work in
       progress, so check back regularly for updates as I continue to add more of
       what I've been building.`,
-  heading: 'Projects i have shipped:',
+  heading: 'Projects I Have Shipped:',
   projects: [
     {
       url: '/projects/project-otp',
