@@ -16,22 +16,50 @@ declare let goatcounter: any;
 })
 export class AppComponent {
   config = Config;
+  goatcounterReady = false;
 
   constructor(private router: Router) {
-    this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        setTimeout(() => {
+    this.waitForGoatCounter().then(() => {
+      console.log('🐐 GoatCounter is ready');
+      this.goatcounterReady = true;
+
+      this.router.events
+        .pipe(filter((event) => event instanceof NavigationEnd))
+        .subscribe((event: NavigationEnd) => {
           const gc = (window as any).goatcounter;
           if (gc?.count) {
-            gc.count({
-              path: event.urlAfterRedirects,
-            });
+            gc.count({ path: event.urlAfterRedirects });
             console.log('🐐 GoatCounter tracked:', event.urlAfterRedirects);
-          } else {
-            console.warn('🐐 GoatCounter not ready yet');
           }
-        }, 250); // short delay to let script load
-      });
+        });
+    });
+  }
+
+  private waitForGoatCounter(): Promise<void> {
+    return new Promise((resolve) => {
+      const existing = (window as any).goatcounter;
+      if (existing?.count) return resolve();
+
+      const script = document.querySelector(
+        'script[src*="goatcounter.com/count.js"]'
+      );
+      if (script) {
+        script.addEventListener('load', () => resolve());
+        script.addEventListener('error', () => {
+          console.warn('🐐 GoatCounter script failed to load');
+          resolve(); // fail silently
+        });
+      } else {
+        // fallback in case it's already loaded and not found in DOM
+        const check = () => {
+          if ((window as any).goatcounter?.count) {
+            resolve();
+          } else {
+            setTimeout(check, 100);
+          }
+        };
+        check();
+      }
+    });
   }
 }
