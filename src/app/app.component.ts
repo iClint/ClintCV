@@ -21,12 +21,17 @@ export class AppComponent {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        if (typeof goatcounter?.count === 'function') {
-          goatcounter.count({
-            path: event.urlAfterRedirects,
-          });
-          console.log('🐐 GoatCounter tracked:', event.urlAfterRedirects);
-        }
+        setTimeout(() => {
+          const gc = (window as any).goatcounter;
+          if (gc?.count) {
+            gc.count({
+              path: event.urlAfterRedirects,
+            });
+            console.log('🐐 GoatCounter tracked:', event.urlAfterRedirects);
+          } else {
+            console.warn('🐐 GoatCounter not ready yet');
+          }
+        }, 250); // short delay to let script load
       });
   }
 }
