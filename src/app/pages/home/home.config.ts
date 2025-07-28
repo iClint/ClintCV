@@ -1,6 +1,9 @@
-export const HomePageConfig = {};
+import {
+  HomePageContentModel,
+  HomeTickerConfigModel,
+} from 'src/app/models/home-config.model';
 
-export const HomeTickerConfig = {
+export const HomeTickerConfig: HomeTickerConfigModel = {
   title: '',
   items: [
     'Architected and rebuilt the Woolworths Order Tracking Portal into a real-time Angular 18 SPA used across millions of orders.',
@@ -19,7 +22,7 @@ export const HomeTickerConfig = {
   ],
 };
 
-export const HomePageContent = {
+export const HomePageContent: HomePageContentModel = {
   tldr: {
     title: 'The TL;DR',
     badge: '⭐️ Available for hire ⭐️',
