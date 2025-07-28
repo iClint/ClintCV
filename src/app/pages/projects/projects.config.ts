@@ -24,7 +24,7 @@ export const ProjectsPageContent = {
       title: 'Not just a computer nerd',
       description:
         'A home renovation project where I built a media wall with electric fireplace.',
-      thumbnail: 'images/project-home-diy/IMG_0821.jpg',
+      thumbnail: 'images/project-home-diy/IMG_0821.webp',
     },
   ],
 };
