@@ -7,8 +7,19 @@
       @for(item of content.projects; track item.url) {
       <li>
         <div class="project__title-block" (click)="navigate(item.url)">
-          <h4>{{ item.title }}</h4>
-          <p>{{ item.description }}</p>
+          <div>
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.description }}</p>
+          </div>
+          @if(item.thumbnail){
+          <div>
+            <img
+              class="project__thumbnail"
+              [src]="item.thumbnail"
+              alt="{{ item.title }} thumbnail"
+            />
+          </div>
+          }
         </div>
       </li>
       }
