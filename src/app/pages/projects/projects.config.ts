@@ -16,7 +16,7 @@ export const ProjectsPageContent = {
       url: '/projects/project-portfolio',
       title: 'Portfolio website',
       description:
-        'A showcase of my work, skills, experience in software engineering and onlone resume.',
+        'A showcase of my work, skills, experience in software engineering and online resume.',
       thumbnail: 'images/Clint-CV-Pic.png',
     },
     {
