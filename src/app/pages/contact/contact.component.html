@@ -1,9 +1,9 @@
 <main class="page-body">
   <section class="contact__section card">
-    <h2>{{ config.title }}</h2>
-    <p>{{ config.description }}</p>
+    <h2>{{ content.title }}</h2>
+    <p>{{ content.description }}</p>
     <div class="contact__links">
-      @for(link of config.links; track link.icon){<a
+      @for(link of content.links; track link.icon){<a
         [href]="link.url"
         target="_blank"
         rel="noopener noreferrer"

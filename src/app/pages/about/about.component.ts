@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TickerComponent } from 'src/components/ticker/ticker.component';
+
+import {
+  AboutContentModel as AboutContentModel,
+  AboutTickerConfigModel,
+} from 'src/app/models/about-config.model';
 import { AboutPageContent, AboutTickerConfig } from './About.config';
-import { AboutConfigModel } from 'src/app/models/about-config.model';
 
 @Component({
   selector: 'app-about',
@@ -11,6 +15,6 @@ import { AboutConfigModel } from 'src/app/models/about-config.model';
   styleUrl: './about.component.css',
 })
 export class AboutComponent {
-  content: AboutConfigModel = AboutPageContent;
-  tickerConfig = AboutTickerConfig;
+  content: AboutContentModel = AboutPageContent;
+  tickerConfig: AboutTickerConfigModel = AboutTickerConfig;
 }

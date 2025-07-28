@@ -29,9 +29,14 @@ export interface OutsideOfWorkModel {
   content: string;
 }
 
-export interface AboutConfigModel {
+export interface AboutContentModel {
   aboutMe: AboutMeModel;
   howIGotHere: HowIGotHereModel;
   profesionalJourney: ProfesionalJourneyModel;
   outsideOfWork: OutsideOfWorkModel;
+}
+
+export interface AboutTickerConfigModel {
+  title: string;
+  items: string[];
 }

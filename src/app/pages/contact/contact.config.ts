@@ -1,6 +1,6 @@
-import { ContactConfigModel } from 'src/app/models/contact-config.model';
+import { ContactContentModel } from 'src/app/models/contact-config.model';
 
-export const ContactConfig: ContactConfigModel = {
+export const ContactContent: ContactContentModel = {
   title: 'Lets connect',
   description: 'Open to new opportunities, collaborations, or a quick chat.',
   links: [

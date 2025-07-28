@@ -1,6 +1,9 @@
-import { AboutConfigModel } from 'src/app/models/about-config.model';
+import {
+  AboutContentModel,
+  AboutTickerConfigModel,
+} from 'src/app/models/about-config.model';
 
-export const AboutTickerConfig = {
+export const AboutTickerConfig: AboutTickerConfigModel = {
   title: '',
   items: [
     'I started coding in BASIC in the 90s… on a beige box with a CRT that weighed more than I did.',
@@ -33,7 +36,7 @@ export const AboutTickerConfig = {
   ],
 };
 
-export const AboutPageContent: AboutConfigModel = {
+export const AboutPageContent: AboutContentModel = {
   aboutMe: {
     title: 'About Me',
     image: {

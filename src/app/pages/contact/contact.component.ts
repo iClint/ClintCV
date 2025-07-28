@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { ContactConfig } from './contact.config';
-import { ContactConfigModel } from 'src/app/models/contact-config.model';
+import { ContactContentModel } from 'src/app/models/contact-config.model';
+import { ContactContent } from './contact.config';
 
 @Component({
   selector: 'app-contact',
@@ -11,7 +11,8 @@ import { ContactConfigModel } from 'src/app/models/contact-config.model';
   styleUrl: './contact.component.css',
 })
 export class ContactComponent {
-  config: ContactConfigModel = ContactConfig;
+  content: ContactContentModel = ContactContent;
+
   dynamicDescription = '';
 
   onMouseEnterIcon(label: string): void {

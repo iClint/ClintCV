@@ -1,4 +1,4 @@
-export interface ContactConfigModel {
+export interface ContactContentModel {
   title: string;
   description: string;
   links: ContactLinkModel[];
