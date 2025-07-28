@@ -9,8 +9,9 @@
         [src]="item.src"
         alt="{{ item.alt }}"
       />
-      <p class="project__image-label">{{ item.label }}</p>
     </div>
+    <p class="project__image-label">{{ item.label }}</p>
+
     } @else if(item.type === 'images') {
     <div class="container">
       @for(image of item.src; track image) {
