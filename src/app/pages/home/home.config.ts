@@ -1,7 +1,7 @@
 export const HomePageConfig = {};
 
 export const HomeTickerConfig = {
-  title: 'Highlights',
+  title: '',
   items: [
     'Architected and rebuilt the Woolworths Order Tracking Portal into a real-time Angular 18 SPA used across millions of orders.',
 
@@ -22,9 +22,21 @@ export const HomeTickerConfig = {
 export const HomePageContent = {
   tldr: {
     title: 'The TL;DR',
-    content: `I solve problems with code, caffeine, and occasionally duct tape. I
-        architect performant real-time systems, build scalable UIs, and obsess
-        over UX and delivery velocity.`,
+    badge: '⭐️ Available for hire ⭐️',
+    content: [
+      `I solve problems with code, caffeine, and occasionally duct tape. I'm currently open to new opportunities and looking for my next engineering role.`,
+
+      `I architect performant real-time systems, build scalable UIs, and focus on delivering great user experiences at speed. If you're hiring or just want to connect, feel free to reach out.`,
+
+      `I also do so much more than just code. I have a diverse background and range of skills.`,
+    ],
+    actions: [
+      {
+        label: '📄 Download CV',
+        href: 'documents/Clint_Kingston_Resume-Current.pdf',
+      },
+      { label: '📧 Contact Me', href: 'mailto:clintkingston@gmail.com' },
+    ],
   },
   keyProjects: {
     title: 'Key Projects',

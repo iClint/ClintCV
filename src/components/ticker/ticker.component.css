@@ -1,6 +1,6 @@
 .ticker__container {
-  margin: auto;
-  max-width: 960px;
+  max-width: 100%;
+  background-color: var(--color-bg-page);
 }
 
 .ticker__ticker {
@@ -25,7 +25,7 @@
 .ticker__text {
   display: flex;
   align-items: center;
-  margin: 12px auto;
+  margin: 4px auto;
   min-height: 50px;
   font-size: 16px;
   font-weight: lighter;

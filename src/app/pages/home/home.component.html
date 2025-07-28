@@ -1,15 +1,24 @@
+<app-ticker [items]="tickerConfig.items"></app-ticker>
 <div class="page-body">
   <main class="home__content">
-    <app-ticker
-      [title]="tickerConfig.title"
-      [items]="tickerConfig.items"
-    ></app-ticker>
-
     <section class="home__section card">
       <h2>{{ content.tldr.title }}</h2>
+      @if(content.tldr.badge){
+      <div class="badge">{{ content.tldr.badge }}</div>
+      } @for(item of content.tldr.content;track item){
       <p>
-        {{ content.tldr.content }}
+        {{ item }}
       </p>
+      }
+      <div class="home__tldr-actions">
+        @for(action of content.tldr.actions; track action.label) {
+
+        <a [href]="action.href" class="button" target="_blank">{{
+          action.label
+        }}</a>
+
+        }
+      </div>
     </section>
 
     <section class="home__section card">
