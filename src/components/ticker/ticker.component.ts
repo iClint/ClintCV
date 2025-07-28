@@ -90,7 +90,8 @@ export class TickerComponent implements OnInit, OnDestroy {
     this.fadeState = 'hidden';
 
     setTimeout(() => {
-      this.contentIndex = (this.contentIndex + index) % this.items.length;
+      this.contentIndex =
+        (this.contentIndex + index + this.items.length) % this.items.length;
       this.fadeState = 'visible';
       this.progress = 0;
       this.isTransitioning = false;
