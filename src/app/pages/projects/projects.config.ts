@@ -20,7 +20,7 @@ export const ProjectsPageContent = {
       thumbnail: 'images/Clint-CV-Pic.png',
     },
     {
-      url: '/projects/home-diy',
+      url: '/projects/project-home-diy',
       title: 'Not just a computer nerd',
       description:
         'A home renovation project where I built a media wall with electric fireplace.',
