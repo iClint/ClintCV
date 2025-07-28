@@ -1,6 +1,6 @@
-import { ProjectOtpConfigModel } from 'src/app/models/project-otp.model';
+import { ProjectOtpContentModel } from 'src/app/models/project-otp.model';
 
-export const ProjectOtpConfig: ProjectOtpConfigModel = {
+export const ProjectOtpContent: ProjectOtpContentModel = {
   bannerImage: 'images/project-otp/otp-banner.png',
   screens: [
     'images/project-otp/otp-grab-01.png',

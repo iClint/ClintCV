@@ -1,4 +1,4 @@
-export interface ProjectOtpConfigModel {
+export interface ProjectOtpContentModel {
   bannerImage: string;
   screens: string[];
 }
