@@ -17,11 +17,11 @@ export interface HomePageContentModel {
   techStack: {
     title: string;
     content: string;
-    techStackIcons: TechStackIcon[];
+    techStackIcons: TechStackIcons[];
   };
 }
 
-export interface TechStackIcon {
+export interface TechStackIcons {
   label: string;
   file: string;
 }
