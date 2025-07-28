@@ -1,4 +1,4 @@
-import { ProjectHomeDiyModel } from 'src/app/models/project-home-diy.model';
+import { ProjectHomeDiyContentModel as ProjectHomeDiyContentModel } from 'src/app/models/project-home-diy.model';
 
 export enum ContentType {
   IMAGE = 'image',
@@ -6,7 +6,7 @@ export enum ContentType {
   TEXT = 'text',
   LIST = 'list',
 }
-export const ProjectHomeDiyConfig: ProjectHomeDiyModel = {
+export const ProjectHomeDiyContent: ProjectHomeDiyContentModel = {
   title: 'Fireplace Media Wall – Custom DIY Project',
   description: [
     {

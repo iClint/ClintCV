@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProjectHomeDiyConfig } from './project-home-diy.config';
 import { LightBoxService } from 'src/app/services/light-box/light-box.service';
+import { ProjectHomeDiyContentModel } from 'src/app/models/project-home-diy.model';
+import { ProjectHomeDiyContent } from './project-home-diy.config';
 
 @Component({
   selector: 'app-project-home-diy',
@@ -10,8 +11,7 @@ import { LightBoxService } from 'src/app/services/light-box/light-box.service';
   styleUrl: './project-home-diy.component.css',
 })
 export class ProjectHomeDiyComponent {
-  projectHomeDiyConfig = ProjectHomeDiyConfig;
-  ContentType: any;
+  projectHomeDiyContent: ProjectHomeDiyContentModel = ProjectHomeDiyContent;
 
   constructor(private lightBoxService: LightBoxService) {}
 

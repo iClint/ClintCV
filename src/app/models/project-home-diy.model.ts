@@ -1,6 +1,6 @@
 import { ContentType } from '../pages/projects/project-home-diy/project-home-diy.config';
 
-export interface ProjectHomeDiyModel {
+export interface ProjectHomeDiyContentModel {
   title: string;
   description: ProjectHomeDiyContent[];
 }
