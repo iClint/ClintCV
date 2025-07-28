@@ -5,6 +5,8 @@ import { HeaderComponent } from 'src/components/header/header.component';
 import { FooterComponent } from 'src/components/footer/footer.component';
 import { Config } from './app.config';
 
+declare let goatcounter: any;
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -16,32 +18,14 @@ export class AppComponent {
   config = Config;
 
   constructor(private router: Router) {
-    // Wait until Cloudflare beacon script is loaded
-    const waitForCfBeacon = () => {
-      return new Promise<void>((resolve) => {
-        const check = () => {
-          if ((window as any).cf_beacon?.ping) {
-            resolve();
-          } else {
-            setTimeout(check, 100); // retry until available
-          }
-        };
-        check();
-      });
-    };
-
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe(async (event) => {
-        console.log('Router navigation event detected:', event);
-
-        await waitForCfBeacon();
-
-        try {
-          (window as any).cf_beacon.ping();
-          console.log('✅ Cloudflare analytics beacon pinged');
-        } catch (e) {
-          console.warn('⚠️ Failed to ping Cloudflare beacon:', e);
+      .subscribe((event: NavigationEnd) => {
+        if (typeof goatcounter?.count === 'function') {
+          goatcounter.count({
+            path: event.urlAfterRedirects,
+          });
+          console.log('🐐 GoatCounter tracked:', event.urlAfterRedirects);
         }
       });
   }
