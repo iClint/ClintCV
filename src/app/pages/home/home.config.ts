@@ -24,11 +24,11 @@ export const HomePageContent = {
     title: 'The TL;DR',
     badge: '⭐️ Available for hire ⭐️',
     content: [
-      `I solve problems with code, caffeine, and occasionally duct tape. I'm currently open to new opportunities and looking for my next engineering role.`,
+      `Whether it’s architecting real-time systems, building scalable UIs, improving processes, or bridging technical and non-technical teams, I focus on delivering real value at speed. If you’re hiring or just want to connect, feel free to reach out.`,
 
-      `I architect performant real-time systems, build scalable UIs, and focus on delivering great user experiences at speed. If you're hiring or just want to connect, feel free to reach out.`,
+      `I bring more than just code to the table — with a diverse background and wide-ranging skills, I’m comfortable wearing multiple hats and stepping into complex challenges.`,
 
-      `I also do so much more than just code. I have a diverse background and range of skills.`,
+      `I bring more than just code to the table — with a diverse background and wide-ranging skills, I’m comfortable wearing multiple hats and stepping into complex challenges.`,
     ],
     actions: [
       {
