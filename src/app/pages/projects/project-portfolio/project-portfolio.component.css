@@ -3,13 +3,31 @@
   justify-content: center;
 }
 
-.project__images {
+.project__list-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+.project__images,
+.project__images--small {
   margin: auto;
   max-width: 600px;
+}
+.project__images--small {
+  margin: auto;
+  padding: 8px;
+  width: 200px;
 }
 .project-image {
   border-radius: 8px;
   overflow: hidden;
   margin: 24px;
   width: 100%;
+}
+
+.project__example-ticker {
+  padding: 16px;
+  border-radius: 16px;
+  overflow: hidden;
 }

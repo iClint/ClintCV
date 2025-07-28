@@ -31,12 +31,12 @@
 .nav-menu__link:hover {
   opacity: 1;
   background-color: var(--color-primary);
-  color: var(--color-text-dark);
+  color: var(--color-text-light);
 }
 
 .nav-menu__link.active .nav-menu__icon,
 .nav-menu__link:hover .nav-menu__icon {
-  color: var(--color-text-dark);
+  color: var(--color-text-light);
 }
 
 /* Fade active if any other is hovered */

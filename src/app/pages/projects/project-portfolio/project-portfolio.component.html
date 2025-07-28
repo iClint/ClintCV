@@ -51,5 +51,33 @@
         alt="Github Actions workflow for building and deploying the portfolio site"
       />
     </div>
+    <p>
+      I have deliberately kept the design minimalistic, focusing on usability
+      and performance, and avoided the use of third party libraries even where
+      it might have been easier to do so. some examples include:
+    </p>
+    <ul>
+      <li>
+        The use of CSS Grid and Flexbox for layout instead of a UI framework.
+      </li>
+      <li>
+        The slideout navigation menu for mobile devices is implemented with pure
+        CSS
+        <div class="project__list-images">
+          <img
+            class="project__images--small"
+            src="images/project-porfolio/slideout-navigation.gif"
+            alt="Slideout navigation menu for mobile devices"
+          />
+        </div>
+      </li>
+      <li>
+        Ticker at the top of the home and about pages page is implemented is a
+        custom angular cpomponent i built from scratch
+        <div class="project__example-ticker">
+          <app-ticker [items]="tickerConfig.items"></app-ticker>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
