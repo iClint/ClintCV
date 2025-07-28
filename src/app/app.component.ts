@@ -22,6 +22,7 @@ export class AppComponent {
           (window as any).cf_beacon &&
             (window as any).cf_beacon.ping &&
             (window as any).cf_beacon.ping();
+          console.log('Cloudflare analytics beacon pinged');
         }
       });
   }
