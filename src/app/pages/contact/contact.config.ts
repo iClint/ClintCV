@@ -1,4 +1,6 @@
-export const ContactConfig = {
+import { ContactConfigModel } from 'src/app/models/contact-config.model';
+
+export const ContactConfig: ContactConfigModel = {
   title: 'Lets connect',
   description: 'Open to new opportunities, collaborations, or a quick chat.',
   links: [
