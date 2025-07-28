@@ -5,7 +5,7 @@
       <h2>{{ content.tldr.title }}</h2>
       @if(content.tldr.badge){
       <div class="badge">{{ content.tldr.badge }}</div>
-      } @for(item of content.tldr.content;track item){
+      } @for(item of content.tldr.content;track $index){
       <p>
         {{ item }}
       </p>
