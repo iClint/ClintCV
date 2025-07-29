@@ -12,6 +12,8 @@
 }
 
 .footer__disclaimer {
+  margin: 8px 0;
+  width: 400px;
   font-size: 10px;
   color: var(--color-text-light-secondary);
   text-align: center;

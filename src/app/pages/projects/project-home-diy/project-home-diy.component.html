@@ -1,8 +1,8 @@
 <div class="page-body">
   <div class="project__content card">
-    <h1>{{ projectHomeDiyConfig.title }}</h1>
-    @for(item of projectHomeDiyConfig.description; track $index) { @if(item.type
-    === 'image') {
+    <h1>{{ projectHomeDiyContent.title }}</h1>
+    @for(item of projectHomeDiyContent.description; track $index) {
+    @if(item.type === 'image') {
     <div class="container">
       <img
         class="project__image--size-full"

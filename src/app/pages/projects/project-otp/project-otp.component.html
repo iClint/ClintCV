@@ -63,7 +63,7 @@
       </li>
     </ul>
     <div class="project__images">
-      @for(image of config.screens; track image) {
+      @for(image of content.screens; track image) {
       <a [href]="image" target="_blank">
         <img class="project__image" [src]="image" [alt]="image" />
       </a>
