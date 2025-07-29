@@ -37,7 +37,7 @@ export class TickerComponent implements OnInit, OnDestroy {
   }
 
   // Show progress bar only when progress is greater than 0
-  // prevents seeing the bar shrinlk back to 0
+  // prevents seeing the bar shrink back to 0
   get showProgressBar(): boolean {
     return this.progress > 0;
   }
