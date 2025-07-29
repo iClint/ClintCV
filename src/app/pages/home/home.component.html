@@ -4,7 +4,9 @@
     <section class="home__section card">
       <h2>{{ content.tldr.title }}</h2>
       @if(content.tldr.badge){
-      <div class="badge">{{ content.tldr.badge }}</div>
+      <div class="home__badge-container">
+        <div class="badge">{{ content.tldr.badge }}</div>
+      </div>
       } @for(item of content.tldr.content;track $index){
       <p>
         {{ item }}

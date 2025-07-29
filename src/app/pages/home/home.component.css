@@ -88,16 +88,22 @@ p {
   background-color: #1976d2; /* Primary blue */
   color: white;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 8px;
   transition: background-color 0.3s ease;
 }
 
+.home__badge-container {
+  display: flex;
+  justify-content: center;
+}
+
 .badge {
-  justify-self: center;
+  text-align: center;
+  width: fit-content;
   padding: 4px 8px;
   background-color: #e0f7fa; /* Light cyan */
   color: #00796b; /* Teal */
-  border-radius: 12px;
+  border-radius: 16px;
   font-size: 24px;
   margin-top: 8px;
 }
