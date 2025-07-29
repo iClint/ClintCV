@@ -31,6 +31,7 @@ export class LightBoxComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.sub.unsubscribe();
     this.lightBoxService.close();
   }
 }
