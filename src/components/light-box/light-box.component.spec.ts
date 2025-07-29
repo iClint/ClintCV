@@ -13,7 +13,7 @@ describe('LightBoxComponent', () => {
   let component: LightBoxComponent;
   let fixture: ComponentFixture<LightBoxComponent>;
   let lightBoxStateSubject$: Subject<LightBoxState>;
-  let lightBoxServiceMock: any;
+  let lightBoxServiceMock: Partial<LightBoxService>;
 
   beforeEach(async () => {
     lightBoxStateSubject$ = new Subject<LightBoxState>();
