@@ -9,25 +9,20 @@ import { LightBoxState } from 'src/app/models/light-box.model';
 import { Subject } from 'rxjs';
 import { LightBoxService } from 'src/app/services/light-box/light-box.service';
 
-const mockLightBoxState: LightBoxState = {
-  isOpen: false,
-  imageSrc: '',
-  imageAlt: '',
-  imageLabel: '',
-};
-
-const lightBoxStateSubject$ = new Subject<LightBoxState>();
-
-export const lightBoxServiceMock = {
-  state: lightBoxStateSubject$.asObservable(),
-  close: jest.fn(),
-};
-
 describe('LightBoxComponent', () => {
   let component: LightBoxComponent;
   let fixture: ComponentFixture<LightBoxComponent>;
+  let lightBoxStateSubject$: Subject<LightBoxState>;
+  let lightBoxServiceMock: any;
 
   beforeEach(async () => {
+    lightBoxStateSubject$ = new Subject<LightBoxState>();
+
+    lightBoxServiceMock = {
+      state: lightBoxStateSubject$.asObservable(),
+      close: jest.fn(),
+    };
+
     await TestBed.configureTestingModule({
       imports: [LightBoxComponent],
       providers: [{ provide: LightBoxService, useValue: lightBoxServiceMock }],
@@ -50,10 +45,11 @@ describe('LightBoxComponent', () => {
       imageLabel: 'test image label',
     };
 
-    lightBoxStateSubject$.next(mockState);
-    fixture.detectChanges();
+    lightBoxStateSubject$.next(mockState); // emit
+    tick(); // flush microtasks
+    fixture.detectChanges(); // update component
 
-    expect(component.state).toEqual(mockState);
+    expect(component.state).toEqual(mockState); // assert
   }));
 
   it('should call lightBoxService.close() when close() is called', () => {
@@ -77,7 +73,7 @@ describe('LightBoxComponent', () => {
     expect(unsubscribeSpy).toHaveBeenCalled();
   });
 
-  it('should render image when state.isOpen is true', () => {
+  it('should render image when state.isOpen is true', fakeAsync(() => {
     const mockState = {
       isOpen: true,
       imageSrc: 'image1.jpg',
@@ -86,10 +82,16 @@ describe('LightBoxComponent', () => {
     };
 
     lightBoxStateSubject$.next(mockState);
-    fixture.autoDetectChanges();
+    tick();
+    fixture.detectChanges();
 
     const img = fixture.nativeElement.querySelector('img');
     expect(img.src).toContain('image1.jpg');
     expect(img.alt).toContain('image alt');
+  }));
+
+  afterEach(() => {
+    TestBed.resetTestingModule();
+    jest.clearAllMocks();
   });
 });
