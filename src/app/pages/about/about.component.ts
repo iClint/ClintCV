@@ -1,11 +1,10 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TickerComponent } from 'src/components/ticker/ticker.component';
-
+import { Component } from '@angular/core';
 import {
-  AboutContentModel as AboutContentModel,
+  AboutContentModel,
   AboutTickerConfigModel,
 } from 'src/app/models/about-config.model';
+import { TickerComponent } from 'src/components/ticker/ticker.component';
 import { AboutPageContent, AboutTickerConfig } from './About.config';
 
 @Component({
