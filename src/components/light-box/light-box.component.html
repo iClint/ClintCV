@@ -4,6 +4,9 @@
     <mat-icon class="light-box__close-button">cancel</mat-icon>
   </div>
   <div class="light-box__image-container" (click)="$event.stopPropagation()">
+    <div class="index">
+      {{ galleryIndex(galleryState.index, galleryState.imageGallery) }}
+    </div>
     <img
       class="light-box__image"
       [src]="galleryState.imageGallery[galleryState.index].imageSrc"

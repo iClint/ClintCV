@@ -96,3 +96,7 @@
   box-sizing: border-box;
   overflow: visible;
 }
+
+.index {
+  color: white;
+}

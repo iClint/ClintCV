@@ -1,7 +1,10 @@
 import { Component, Input, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LightBoxService } from 'src/app/services/light-box/light-box.service';
-import { LightBoxGalleryState } from 'src/app/models/light-box.model';
+import {
+  ImageGallery,
+  LightBoxGalleryState,
+} from 'src/app/models/light-box.model';
 import { Subscription } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -26,6 +29,10 @@ export class LightBoxComponent implements OnDestroy {
         this.galleryState = gallerySubscriptionState;
       }
     );
+  }
+
+  galleryIndex(index: number, imageGallery: ImageGallery[]) {
+    return `${index + 1}/${imageGallery.length}`; // +1 to normlise index
   }
 
   closeGallery(): void {
