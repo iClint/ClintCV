@@ -1,34 +1,77 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { LightBoxState } from 'src/app/models/light-box.model';
+import { BehaviorSubject, Observable } from 'rxjs';
+import {
+  ImageGallery,
+  LightBoxGalleryState,
+} from 'src/app/models/light-box.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LightBoxService {
-  private state$ = new BehaviorSubject<LightBoxState>({
-    isOpen: false,
-    imageSrc: '',
-    imageAlt: '',
-    imageLabel: '',
+  private imageGalleryState$ = new BehaviorSubject<LightBoxGalleryState>({
+    isGalleryOpen: false,
+    index: 0,
+    imageGallery: [],
   });
 
-  get state() {
-    return this.state$.asObservable();
+  get imageGalleryState(): Observable<LightBoxGalleryState> {
+    return this.imageGalleryState$.asObservable();
   }
 
-  open(imageSrc: string, imageAlt: string, imageLabel: string) {
-    this.state$.next({
-      isOpen: true,
-      imageSrc,
-      imageAlt,
-      imageLabel,
+  openGallery(imageGallery: ImageGallery[], index: number): void {
+    this.imageGalleryState$.next({
+      isGalleryOpen: true,
+      index,
+      imageGallery,
     });
   }
 
-  close() {
-    const currentState = this.state$.getValue();
-    if (!currentState.isOpen) return;
-    this.state$.next({ ...currentState, isOpen: false });
+  closeGallery(): void {
+    const currentState = this.imageGalleryState$.getValue();
+    if (!currentState.isGalleryOpen) return;
+    this.imageGalleryState$.next({ ...currentState, isGalleryOpen: false });
+  }
+
+  nextImage(): void {
+    const currentState = this.imageGalleryState$.getValue();
+    if (!currentState.isGalleryOpen) return;
+    const nextIndex = this.nextIndex(
+      currentState.index,
+      currentState.imageGallery.length
+    );
+    this.imageGalleryState$.next({
+      ...currentState,
+      isGalleryOpen: true,
+      index: nextIndex,
+    });
+  }
+
+  previousImage(): void {
+    const currentState = this.imageGalleryState$.getValue();
+    if (!currentState.isGalleryOpen) return;
+    const nextIndex = this.previousIndex(
+      currentState.index,
+      currentState.imageGallery.length
+    );
+    this.imageGalleryState$.next({
+      ...currentState,
+      isGalleryOpen: true,
+      index: nextIndex,
+    });
+  }
+
+  private nextIndex(currentIndex: number, galleryLength: number): number {
+    if (currentIndex + 1 < galleryLength) {
+      return currentIndex + 1;
+    }
+    return 0;
+  }
+
+  private previousIndex(currentIndex: number, galleryLength: number): number {
+    if (currentIndex - 1 < 0) {
+      return galleryLength - 1;
+    }
+    return currentIndex - 1;
   }
 }

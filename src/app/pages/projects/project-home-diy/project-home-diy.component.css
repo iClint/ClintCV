@@ -11,14 +11,14 @@ p {
   gap: 16px;
 }
 
-.project__image--size-full {
+.large {
   max-width: 100%;
   border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
 }
 
-.project__image--size-small {
+.small {
   max-width: 20%;
   aspect-ratio: 4 / 3; /* maintain consistent shape */
   object-fit: cover;

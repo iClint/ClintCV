@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProjectHomeDiyComponent } from './project-home-diy.component';
 import { LightBoxService } from 'src/app/services/light-box/light-box.service';
-import { LightBoxState } from 'src/app/models/light-box.model';
+import { LightBoxGalleryState } from 'src/app/models/light-box.model';
 import { Subject } from 'rxjs';
 
 describe('ProjectHomeDiyComponent', () => {
   let component: ProjectHomeDiyComponent;
   let fixture: ComponentFixture<ProjectHomeDiyComponent>;
   let lightBoxServiceMock: Partial<LightBoxService>;
-  let lightBoxServiceSubject$: Subject<LightBoxState>;
+  let lightBoxGalleryServiceSubject$: Subject<LightBoxGalleryState>;
 
   beforeEach(async () => {
-    lightBoxServiceSubject$ = new Subject<LightBoxState>();
+    lightBoxGalleryServiceSubject$ = new Subject<LightBoxGalleryState>();
 
     lightBoxServiceMock = {
-      state: lightBoxServiceSubject$.asObservable(),
-      open: jest.fn(),
+      imageGalleryState: lightBoxGalleryServiceSubject$.asObservable(),
+      openGallery: jest.fn(),
     };
 
     await TestBed.configureTestingModule({
@@ -33,14 +33,22 @@ describe('ProjectHomeDiyComponent', () => {
   });
 
   it('should call LightBoxService on openImage()', () => {
-    const openSpy = jest.spyOn(lightBoxServiceMock, 'open');
-    component.openImage('image.jpg', 'image alt', 'image label');
+    const openSpy = jest.spyOn(lightBoxServiceMock, 'openGallery');
+
+    const mockState = {
+      isGalleryOpen: true,
+      imageGallery: [
+        {
+          imageSrc: 'image1.jpg',
+          imageAlt: 'image alt',
+          imageLabel: 'image lable',
+        },
+      ],
+      index: 0,
+    };
+    component.openGallery(mockState.imageGallery, 0);
 
     expect(openSpy).toHaveBeenCalled();
-    expect(openSpy).toHaveBeenCalledWith(
-      'image.jpg',
-      'image alt',
-      'image label'
-    );
+    expect(openSpy).toHaveBeenCalledWith(mockState.imageGallery, 0);
   });
 });

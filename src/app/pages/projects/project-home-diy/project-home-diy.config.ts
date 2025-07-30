@@ -1,11 +1,6 @@
+import { ContentType, PreviewSize } from 'src/app/enums/light-box.enums';
 import { ProjectHomeDiyContentModel as ProjectHomeDiyContentModel } from 'src/app/models/project-home-diy.model';
 
-export enum ContentType {
-  IMAGE = 'image',
-  IMAGES = 'images',
-  TEXT = 'text',
-  LIST = 'list',
-}
 export const ProjectHomeDiyContent: ProjectHomeDiyContentModel = {
   title: 'Fireplace Media Wall – Custom DIY Project',
   description: [
@@ -15,10 +10,16 @@ export const ProjectHomeDiyContent: ProjectHomeDiyContentModel = {
       label: '',
     },
     {
-      type: ContentType.IMAGE,
+      type: ContentType.IMAGES,
+      previewSize: PreviewSize.LARGE,
       label: 'Concept Render',
-      src: 'images/project-home-diy/concept-render.webp',
-      alt: 'CAD rendering of media wall concept',
+      images: [
+        {
+          imageSrc: 'images/project-home-diy/concept-render.webp',
+          imageAlt: 'CAD rendering of media wall concept',
+          imageLabel: 'CAD rendering of media wall concept',
+        },
+      ],
     },
     {
       type: ContentType.TEXT,
@@ -27,19 +28,23 @@ export const ProjectHomeDiyContent: ProjectHomeDiyContentModel = {
     },
     {
       type: ContentType.IMAGES,
+      previewSize: PreviewSize.SMALL,
       label: 'Construction Plans',
       images: [
         {
-          src: 'images/project-home-diy/front.webp',
-          alt: 'Construction plans front view of media wall',
+          imageSrc: 'images/project-home-diy/front.webp',
+          imageAlt: 'Construction plans front view of media wall',
+          imageLabel: '',
         },
         {
-          src: 'images/project-home-diy/back.webp',
-          alt: 'Construction plans back view of media wall',
+          imageSrc: 'images/project-home-diy/back.webp',
+          imageAlt: 'Construction plans back view of media wall',
+          imageLabel: '',
         },
         {
-          src: 'images/project-home-diy/iso.webp',
-          alt: 'Construction plans isometric view of media wall',
+          imageSrc: 'images/project-home-diy/iso.webp',
+          imageAlt: 'Construction plans isometric view of media wall',
+          imageLabel: '',
         },
       ],
     },
@@ -50,35 +55,43 @@ export const ProjectHomeDiyContent: ProjectHomeDiyContentModel = {
     },
     {
       type: ContentType.IMAGES,
+      previewSize: PreviewSize.SMALL,
       label: 'Framing Progress',
       images: [
         {
-          src: 'images/project-home-diy/frame-construction.webp',
-          alt: 'Constructing the media wall frame in the garage',
+          imageSrc: 'images/project-home-diy/frame-construction.webp',
+          imageAlt: 'Constructing the media wall frame in the garage',
+          imageLabel: 'Constructing the media wall frame in the garage',
         },
         {
-          src: 'images/project-home-diy/frame-installing.webp',
-          alt: 'Installing the media wall frame into position',
+          imageSrc: 'images/project-home-diy/frame-installing.webp',
+          imageAlt: 'Installing the media wall frame into position',
+          imageLabel: 'Installing the media wall frame into position',
         },
         {
-          src: 'images/project-home-diy/frame-up.webp',
-          alt: 'Media wall frame upright and aligned',
+          imageSrc: 'images/project-home-diy/frame-up.webp',
+          imageAlt: 'Media wall frame upright and aligned',
+          imageLabel: 'Media wall frame upright and aligned',
         },
         {
-          src: 'images/project-home-diy/frame-test-fit.webp',
-          alt: 'Test fitting the fireplace into the frame',
+          imageSrc: 'images/project-home-diy/frame-test-fit.webp',
+          imageAlt: 'Test fitting the fireplace into the frame',
+          imageLabel: 'Test fitting the fireplace into the frame',
         },
         {
-          src: 'images/project-home-diy/frame-installed.webp',
-          alt: 'Fully installed frame ready for cladding',
+          imageSrc: 'images/project-home-diy/frame-installed.webp',
+          imageAlt: 'Fully installed frame ready for cladding',
+          imageLabel: 'Fully installed frame ready for cladding',
         },
         {
-          src: 'images/project-home-diy/frame-cladding-a.webp',
-          alt: 'Beginning to clad the media wall with plasterboard',
+          imageSrc: 'images/project-home-diy/frame-cladding-a.webp',
+          imageAlt: 'Beginning to clad the media wall with plasterboard',
+          imageLabel: 'Beginning to clad the media wall with plasterboard',
         },
         {
-          src: 'images/project-home-diy/frame-cladding-b.webp',
-          alt: 'Completed cladding of the frame with plasterboard',
+          imageSrc: 'images/project-home-diy/frame-cladding-b.webp',
+          imageAlt: 'Completed cladding of the frame with plasterboard',
+          imageLabel: 'Completed cladding of the frame with plasterboard',
         },
       ],
     },
@@ -89,35 +102,44 @@ export const ProjectHomeDiyContent: ProjectHomeDiyContentModel = {
     },
     {
       type: ContentType.IMAGES,
+      previewSize: PreviewSize.SMALL,
       label: 'Plaster and paint',
       images: [
         {
-          src: 'images/project-home-diy/plastering.webp',
-          alt: 'Applying the first coat of plaster to the media wall',
+          imageSrc: 'images/project-home-diy/plastering.webp',
+          imageAlt: 'Applying the first coat of plaster to the media wall',
+          imageLabel: '',
         },
         {
-          src: 'images/project-home-diy/plastering-sanded.webp',
-          alt: 'Plaster sanded smooth and ready for painting',
+          imageSrc: 'images/project-home-diy/plastering-sanded.webp',
+          imageAlt: 'Plaster sanded smooth and ready for painting',
+          imageLabel: '',
         },
         {
-          src: 'images/project-home-diy/paint-base.webp',
-          alt: 'Base coat of paint applied to the media wall',
+          imageSrc: 'images/project-home-diy/paint-base.webp',
+          imageAlt: 'Base coat of paint applied to the media wall',
+          imageLabel: '',
         },
         {
-          src: 'images/project-home-diy/paint-top.webp',
-          alt: 'Top coat of colour-matched paint for final finish',
+          imageSrc: 'images/project-home-diy/paint-top.webp',
+          imageAlt: 'Top coat of colour-matched paint for final finish',
+          imageLabel: '',
         },
         {
-          src: 'images/project-home-diy/paint-base.webp',
-          alt: 'Another angle showing the base coat on the wall',
+          imageSrc: 'images/project-home-diy/paint-base.webp',
+          imageAlt: 'Another angle showing the base coat on the wall',
+          imageLabel: '',
         },
         {
-          src: 'images/project-home-diy/lower-skirting.webp',
-          alt: 'Lower skirting installed after painting for clean finish',
+          imageSrc: 'images/project-home-diy/lower-skirting.webp',
+          imageAlt: 'Lower skirting installed after painting for clean finish',
+          imageLabel: '',
         },
         {
-          src: 'images/project-home-diy/upper-skirting.webp',
-          alt: 'Upper skirting detail finishing the top edge of the media wall',
+          imageSrc: 'images/project-home-diy/upper-skirting.webp',
+          imageAlt:
+            'Upper skirting detail finishing the top edge of the media wall',
+          imageLabel: '',
         },
       ],
     },
@@ -128,23 +150,28 @@ export const ProjectHomeDiyContent: ProjectHomeDiyContentModel = {
     },
     {
       type: ContentType.IMAGES,
+      previewSize: PreviewSize.SMALL,
       label: 'Shelves and power for TV',
       images: [
         {
-          src: 'images/project-home-diy/shelves-a.webp',
-          alt: 'Hardwood shelf fitted into cavity above the fireplace',
+          imageSrc: 'images/project-home-diy/shelves-a.webp',
+          imageAlt: 'Hardwood shelf fitted into cavity above the fireplace',
+          imageLabel: 'Hardwood shelf fitted into cavity above the fireplace',
         },
         {
-          src: 'images/project-home-diy/shelves-b.webp',
-          alt: 'View of the shelf with decorations and lighting',
+          imageSrc: 'images/project-home-diy/shelves-b.webp',
+          imageAlt: 'View of the shelf with decorations and lighting',
+          imageLabel: 'View of the shelf with decorations and lighting',
         },
         {
-          src: 'images/project-home-diy/shelves-c.webp',
-          alt: 'Close-up showing shelf grain matching the flooring',
+          imageSrc: 'images/project-home-diy/shelves-c.webp',
+          imageAlt: 'Close-up showing shelf grain matching the flooring',
+          imageLabel: 'Close-up showing shelf grain matching the flooring',
         },
         {
-          src: 'images/project-home-diy/power-tv.webp',
-          alt: 'Wall-mounted power outlet and cable routing for TV',
+          imageSrc: 'images/project-home-diy/power-tv.webp',
+          imageAlt: 'Wall-mounted power outlet and cable routing for TV',
+          imageLabel: 'Wall-mounted power outlet and cable routing for TV',
         },
       ],
     },
@@ -169,16 +196,29 @@ export const ProjectHomeDiyContent: ProjectHomeDiyContentModel = {
       label: '',
     },
     {
-      type: ContentType.IMAGE,
+      type: ContentType.IMAGES,
+      previewSize: PreviewSize.LARGE,
+
       label: 'Before',
-      src: 'images/project-home-diy/before.webp',
-      alt: 'Completed media wall with mounted TV and fireplace',
+      images: [
+        {
+          imageSrc: 'images/project-home-diy/before.webp',
+          imageAlt: 'Completed media wall with mounted TV and fireplace',
+          imageLabel: 'Completed media wall with mounted TV and fireplace',
+        },
+      ],
     },
     {
-      type: ContentType.IMAGE,
+      type: ContentType.IMAGES,
+      previewSize: PreviewSize.LARGE,
       label: 'After',
-      src: 'images/project-home-diy/after.webp',
-      alt: 'Completed media wall with mounted TV and fireplace',
+      images: [
+        {
+          imageSrc: 'images/project-home-diy/after.webp',
+          imageAlt: 'Completed media wall with mounted TV and fireplace',
+          imageLabel: 'Completed media wall with mounted TV and fireplace',
+        },
+      ],
     },
   ],
 };

@@ -5,22 +5,22 @@ import {
   tick,
 } from '@angular/core/testing';
 import { LightBoxComponent } from './light-box.component';
-import { LightBoxState } from 'src/app/models/light-box.model';
 import { Subject } from 'rxjs';
 import { LightBoxService } from 'src/app/services/light-box/light-box.service';
+import { LightBoxGalleryState } from 'src/app/models/light-box.model';
 
 describe('LightBoxComponent', () => {
   let component: LightBoxComponent;
   let fixture: ComponentFixture<LightBoxComponent>;
-  let lightBoxStateSubject$: Subject<LightBoxState>;
+  let lightBoxGalleryStateSubject$: Subject<LightBoxGalleryState>;
   let lightBoxServiceMock: Partial<LightBoxService>;
 
   beforeEach(async () => {
-    lightBoxStateSubject$ = new Subject<LightBoxState>();
+    lightBoxGalleryStateSubject$ = new Subject<LightBoxGalleryState>();
 
     lightBoxServiceMock = {
-      state: lightBoxStateSubject$.asObservable(),
-      close: jest.fn(),
+      imageGalleryState: lightBoxGalleryStateSubject$.asObservable(),
+      closeGallery: jest.fn(),
     };
 
     await TestBed.configureTestingModule({
@@ -38,36 +38,44 @@ describe('LightBoxComponent', () => {
   });
 
   it('should subscribe to state', fakeAsync(() => {
-    const mockState: LightBoxState = {
-      isOpen: false,
-      imageSrc: 'test.jpg',
-      imageAlt: 'test image',
-      imageLabel: 'test image label',
+    const mockState: LightBoxGalleryState = {
+      isGalleryOpen: false,
+      imageGallery: [
+        {
+          imageSrc: 'test.jpg',
+          imageAlt: 'test image',
+          imageLabel: 'test image label',
+        },
+      ],
+      index: 0,
     };
 
-    lightBoxStateSubject$.next(mockState); // emit
+    lightBoxGalleryStateSubject$.next(mockState); // emit
     tick(); // flush microtasks
     fixture.detectChanges(); // update component
 
-    expect(component.state).toEqual(mockState); // assert
+    expect(component.galleryState).toEqual(mockState); // assert
   }));
 
   it('should call lightBoxService.close() when close() is called', () => {
-    const closeSpy = jest.spyOn(lightBoxServiceMock, 'close');
-    component.close();
+    const closeSpy = jest.spyOn(lightBoxServiceMock, 'closeGallery');
+    component.closeGallery();
 
     expect(closeSpy).toHaveBeenCalled();
   });
 
   it('should call lightboxService.close() on destroy', () => {
-    const closeSpy = jest.spyOn(lightBoxServiceMock, 'close');
+    const closeSpy = jest.spyOn(lightBoxServiceMock, 'closeGallery');
     component.ngOnDestroy();
 
     expect(closeSpy).toHaveBeenCalled();
   });
 
   it('should unsubscribe on destroy', () => {
-    const unsubscribeSpy = jest.spyOn(component['sub'], 'unsubscribe');
+    const unsubscribeSpy = jest.spyOn(
+      component['gallerySubscription'],
+      'unsubscribe'
+    );
     component.ngOnDestroy();
 
     expect(unsubscribeSpy).toHaveBeenCalled();
@@ -75,13 +83,18 @@ describe('LightBoxComponent', () => {
 
   it('should render image when state.isOpen is true', fakeAsync(() => {
     const mockState = {
-      isOpen: true,
-      imageSrc: 'image1.jpg',
-      imageAlt: 'image alt',
-      imageLabel: 'image lable',
+      isGalleryOpen: true,
+      imageGallery: [
+        {
+          imageSrc: 'image1.jpg',
+          imageAlt: 'image alt',
+          imageLabel: 'image lable',
+        },
+      ],
+      index: 0,
     };
 
-    lightBoxStateSubject$.next(mockState);
+    lightBoxGalleryStateSubject$.next(mockState);
     tick();
     fixture.detectChanges();
 

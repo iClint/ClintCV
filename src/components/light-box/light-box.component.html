@@ -1,7 +1,27 @@
-@if(state.isOpen){
-<div class="light-box__overlay" (click)="close()">
-  <div class="light-box__close">Close X</div>
-  <img class="light-box__image" [src]="state.imageSrc" [alt]="state.imageAlt" />
-  <div class="light-box__label">{{ state.imageLabel }}</div>
+@if(galleryState.isGalleryOpen){
+<div class="light-box__overlay" (click)="closeGallery()">
+  <div class="light-box__close">
+    <mat-icon class="light-box__close-button">cancel</mat-icon>
+  </div>
+  <div class="light-box__image-container" (click)="$event.stopPropagation()">
+    <img
+      class="light-box__image"
+      [src]="galleryState.imageGallery[galleryState.index].imageSrc"
+      [alt]="galleryState.imageGallery[galleryState.index].imageAlt"
+    />
+    <div class="light-box__label">
+      {{ galleryState.imageGallery[galleryState.index].imageLabel }}
+    </div>
+    @if(showControls(galleryState.imageGallery.length)) {
+    <div class="nav-controls">
+      <mat-icon class="light-box-nav-icon" (click)="previousImage($event)"
+        >chevron_left</mat-icon
+      >
+      <mat-icon class="light-box-nav-icon" (click)="nextImage($event)"
+        >chevron_right</mat-icon
+      >
+    </div>
+    }
+  </div>
 </div>
 }

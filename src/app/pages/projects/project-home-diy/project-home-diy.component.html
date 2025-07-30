@@ -2,24 +2,14 @@
   <div class="project__content card">
     <h1>{{ projectHomeDiyContent.title }}</h1>
     @for(item of projectHomeDiyContent.description; track $index) {
-    @if(item.type === 'image') {
-    <div class="container">
-      <img
-        class="project__image--size-full"
-        [src]="item.src"
-        [alt]="item.alt"
-        (click)="openImage(item.src, item.alt, item.label)"
-      />
-    </div>
-    <p class="project__image-label">{{ item.label }}</p>
-    } @else if(item.type === 'images') {
+    @if(item.type === 'images') {
     <div class="container">
       @for(image of item.images; track $index) {
       <img
-        class="project__image--size-small"
-        [src]="image.src"
-        [alt]="image.alt"
-        (click)="openImage(image.src, image.alt, item.label || '')"
+        [class]="item.previewSize"
+        [src]="image.imageSrc"
+        [alt]="image.imageAlt"
+        (click)="openGallery(item.images, $index)"
       />
       }
     </div>
