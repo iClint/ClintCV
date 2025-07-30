@@ -33,3 +33,10 @@ p {
   font-size: 14px;
   color: #666;
 }
+
+@media (max-width: 768px) {
+  .small,
+  .large {
+    border-radius: 4px;
+  }
+}
