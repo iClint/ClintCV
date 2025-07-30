@@ -5,7 +5,7 @@ import {
   AboutTickerConfigModel,
 } from 'src/app/models/about-config.model';
 import { TickerComponent } from 'src/components/ticker/ticker.component';
-import { AboutPageContent, AboutTickerConfig } from './About.config';
+import { AboutPageContent, AboutTickerConfig } from './about.config';
 
 @Component({
   selector: 'app-about',
