@@ -28,6 +28,7 @@ export class AppComponent {
         .pipe(filter((event) => event instanceof NavigationEnd))
         .subscribe((event: NavigationEnd) => {
           const gc = (window as any).goatcounter;
+          /* istanbul ignore next */
           if (gc?.count) {
             gc.count({ path: event.urlAfterRedirects });
             console.log('🐐 GoatCounter tracked:', event.urlAfterRedirects);

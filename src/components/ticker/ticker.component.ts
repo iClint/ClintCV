@@ -25,9 +25,9 @@ import { MatIconModule } from '@angular/material/icon';
   ],
 })
 export class TickerComponent implements OnInit, OnDestroy {
-  @Input() title: string | null = null;
-  @Input() items: string[] = [];
-  @Input() duration = 6000;
+  @Input({ required: false }) title: string | null = null;
+  @Input({ required: true }) items: string[] = [];
+  @Input({ required: false }) duration = 6000;
 
   fadeState: 'visible' | 'hidden' = 'visible';
   contentIndex = 0;
@@ -47,7 +47,6 @@ export class TickerComponent implements OnInit, OnDestroy {
   isTransitioning = false;
 
   ngOnInit(): void {
-    if (!this.items?.length) return;
     this.contentIndex = Math.floor(Math.random() * this.items.length);
     this.progress = 0;
     this.fadeState = 'visible';
