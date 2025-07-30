@@ -1,15 +1,11 @@
-import { ContentType } from '../pages/projects/project-home-diy/project-home-diy.config';
+import { ContentType, PreviewSize } from '../enums/light-box.enums';
 
 export interface ProjectHomeDiyContentModel {
   title: string;
   description: ProjectHomeDiyContent[];
 }
 
-export type ProjectHomeDiyContent =
-  | TextContent
-  | ImageContent
-  | ImagesContent
-  | ListContent;
+export type ProjectHomeDiyContent = TextContent | ImagesContent | ListContent;
 
 export interface TextContent {
   type: ContentType.TEXT;
@@ -17,19 +13,13 @@ export interface TextContent {
   label: string;
 }
 
-export interface ImageContent {
-  type: ContentType.IMAGE;
-  label: string;
-  src: string;
-  alt: string;
-}
-
 export interface ImagesContent {
   type: ContentType.IMAGES;
+  previewSize: PreviewSize;
   images: {
-    src: string;
-    alt: string;
-    label?: string;
+    imageSrc: string;
+    imageAlt: string;
+    imageLabel: string;
   }[];
   label?: string;
 }
