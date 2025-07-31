@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { filter, fromEvent, mergeMap, of, timer } from 'rxjs';
+import { filter } from 'rxjs';
 import { HeaderComponent } from 'src/components/header/header.component';
 import { FooterComponent } from 'src/components/footer/footer.component';
 import { Config } from './app.config';
