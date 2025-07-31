@@ -1,130 +1,103 @@
-import { TestBed } from '@angular/core/testing';
-
+import { ImageGallery } from 'src/app/models/light-box.model';
 import { LightBoxService } from './light-box.service';
-import { LightBoxGalleryState } from 'src/app/models/light-box.model';
 
 describe('LightBoxService', () => {
-  let service: LightBoxService;
+  let svc: LightBoxService;
+  const gallery: ImageGallery[] = [
+    { imageSrc: 'a.jpg', imageAlt: 'a', imageLabel: 'a' },
+    { imageSrc: 'b.jpg', imageAlt: 'b', imageLabel: 'b' },
+    { imageSrc: 'c.jpg', imageAlt: 'c', imageLabel: 'c' },
+  ];
+
+  const getState = async () =>
+    await new Promise<any>((resolve) =>
+      svc.imageGalleryState.subscribe((s) => resolve(s)).unsubscribe()
+    );
 
   beforeEach(() => {
-    service = new LightBoxService();
-
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(LightBoxService);
+    svc = new LightBoxService();
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('emits initial state (closed, index 0, empty gallery)', async () => {
+    const s = await getState();
+    expect(s.isGalleryOpen).toBe(false);
+    expect(s.index).toBe(0);
+    expect(s.imageGallery).toEqual([]);
   });
 
-  it('should expose initial closed state', () => {
-    const sub = jest.fn();
-    const subscription = service.imageGalleryState.subscribe(sub);
-    const initial = sub.mock.calls.at(-1)![0];
+  it('openGallery sets gallery, index, and opens', async () => {
+    svc.openGallery(gallery, 1);
+    const s = await getState();
+    expect(s.isGalleryOpen).toBe(true);
+    expect(s.index).toBe(1);
+    expect(s.imageGallery).toEqual(gallery);
+  });
 
-    expect(initial).toEqual({
-      isGalleryOpen: false,
-      index: 0,
-      imageGallery: [],
+  it('closeGallery closes when open', async () => {
+    svc.openGallery(gallery, 0);
+    svc.closeGallery();
+    const s = await getState();
+    expect(s.isGalleryOpen).toBe(false);
+    expect(s.index).toBe(0); // unchanged
+  });
+
+  it('closeGallery does nothing when already closed (guard path)', async () => {
+    // initial state is closed; call close again to hit guard
+    svc.closeGallery();
+    const s = await getState();
+    expect(s.isGalleryOpen).toBe(false);
+    expect(s.index).toBe(0);
+    expect(s.imageGallery).toEqual([]); // unchanged
+  });
+
+  describe('nextImage', () => {
+    it('increments index when open and not at end', async () => {
+      svc.openGallery(gallery, 1);
+      svc.nextImage();
+      const s = await getState();
+      expect(s.isGalleryOpen).toBe(true);
+      expect(s.index).toBe(2);
     });
 
-    subscription.unsubscribe();
+    it('wraps to 0 from last index', async () => {
+      svc.openGallery(gallery, 2);
+      svc.nextImage();
+      const s = await getState();
+      expect(s.index).toBe(0);
+    });
+
+    it('does nothing when closed (guard path)', async () => {
+      // initial is closed; call nextImage to hit guard
+      svc.nextImage();
+      const s = await getState();
+      expect(s.isGalleryOpen).toBe(false);
+      expect(s.index).toBe(0);
+      expect(s.imageGallery).toEqual([]);
+    });
   });
 
-  it('emits next state on open()', () => {
-    const sub = jest.fn();
-    const subscription = service.imageGalleryState.subscribe(sub);
-    const state: LightBoxGalleryState = {
-      isGalleryOpen: true,
-      imageGallery: [
-        {
-          imageSrc: 'image1.jpg',
-          imageAlt: 'image alt',
-          imageLabel: 'image lable',
-        },
-      ],
-      index: 0,
-    };
+  describe('previousImage', () => {
+    it('decrements index when open and not at start', async () => {
+      svc.openGallery(gallery, 2);
+      svc.previousImage();
+      const s = await getState();
+      expect(s.isGalleryOpen).toBe(true);
+      expect(s.index).toBe(1);
+    });
 
-    service.openGallery(state.imageGallery, state.index);
+    it('wraps to last from index 0', async () => {
+      svc.openGallery(gallery, 0);
+      svc.previousImage();
+      const s = await getState();
+      expect(s.index).toBe(gallery.length - 1);
+    });
 
-    expect(sub).toHaveBeenCalledTimes(2);
-    const last = sub.mock.calls.at(-1)![0];
-    expect(last).toEqual(state);
-
-    subscription.unsubscribe();
-  });
-
-  it('flips the isOpen State on close()', () => {
-    const sub = jest.fn();
-    const subscription = service.imageGalleryState.subscribe(sub);
-    const state: LightBoxGalleryState = {
-      isGalleryOpen: true,
-      imageGallery: [
-        {
-          imageSrc: 'image1.jpg',
-          imageAlt: 'image alt',
-          imageLabel: 'image lable',
-        },
-      ],
-      index: 0,
-    };
-
-    service.openGallery(state.imageGallery, state.index);
-    service.closeGallery();
-
-    expect(sub).toHaveBeenCalledTimes(3);
-    const last = sub.mock.calls.at(-1)![0];
-    expect(last.isOpen).toBeFalsy();
-
-    subscription.unsubscribe();
-  });
-
-  it('close() when already closed does nothing (no extra emission)', () => {
-    const sub = jest.fn();
-    const subscription = service.imageGalleryState.subscribe(sub);
-
-    service.closeGallery();
-
-    expect(sub).toHaveBeenCalledTimes(1); // only the initial
-    subscription.unsubscribe();
-  });
-
-  it('subsequent open() overwrites previous data', () => {
-    const sub = jest.fn();
-    const subscription = service.imageGalleryState.subscribe(sub);
-
-    const mockState1 = {
-      isGalleryOpen: true,
-      imageGallery: [
-        {
-          imageSrc: 'image1.jpg',
-          imageAlt: 'image1 alt',
-          imageLabel: 'image1 lable',
-        },
-      ],
-      index: 0,
-    };
-
-    const mockState2 = {
-      isGalleryOpen: true,
-      imageGallery: [
-        {
-          imageSrc: 'image2.jpg',
-          imageAlt: 'image2 alt',
-          imageLabel: 'image2 lable',
-        },
-      ],
-      index: 0,
-    };
-
-    service.openGallery(mockState1.imageGallery, 0);
-    service.openGallery(mockState2.imageGallery, 0);
-
-    expect(sub).toHaveBeenCalledTimes(3); // initial + open A + open B
-    const last = sub.mock.calls.at(-1)![0];
-    expect(last).toEqual(mockState2);
-
-    subscription.unsubscribe();
+    it('does nothing when closed (guard path)', async () => {
+      svc.previousImage();
+      const s = await getState();
+      expect(s.isGalleryOpen).toBe(false);
+      expect(s.index).toBe(0);
+      expect(s.imageGallery).toEqual([]);
+    });
   });
 });

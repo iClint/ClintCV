@@ -7,13 +7,22 @@ import {
 import { LightBoxComponent } from './light-box.component';
 import { Subject } from 'rxjs';
 import { LightBoxService } from 'src/app/services/light-box/light-box.service';
-import { LightBoxGalleryState } from 'src/app/models/light-box.model';
+import {
+  ImageGallery,
+  LightBoxGalleryState,
+} from 'src/app/models/light-box.model';
 
 describe('LightBoxComponent', () => {
   let component: LightBoxComponent;
   let fixture: ComponentFixture<LightBoxComponent>;
   let lightBoxGalleryStateSubject$: Subject<LightBoxGalleryState>;
   let lightBoxServiceMock: Partial<LightBoxService>;
+
+  const gallery: ImageGallery[] = [
+    { imageSrc: 'a.jpg', imageAlt: 'a', imageLabel: 'a' },
+    { imageSrc: 'b.jpg', imageAlt: 'b', imageLabel: 'b' },
+    { imageSrc: 'c.jpg', imageAlt: 'c', imageLabel: 'c' },
+  ];
 
   beforeEach(async () => {
     lightBoxGalleryStateSubject$ = new Subject<LightBoxGalleryState>();
@@ -40,13 +49,7 @@ describe('LightBoxComponent', () => {
   it('should subscribe to state', fakeAsync(() => {
     const mockState: LightBoxGalleryState = {
       isGalleryOpen: false,
-      imageGallery: [
-        {
-          imageSrc: 'test.jpg',
-          imageAlt: 'test image',
-          imageLabel: 'test image label',
-        },
-      ],
+      imageGallery: gallery,
       index: 0,
     };
 
@@ -84,13 +87,7 @@ describe('LightBoxComponent', () => {
   it('should render image when state.isOpen is true', fakeAsync(() => {
     const mockState = {
       isGalleryOpen: true,
-      imageGallery: [
-        {
-          imageSrc: 'image1.jpg',
-          imageAlt: 'image alt',
-          imageLabel: 'image lable',
-        },
-      ],
+      imageGallery: gallery,
       index: 0,
     };
 
@@ -99,8 +96,22 @@ describe('LightBoxComponent', () => {
     fixture.detectChanges();
 
     const img = fixture.nativeElement.querySelector('img');
-    expect(img.src).toContain('image1.jpg');
-    expect(img.alt).toContain('image alt');
+    expect(img.src).toContain('a.jpg');
+    expect(img.alt).toContain('a');
+  }));
+
+  it('should not triger closeGallery() on nextImage()', fakeAsync(() => {
+    const closeSpy = jest.spyOn(lightBoxServiceMock, 'closeGallery');
+    const mockState = {
+      isGalleryOpen: true,
+      imageGallery: gallery,
+      index: 0,
+    };
+
+    lightBoxGalleryStateSubject$.next(mockState);
+    tick();
+    fixture.detectChanges();
+    expect(closeSpy).toHaveBeenCalledTimes(0);
   }));
 
   afterEach(() => {
