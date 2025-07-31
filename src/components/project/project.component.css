@@ -1,49 +1,49 @@
 p {
-  text-align: left;
   margin: 8px;
+  text-align: left;
 }
 
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 960px;
   gap: 16px;
+  max-width: 960px;
 }
 
 .small {
-  max-width: 20%;
-  aspect-ratio: 4 / 3; /* maintain consistent shape */
-  object-fit: cover;
-  border-radius: 16px;
-  overflow: hidden;
   cursor: pointer;
   border: 1px solid black;
+  border-radius: 16px;
+  aspect-ratio: 4 / 3; /* maintain consistent shape */
+  max-width: 20%;
+  overflow: hidden;
+  object-fit: cover;
 }
 
 .medium {
-  width: 30%;
-  aspect-ratio: 4 / 3; /* maintain consistent shape */
-  object-fit: cover;
-  border-radius: 16px;
-  overflow: hidden;
   cursor: pointer;
   border: 1px solid black;
+  border-radius: 16px;
+  aspect-ratio: 4 / 3; /* maintain consistent shape */
+  width: 30%;
+  overflow: hidden;
+  object-fit: cover;
 }
 
 .large {
-  max-width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
   cursor: pointer;
   border: 1px solid black;
+  border-radius: 16px;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .project__image-label {
-  text-align: center;
   margin-top: 4px;
-  font-size: 14px;
   color: #666;
+  font-size: 14px;
+  text-align: center;
 }
 
 @media (max-width: 768px) {

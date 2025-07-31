@@ -1,6 +1,6 @@
 <div class="ticker__container">
-  @if(title){
-  <div class="ticker__heading">{{ title }}</div>
+  @if (title) {
+    <div class="ticker__heading">{{ title }}</div>
   }
   <div class="ticker__ticker" [@fade]="fadeState">
     <div class="ticker__text">
@@ -15,8 +15,8 @@
         >chevron_left</mat-icon
       >
       <!-- Dots for each item -->
-      @for(item of items; track $index){
-      <div class="dot" [class.filled]="contentIndex == $index"></div>
+      @for (item of items; track $index) {
+        <div class="dot" [class.filled]="contentIndex == $index"></div>
       }
       <!-- Chevron for navigation -->
       <mat-icon class="ticker__cheveron" (click)="onClickNavigation(1)"
@@ -24,13 +24,15 @@
       >
     </div>
     <!-- Progress bar -->
-    @if(!showProgressBar){
-    <div class="progress-bar-placeholer"></div>
-    } @if(showProgressBar){<mat-progress-bar
-      class="progress-bar"
-      mode="determinate"
-      [value]="progress"
-    ></mat-progress-bar
-    >}
+    @if (!showProgressBar) {
+      <div class="progress-bar-placeholer"></div>
+    }
+    @if (showProgressBar) {
+      <mat-progress-bar
+        class="progress-bar"
+        mode="determinate"
+        [value]="progress"
+      ></mat-progress-bar>
+    }
   </div>
 </div>

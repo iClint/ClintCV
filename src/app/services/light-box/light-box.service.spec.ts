@@ -11,7 +11,7 @@ describe('LightBoxService', () => {
 
   const getState = async () =>
     await new Promise<any>((resolve) =>
-      svc.imageGalleryState.subscribe((s) => resolve(s)).unsubscribe()
+      svc.imageGalleryState.subscribe((s) => resolve(s)).unsubscribe(),
     );
 
   beforeEach(() => {

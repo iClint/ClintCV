@@ -17,10 +17,10 @@
           </p>
           <div class="about__quick-facts">
             <ul>
-              @for(item of content.aboutMe.quickFacts; track item.label) {
-              <li>
-                <strong>{{ item.label }}:</strong> {{ item.content }}
-              </li>
+              @for (item of content.aboutMe.quickFacts; track item.label) {
+                <li>
+                  <strong>{{ item.label }}:</strong> {{ item.content }}
+                </li>
               }
             </ul>
           </div>
@@ -31,8 +31,8 @@
     <section class="about__section card">
       <h2>{{ content.howIGotHere.title }}</h2>
       <ul>
-        @for(item of content.howIGotHere.list; track item) {
-        <li>{{ item }}</li>
+        @for (item of content.howIGotHere.list; track item) {
+          <li>{{ item }}</li>
         }
       </ul>
     </section>
@@ -41,8 +41,8 @@
     <section class="about__section card">
       <h2>{{ content.profesionalJourney.title }}</h2>
       <ul>
-        @for(item of content.profesionalJourney.list; track item) {
-        <li>{{ item }}</li>
+        @for (item of content.profesionalJourney.list; track item) {
+          <li>{{ item }}</li>
         }
       </ul>
     </section>

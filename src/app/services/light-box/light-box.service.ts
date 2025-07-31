@@ -38,7 +38,7 @@ export class LightBoxService {
     if (!currentState.isGalleryOpen) return;
     const nextIndex = this.nextIndex(
       currentState.index,
-      currentState.imageGallery.length
+      currentState.imageGallery.length,
     );
     this.imageGalleryState$.next({
       ...currentState,
@@ -52,7 +52,7 @@ export class LightBoxService {
     if (!currentState.isGalleryOpen) return;
     const nextIndex = this.previousIndex(
       currentState.index,
-      currentState.imageGallery.length
+      currentState.imageGallery.length,
     );
     this.imageGalleryState$.next({
       ...currentState,

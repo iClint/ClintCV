@@ -27,7 +27,7 @@ export class LightBoxComponent implements OnDestroy {
     this.gallerySubscription = this.lightBoxService.imageGalleryState.subscribe(
       (gallerySubscriptionState) => {
         this.galleryState = gallerySubscriptionState;
-      }
+      },
     );
   }
 

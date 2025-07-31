@@ -3,22 +3,21 @@
   <main class="home__content">
     <section class="home__section card">
       <h2>{{ content.tldr.title }}</h2>
-      @if(content.tldr.badge){
-      <div class="home__badge-container">
-        <div class="badge">{{ content.tldr.badge }}</div>
-      </div>
-      } @for(item of content.tldr.content;track $index){
-      <p>
-        {{ item }}
-      </p>
+      @if (content.tldr.badge) {
+        <div class="home__badge-container">
+          <div class="badge">{{ content.tldr.badge }}</div>
+        </div>
+      }
+      @for (item of content.tldr.content; track $index) {
+        <p>
+          {{ item }}
+        </p>
       }
       <div class="home__tldr-actions">
-        @for(action of content.tldr.actions; track action.label) {
-
-        <a [href]="action.href" class="button" target="_blank">{{
-          action.label
-        }}</a>
-
+        @for (action of content.tldr.actions; track action.label) {
+          <a [href]="action.href" class="button" target="_blank">{{
+            action.label
+          }}</a>
         }
       </div>
     </section>
@@ -29,10 +28,10 @@
         {{ content.keyProjects.content }}
       </p>
       <ul class="achievement-list">
-        @for(item of content.keyProjects.list; track item.label) {
-        <li>
-          <strong>{{ item.label }}:</strong> {{ item.content }}
-        </li>
+        @for (item of content.keyProjects.list; track item.label) {
+          <li>
+            <strong>{{ item.label }}:</strong> {{ item.content }}
+          </li>
         }
       </ul>
     </section>
@@ -48,14 +47,14 @@
       <h2>{{ content.techStack.title }}</h2>
       <p>{{ content.techStack.content }}</p>
       <ul class="tech-stack__list">
-        @for(item of content.techStack.techStackIcons; track item.file) {
-        <li>
-          <img
-            src="/images/tech-stack-icons/{{ item.file }}"
-            alt="{{ item.label }}"
-            title="{{ item.label }}"
-          />
-        </li>
+        @for (item of content.techStack.techStackIcons; track item.file) {
+          <li>
+            <img
+              src="/images/tech-stack-icons/{{ item.file }}"
+              alt="{{ item.label }}"
+              title="{{ item.label }}"
+            />
+          </li>
         }
       </ul>
     </section>

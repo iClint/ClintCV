@@ -36,7 +36,7 @@ describe('NavMenuComponent', () => {
 
   it('should render all nav items', () => {
     const itemElements = fixture.debugElement.queryAll(
-      By.css('.nav-menu__link')
+      By.css('.nav-menu__link'),
     );
     expect(itemElements.length).toBe(mockItems.length);
   });

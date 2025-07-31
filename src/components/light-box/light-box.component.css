@@ -1,42 +1,50 @@
-.light-box__overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+.light-box__overlay,
+.nav-controls,
+.light-box-nav-icon,
+.light-box__close,
+.light-box__close-button {
   display: flex;
+}
+
+.light-box__overlay {
+  display: flex;
+  position: fixed;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
   padding: 12px;
   overflow: hidden;
-  z-index: 1000;
 }
 
 .light-box__image-container {
-  position: relative;
   display: inline-block;
+  position: relative;
   width: auto;
   height: auto;
 }
 
 .light-box__image {
   display: block;
-  border-radius: 16px;
   border: 5px solid white;
-  max-width: min(95vw, 1400px);
-  max-height: calc(95vh - 48px);
-  height: auto;
+  border-radius: 16px;
   width: auto;
+  max-width: min(95vw, 1400px);
+  height: auto;
+  max-height: calc(95vh - 48px);
   object-fit: contain;
 }
 
 .nav-controls {
+  display: flex;
   position: absolute;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1001;
   inset: 0;
   padding: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   pointer-events: none;
-  z-index: 1001;
 }
 
 .light-box-nav-icon {
@@ -44,16 +52,16 @@
   justify-content: center;
   align-items: center;
   opacity: 40%;
-  background: white;
-  color: black;
-  border-radius: 50%;
-  pointer-events: auto;
+  transition: opacity ease-in-out 250ms;
   cursor: pointer;
-  font-size: 36px;
-  font-weight: 900;
+  border-radius: 50%;
+  background: white;
   width: 48px;
   height: 48px;
-  transition: opacity ease-in-out 250ms;
+  pointer-events: auto;
+  color: black;
+  font-weight: 900;
+  font-size: 36px;
 }
 
 .light-box-nav-icon:hover {
@@ -62,10 +70,10 @@
 }
 
 .light-box__close {
+  display: flex;
   position: absolute;
   top: 12px;
   right: 12px;
-  display: flex;
   justify-content: end;
   width: auto;
   height: auto;
@@ -74,27 +82,27 @@
 .light-box__close-button {
   display: flex;
   justify-content: end;
+  cursor: pointer;
   margin-bottom: 8px;
-  font-size: 24px;
-  font-weight: 900;
   width: 24px;
   height: 24px;
   color: white;
-  cursor: pointer;
+  font-weight: 900;
+  font-size: 24px;
 }
 
 .light-box__label {
   position: absolute;
-  margin-top: 8px;
   left: 50%;
   transform: translateX(-50%);
-  white-space: nowrap;
-  font-size: 12px;
+  box-sizing: border-box;
+  margin-top: 8px;
+  overflow: visible;
 
   color: white;
+  font-size: 12px;
   text-align: center;
-  box-sizing: border-box;
-  overflow: visible;
+  white-space: nowrap;
 }
 
 .index {

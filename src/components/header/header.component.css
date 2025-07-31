@@ -2,10 +2,10 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  padding: 16px 24px;
-  background: var(--color-bg-header);
-  color: var(--collor-text-light);
   border-bottom: solid 2px var(--color-header-border);
+  background: var(--color-bg-header);
+  padding: 16px 24px;
+  color: var(--collor-text-light);
 }
 
 .header__top-row {
@@ -16,16 +16,16 @@
 }
 
 .header__title {
-  font-size: var(--font-header-size);
-  font-weight: var(--font-header-weight);
-  color: var(--color-text-light);
   margin: 0;
+  color: var(--color-text-light);
+  font-weight: var(--font-header-weight);
+  font-size: var(--font-header-size);
 }
 
 .header__subtitle,
 .header__description {
-  font-size: var(--font-subtitle-size);
-  font-weight: var(--font-subtitle-weight);
-  color: var(--color-text-light-secondary);
   margin: 2px 0 0 0;
+  color: var(--color-text-light-secondary);
+  font-weight: var(--font-subtitle-weight);
+  font-size: var(--font-subtitle-size);
 }

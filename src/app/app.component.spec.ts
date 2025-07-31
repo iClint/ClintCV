@@ -26,7 +26,7 @@ describe('AppComponent – constructor behavior (Jest)', () => {
   // helpers for <script> path
   const removeGoatScript = () => {
     Array.from(
-      document.querySelectorAll('script[src*="goatcounter.com/count.js"]')
+      document.querySelectorAll('script[src*="goatcounter.com/count.js"]'),
     ).forEach((el) => el.remove());
   };
   const addGoatScriptTag = () => {
@@ -120,7 +120,7 @@ describe('AppComponent – constructor behavior (Jest)', () => {
     tick(0); // subscribe
 
     expect(() =>
-      routerEvents$.next(new NavigationEnd(3, '/x', '/y'))
+      routerEvents$.next(new NavigationEnd(3, '/x', '/y')),
     ).not.toThrow();
   }));
 
@@ -175,7 +175,7 @@ describe('AppComponent – constructor behavior (Jest)', () => {
 
     expect(resolved).toBe(true);
     expect(warnSpy).toHaveBeenCalledWith(
-      '🐐 GoatCounter script failed to load'
+      '🐐 GoatCounter script failed to load',
     );
     warnSpy.mockRestore();
   }));

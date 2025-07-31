@@ -3,20 +3,22 @@
     <h2>{{ content.title }}</h2>
     <p>{{ content.description }}</p>
     <div class="contact__links">
-      @for(link of content.links; track link.icon){<a
-        [href]="link.url"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="contact__link"
-        title="{{ link.label }}"
-        [attr.aria-label]="link.label"
-        ><i
-          class="contact__icons"
-          [class]="link.icon"
-          (mouseenter)="onMouseEnterIcon(link.label)"
-          (mouseleave)="onMouseLeaveIcon()"
-        ></i></a
-      >}
+      @for (link of content.links; track link.icon) {
+        <a
+          [href]="link.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact__link"
+          title="{{ link.label }}"
+          [attr.aria-label]="link.label"
+          ><i
+            class="contact__icons"
+            [class]="link.icon"
+            (mouseenter)="onMouseEnterIcon(link.label)"
+            (mouseleave)="onMouseLeaveIcon()"
+          ></i
+        ></a>
+      }
     </div>
     <div class="contact__dynamic-description-container">
       <p class="contact__dynamic-description">{{ dynamicDescription }}</p>

@@ -2,14 +2,14 @@
 
 <nav class="nav-menu__container" [class.show-menu]="isNavMenuVisible">
   @for (item of items; track item) {
-  <a
-    class="nav-menu__link"
-    [routerLink]="item.path"
-    routerLinkActive="active"
-    (click)="onMenuClick()"
-  >
-    <mat-icon class="nav-menu__icon">{{ item.icon }}</mat-icon>
-    <span class="label">{{ item.label }}</span>
-  </a>
+    <a
+      class="nav-menu__link"
+      [routerLink]="item.path"
+      routerLinkActive="active"
+      (click)="onMenuClick()"
+    >
+      <mat-icon class="nav-menu__icon">{{ item.icon }}</mat-icon>
+      <span class="label">{{ item.label }}</span>
+    </a>
   }
 </nav>

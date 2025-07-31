@@ -43,7 +43,7 @@ export class AppComponent {
       if (existing?.count) return resolve();
 
       const script = document.querySelector(
-        'script[src*="goatcounter.com/count.js"]'
+        'script[src*="goatcounter.com/count.js"]',
       );
       if (script) {
         script.addEventListener('load', () => resolve());

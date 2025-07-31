@@ -79,7 +79,7 @@ describe('LightBoxComponent', () => {
   it('should unsubscribe on destroy', () => {
     const unsubscribeSpy = jest.spyOn(
       component['gallerySubscription'],
-      'unsubscribe'
+      'unsubscribe',
     );
     component.ngOnDestroy();
 

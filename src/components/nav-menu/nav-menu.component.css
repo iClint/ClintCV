@@ -1,8 +1,8 @@
 /* ---------- BASE STYLES ---------- */
 .nav-menu__container {
   display: flex;
-  flex-direction: row;
   position: relative;
+  flex-direction: row;
 }
 
 .nav-menu__button {
@@ -11,20 +11,20 @@
 
 .nav-menu__link {
   display: flex;
+  position: relative;
   flex-direction: row;
   align-items: center;
   gap: 4px;
-  position: relative;
+  opacity: 0.7;
+  border-radius: 8px;
   padding: 12px;
   color: var(--color-nav-link);
-  border-radius: 8px;
   text-decoration: none;
-  opacity: 0.7;
 }
 
 .nav-menu__icon {
-  color: var(--color-nav-link);
   transition: color 0.2s ease;
+  color: var(--color-nav-link);
 }
 
 .nav-menu__link.active,
@@ -42,9 +42,9 @@
 /* Fade active if any other is hovered */
 .nav-menu__container:has(.nav-menu__link:hover)
   .nav-menu__link.active:not(:hover) {
+  opacity: 1;
   background-color: transparent;
   color: var(--color-text-light);
-  opacity: 1;
 }
 
 .nav-menu__container:has(.nav-menu__link:hover)
@@ -57,30 +57,30 @@
 @media (max-width: 768px) {
   .nav-menu__button {
     display: block;
-    background: transparent;
-    border: none;
-    color: var(--color-nav-link-focus);
-    font-size: 24px;
-    cursor: pointer;
     position: absolute;
     top: 12px;
     right: 12px;
     z-index: 1100;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: var(--color-nav-link-focus);
+    font-size: 24px;
   }
 
   .nav-menu__container {
-    flex-direction: column;
     position: fixed;
     top: 0;
     right: 0;
+    flex-direction: column;
+    transform: translateX(100%);
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+    background-color: rgba(33, 33, 33, 0.95);
     padding: 36px;
     width: 90vw; /* or 100vw if you want full-screen */
     height: 100vh;
-    background-color: rgba(33, 33, 33, 0.95);
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
     pointer-events: none;
-    z-index: 1000;
   }
   .nav-menu__container.show-menu {
     transform: translateX(0);
@@ -88,17 +88,17 @@
   }
 
   .nav-menu__link {
+    opacity: 0.6;
     min-width: 100%;
     height: 80px;
     color: var(--color-text-light);
-    opacity: 0.6;
   }
 
   .nav-menu__link:hover,
   .nav-menu__link:focus-visible {
+    transform: scale(1.01);
     background-color: var(--color-primary);
     color: var(--color-text-light);
-    transform: scale(1.01);
   }
 
   .nav-menu__link:hover .nav-menu__icon,
@@ -109,9 +109,9 @@
   /* Reset active if another is hovered */
   .nav-menu__container:has(.nav-menu__link:hover)
     .nav-menu__link.active:not(:hover) {
+    opacity: 1;
     background-color: transparent;
     color: var(--color-text-light);
-    opacity: 1;
   }
 
   .nav-menu__container:has(.nav-menu__link:hover)

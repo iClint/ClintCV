@@ -10,56 +10,58 @@
 
 .home__section p,
 .home__section li {
-  font-size: 16px;
   color: #212121;
+  font-size: 16px;
   line-height: 1.6;
 }
 
 .achievement-list {
-  list-style: none;
-  padding: 0;
-  margin: 8px 0;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  margin: 8px 0;
+  padding: 0;
+  list-style: none;
 }
 
 .achievement-list li {
+  box-shadow: 0 1px 3px var(--color-card-shadow);
+  border-radius: 6px;
   background-color: #f1f8ff;
   padding: 16px;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px var(--color-card-shadow);
 }
 
 .tech-stack__list {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
   justify-content: center;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .tech-stack__list li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 48px;
   height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .tech-stack__list img {
+  filter: grayscale(40%);
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: grayscale(40%);
-  transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .tech-stack__list img:hover {
-  filter: none;
   transform: scale(1.1);
+  filter: none;
 }
 
 .tech-stack__list {
@@ -68,8 +70,8 @@
 
 p {
   margin-top: 12px;
-  font-size: 14px;
   color: #757575; /* Dark grey for subtle text */
+  font-size: 14px;
 }
 
 .home__tldr-actions {
@@ -82,14 +84,14 @@ p {
 
 .button {
   display: inline-block;
-  text-align: center;
-  width: 50%;
-  padding: 8px 16px;
-  background-color: #1976d2; /* Primary blue */
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
   transition: background-color 0.3s ease;
+  border-radius: 8px;
+  background-color: #1976d2; /* Primary blue */
+  padding: 8px 16px;
+  width: 50%;
+  color: white;
+  text-align: center;
+  text-decoration: none;
 }
 
 .home__badge-container {
@@ -98,12 +100,12 @@ p {
 }
 
 .badge {
-  text-align: center;
-  width: fit-content;
-  padding: 4px 8px;
-  background-color: #e0f7fa; /* Light cyan */
-  color: #00796b; /* Teal */
-  border-radius: 16px;
-  font-size: 24px;
   margin-top: 8px;
+  border-radius: 16px;
+  background-color: #e0f7fa; /* Light cyan */
+  padding: 4px 8px;
+  width: fit-content;
+  color: #00796b; /* Teal */
+  font-size: 24px;
+  text-align: center;
 }

@@ -30,7 +30,7 @@ describe('HeaderComponent', () => {
     const headerSubtitle =
       fixture.nativeElement.querySelector('.header__subtitle');
     const headerDescription = fixture.nativeElement.querySelector(
-      '.header__description'
+      '.header__description',
     );
 
     expect(headerTitle.textContent).toEqual('website title');

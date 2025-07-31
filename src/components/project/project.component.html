@@ -1,43 +1,44 @@
-@if(config){
-<div class="page-body">
-  <div class="project__content card">
-    <h1>{{ config.title }}</h1>
-    @for(item of config.content; track $index) {
-    <!-- sub-heading -->
-    @if(item.type === 'heading'){
-    <h3>{{ item.content }}</h3>
-    }
-    <!-- image gallery -->
-    @else if(item.type === 'images') {
-    <div class="container">
-      @for(image of item.images; track $index) {
-      <img
-        [class]="item.previewSize"
-        [src]="image.imageSrc"
-        [alt]="image.imageAlt"
-        (click)="openGallery(item.images, $index)"
-      />
+@if (config) {
+  <div class="page-body">
+    <div class="project__content card">
+      <h1>{{ config.title }}</h1>
+      @for (item of config.content; track $index) {
+        <!-- sub-heading -->
+        @if (item.type === 'heading') {
+          <h3>{{ item.content }}</h3>
+        }
+        <!-- image gallery -->
+        @else if (item.type === 'images') {
+          <div class="container">
+            @for (image of item.images; track $index) {
+              <img
+                [class]="item.previewSize"
+                [src]="image.imageSrc"
+                [alt]="image.imageAlt"
+                (click)="openGallery(item.images, $index)"
+              />
+            }
+          </div>
+          <p class="project__image-label">{{ item.label }}</p>
+        }
+        <!-- text -->
+        @else if (item.type === 'text') {
+          <p>{{ item.content }}</p>
+        }
+        <!-- list -->
+        @else if (item.type === 'list') {
+          <ul>
+            @for (listItem of item.items; track $index) {
+              <li>{{ listItem }}</li>
+            }
+          </ul>
+        } @else if (item.type === 'component') {
+          <ng-container
+            [ngComponentOutlet]="item.component"
+            [ngComponentOutletInputs]="item.inputs"
+          ></ng-container>
+        }
       }
     </div>
-    <p class="project__image-label">{{ item.label }}</p>
-    }
-    <!-- text -->
-    @else if(item.type === 'text') {
-    <p>{{ item.content }}</p>
-    }
-    <!-- list -->
-    @else if(item.type === 'list') {
-    <ul>
-      @for(listItem of item.items; track $index) {
-      <li>{{ listItem }}</li>
-      }
-    </ul>
-    } @else if(item.type === 'component'){
-    <ng-container
-      [ngComponentOutlet]="item.component"
-      [ngComponentOutletInputs]="item.inputs"
-    ></ng-container>
-    }}
   </div>
-</div>
 }
