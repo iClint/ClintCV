@@ -30,6 +30,8 @@ describe('LightBoxComponent', () => {
     lightBoxServiceMock = {
       imageGalleryState: lightBoxGalleryStateSubject$.asObservable(),
       closeGallery: jest.fn(),
+      nextImage: jest.fn(),
+      previousImage: jest.fn(),
     };
 
     await TestBed.configureTestingModule({
@@ -113,6 +115,30 @@ describe('LightBoxComponent', () => {
     fixture.detectChanges();
     expect(closeSpy).toHaveBeenCalledTimes(0);
   }));
+
+  it('nextImage() calls service when no event is provided (guard false path)', () => {
+    component.nextImage(); // e is undefined
+    expect(lightBoxServiceMock.nextImage).toHaveBeenCalledTimes(1);
+  });
+
+  it('nextImage(e) stops propagation and calls service (guard true path)', () => {
+    const e = { stopPropagation: jest.fn() } as unknown as MouseEvent;
+    component.nextImage(e);
+    expect(e.stopPropagation).toHaveBeenCalledTimes(1);
+    expect(lightBoxServiceMock.nextImage).toHaveBeenCalledTimes(1);
+  });
+
+  it('previousImage() calls service when no event is provided (guard false path)', () => {
+    component.previousImage(); // e is undefined
+    expect(lightBoxServiceMock.previousImage).toHaveBeenCalledTimes(1);
+  });
+
+  it('previousImage(e) stops propagation and calls service (guard true path)', () => {
+    const e = { stopPropagation: jest.fn() } as unknown as MouseEvent;
+    component.previousImage(e);
+    expect(e.stopPropagation).toHaveBeenCalledTimes(1);
+    expect(lightBoxServiceMock.previousImage).toHaveBeenCalledTimes(1);
+  });
 
   afterEach(() => {
     TestBed.resetTestingModule();
