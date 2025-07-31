@@ -55,11 +55,11 @@ describe('LightBoxComponent', () => {
       index: 0,
     };
 
-    lightBoxGalleryStateSubject$.next(mockState); // emit
-    tick(); // flush microtasks
-    fixture.detectChanges(); // update component
+    lightBoxGalleryStateSubject$.next(mockState);
+    tick();
+    fixture.detectChanges();
 
-    expect(component.galleryState).toEqual(mockState); // assert
+    expect(component.galleryState).toEqual(mockState);
   }));
 
   it('should call lightBoxService.close() when close() is called', () => {
@@ -117,7 +117,7 @@ describe('LightBoxComponent', () => {
   }));
 
   it('nextImage() calls service when no event is provided (guard false path)', () => {
-    component.nextImage(); // e is undefined
+    component.nextImage();
     expect(lightBoxServiceMock.nextImage).toHaveBeenCalledTimes(1);
   });
 
@@ -129,7 +129,7 @@ describe('LightBoxComponent', () => {
   });
 
   it('previousImage() calls service when no event is provided (guard false path)', () => {
-    component.previousImage(); // e is undefined
+    component.previousImage();
     expect(lightBoxServiceMock.previousImage).toHaveBeenCalledTimes(1);
   });
 
