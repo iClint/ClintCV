@@ -11,13 +11,6 @@ p {
   gap: 16px;
 }
 
-.large {
-  max-width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  cursor: pointer;
-}
-
 .small {
   max-width: 20%;
   aspect-ratio: 4 / 3; /* maintain consistent shape */
@@ -25,6 +18,25 @@ p {
   border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
+  border: 1px solid black;
+}
+
+.medium {
+  width: 30%;
+  aspect-ratio: 4 / 3; /* maintain consistent shape */
+  object-fit: cover;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid black;
+}
+
+.large {
+  max-width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid black;
 }
 
 .project__image-label {

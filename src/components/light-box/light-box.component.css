@@ -22,7 +22,7 @@
   border-radius: 16px;
   border: 5px solid white;
   max-width: min(95vw, 1400px);
-  max-height: calc(85vh - 56px);
+  max-height: calc(95vh - 48px);
   height: auto;
   width: auto;
   object-fit: contain;

@@ -1,9 +1,9 @@
 import { ContentType, PreviewSize } from 'src/app/enums/light-box.enums';
-import { ProjectHomeDiyContentModel as ProjectHomeDiyContentModel } from 'src/app/models/project-home-diy.model';
+import { ProjectContentModel } from '../models/project-config.model';
 
-export const ProjectHomeDiyContent: ProjectHomeDiyContentModel = {
+export const ProjectHomeDiyContent: ProjectContentModel = {
   title: 'Fireplace Media Wall – Custom DIY Project',
-  description: [
+  content: [
     {
       type: ContentType.TEXT,
       content: `To transform a plain section of our living/dining room into a warm and inviting space for guests, my partner and I envisioned a minimalist media wall. The goal was to mount the TV cleanly, integrate an electric fireplace, conceal home security equipment, and create storage and decorative shelving — all with a polished, built-in look.`,

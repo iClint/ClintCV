@@ -1,12 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ProjectHomeDiyComponent } from './project-home-diy.component';
 import { LightBoxService } from 'src/app/services/light-box/light-box.service';
 import { LightBoxGalleryState } from 'src/app/models/light-box.model';
-import { Subject } from 'rxjs';
+import { ProjectComponent } from './project.component';
+import { of, Subject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
-describe('ProjectHomeDiyComponent', () => {
-  let component: ProjectHomeDiyComponent;
-  let fixture: ComponentFixture<ProjectHomeDiyComponent>;
+describe('ProjectComponent', () => {
+  let component: ProjectComponent;
+  let fixture: ComponentFixture<ProjectComponent>;
   let lightBoxServiceMock: Partial<LightBoxService>;
   let lightBoxGalleryServiceSubject$: Subject<LightBoxGalleryState>;
 
@@ -18,12 +19,20 @@ describe('ProjectHomeDiyComponent', () => {
       openGallery: jest.fn(),
     };
 
+    const mockConfig = { title: 'Test', content: [] } as any; // or your real type
+
     await TestBed.configureTestingModule({
-      imports: [ProjectHomeDiyComponent],
-      providers: [{ provide: LightBoxService, useValue: lightBoxServiceMock }],
+      imports: [ProjectComponent],
+      providers: [
+        { provide: LightBoxService, useValue: lightBoxServiceMock },
+        {
+          provide: ActivatedRoute,
+          useValue: { data: of({ config: mockConfig }) },
+        }, // ✅
+      ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ProjectHomeDiyComponent);
+    fixture = TestBed.createComponent(ProjectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
