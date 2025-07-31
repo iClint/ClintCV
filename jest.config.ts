@@ -3,6 +3,9 @@ export default {
   preset: './jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   coverageDirectory: './coverage/ClintCV',
+
+  roots: ['<rootDir>/src'],
+
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
@@ -12,7 +15,29 @@ export default {
       },
     ],
   },
+
+  // <-- keep this so Angular’s ESM gets transformed
   transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
+
+  testEnvironment: 'jsdom',
+  testEnvironmentOptions: {
+    customExportConditions: ['browser', 'development'],
+  },
+
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    '<rootDir>/dist/',
+    '<rootDir>/coverage/',
+    '<rootDir>/.nx/',
+    '<rootDir>/.angular/',
+  ],
+  watchPathIgnorePatterns: [
+    '<rootDir>/dist/',
+    '<rootDir>/coverage/',
+    '<rootDir>/.nx/',
+    '<rootDir>/.angular/',
+  ],
+
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',
     'jest-preset-angular/build/serializers/ng-snapshot',

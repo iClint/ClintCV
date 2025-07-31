@@ -144,5 +144,27 @@ export const ProjectPortfolioContent: ProjectContentModel = {
         ],
       },
     },
+    {
+      type: ContentType.HEADING,
+      content: 'Complete test coverage:',
+    },
+    {
+      type: ContentType.TEXT,
+      content:
+        'Achieving complete test coverage ensures that every part of the application is verified, from core business logic to reusable components and UI interactions. My test suite combines unit, integration, and end‑to‑end tests, providing confidence that new features don’t break existing functionality. Automated builds run these tests in CI, and any failure blocks deployment—guaranteeing only thoroughly validated code reaches production. The screenshot highlights a fully passing run with coverage metrics, demonstrating both reliability and maintainability in the development workflow.',
+      label: '',
+    },
+    {
+      type: ContentType.IMAGES,
+      previewSize: PreviewSize.LARGE,
+      images: [
+        {
+          imageSrc: 'images/project-otp/test-coverage.png',
+          imageAlt: 'Test coverage screenshot',
+          imageLabel: '100% test coverage across all files and logic paths',
+        },
+      ],
+      label: '',
+    },
   ],
 };

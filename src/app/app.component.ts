@@ -21,7 +21,7 @@ export class AppComponent {
 
   constructor(private router: Router) {
     this.waitForGoatCounter().then(() => {
-      console.log('🐐 GoatCounter is ready');
+      // console.log('🐐 GoatCounter is ready');
       this.goatcounterReady = true;
 
       this.router.events
@@ -31,7 +31,7 @@ export class AppComponent {
           /* istanbul ignore next */
           if (gc?.count) {
             gc.count({ path: event.urlAfterRedirects });
-            console.log('🐐 GoatCounter tracked:', event.urlAfterRedirects);
+            // console.log('🐐 GoatCounter tracked:', event.urlAfterRedirects);
           }
         });
     });
@@ -48,7 +48,7 @@ export class AppComponent {
       if (script) {
         script.addEventListener('load', () => resolve());
         script.addEventListener('error', () => {
-          console.warn('🐐 GoatCounter script failed to load');
+          // console.warn('🐐 GoatCounter script failed to load');
           resolve(); // fail silently
         });
       } else {
