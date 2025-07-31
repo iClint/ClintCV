@@ -1,4 +1,4 @@
-import { TickerComponent } from 'src/components/ticker/ticker.component';
+import { TickerComponent } from 'src/app/shared/ticker/ticker.component';
 import { ContentType, PreviewSize } from '../enums/light-box.enums';
 import {
   ProjectContent,
@@ -79,7 +79,7 @@ export const ProjectPortfolioContent: ProjectContentModel = {
     },
     {
       type: ContentType.IMAGES,
-      previewSize: PreviewSize.LARGE,
+      previewSize: PreviewSize.MEDIUM,
       images: [
         {
           imageSrc: 'images/project-porfolio/slideout-navigation.gif',

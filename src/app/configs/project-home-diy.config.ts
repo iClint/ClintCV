@@ -28,7 +28,7 @@ export const ProjectHomeDiyContent: ProjectContentModel = {
     },
     {
       type: ContentType.IMAGES,
-      previewSize: PreviewSize.SMALL,
+      previewSize: PreviewSize.MEDIUM,
       label: 'Construction Plans',
       images: [
         {

@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AboutComponent } from './about.component';
-import { TickerComponent } from 'src/components/ticker/ticker.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { TickerComponent } from 'src/app/shared/ticker/ticker.component';
 
 describe('AboutComponent', () => {
   let component: AboutComponent;

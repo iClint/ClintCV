@@ -4,7 +4,7 @@ import {
   AboutContentModel,
   AboutTickerConfigModel,
 } from 'src/app/models/about-config.model';
-import { TickerComponent } from 'src/components/ticker/ticker.component';
+import { TickerComponent } from 'src/app/shared/ticker/ticker.component';
 import { AboutPageContent, AboutTickerConfig } from './about.config';
 
 @Component({

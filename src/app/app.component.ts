@@ -4,7 +4,7 @@ import { filter } from 'rxjs';
 import { HeaderComponent } from 'src/components/header/header.component';
 import { FooterComponent } from 'src/components/footer/footer.component';
 import { Config } from './app.config';
-import { LightBoxComponent } from 'src/components/light-box/light-box.component';
+import { LightBoxComponent } from 'src/app/shared/light-box/light-box.component';
 
 declare let goatcounter: any;
 

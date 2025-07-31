@@ -82,6 +82,10 @@ li {
   text-align: center;
 }
 
+.scrolled {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+}
+
 @media (max-width: 768px) {
   .page-body {
     padding: 8px;

@@ -11,32 +11,29 @@ p {
   max-width: 960px;
 }
 
-.small {
-  cursor: pointer;
-  border: 1px solid black;
-  border-radius: 16px;
-  aspect-ratio: 4 / 3; /* maintain consistent shape */
-  max-width: 20%;
-  overflow: hidden;
-  object-fit: cover;
-}
-
-.medium {
-  cursor: pointer;
-  border: 1px solid black;
-  border-radius: 16px;
-  aspect-ratio: 4 / 3; /* maintain consistent shape */
-  width: 30%;
-  overflow: hidden;
-  object-fit: cover;
-}
-
+.small,
+.medium,
 .large {
   cursor: pointer;
   border: 1px solid black;
-  border-radius: 16px;
-  max-width: 100%;
+  border-radius: 8px;
   overflow: hidden;
+  object-fit: cover;
+}
+
+.small {
+  aspect-ratio: 4 / 3; /* maintain consistent shape */
+  min-width: 128px;
+  max-width: 20%;
+}
+
+.medium {
+  width: 30%;
+  min-width: 256px;
+}
+
+.large {
+  width: 100%;
 }
 
 .project__image-label {

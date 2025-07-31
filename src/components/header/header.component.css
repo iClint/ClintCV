@@ -2,6 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: box-shadow 250ms ease-in;
   border-bottom: solid 2px var(--color-header-border);
   background: var(--color-bg-header);
   padding: 16px 24px;

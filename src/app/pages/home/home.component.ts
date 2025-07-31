@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TickerComponent } from '../../../components/ticker/ticker.component';
+import { TickerComponent } from '../../shared/ticker/ticker.component';
 import { HomePageContent, HomeTickerConfig } from './home.config';
 import {
   HomePageContentModel,
