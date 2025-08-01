@@ -5,28 +5,34 @@
     </div>
     <div class="light-box__image-container" (click)="$event.stopPropagation()">
       @if (showControls(galleryState.imageGallery.length)) {
-        <div class="index">
+        <div class="light-box__index">
           {{ galleryIndex(galleryState.index, galleryState.imageGallery) }}
         </div>
       }
-      <img
-        class="light-box__image"
-        [src]="galleryState.imageGallery[galleryState.index].imageSrc"
-        [alt]="galleryState.imageGallery[galleryState.index].imageAlt"
-      />
+      <div class="light-box__contol-layout">
+        @if (showControls(galleryState.imageGallery.length)) {
+          <div class="nav-controls-left">
+            <mat-icon class="light-box-nav-icon" (click)="previousImage($event)"
+              >chevron_left</mat-icon
+            >
+          </div>
+        }
+        <img
+          class="light-box__image"
+          [src]="galleryState.imageGallery[galleryState.index].imageSrc"
+          [alt]="galleryState.imageGallery[galleryState.index].imageAlt"
+        />
+        @if (showControls(galleryState.imageGallery.length)) {
+          <div class="nav-controls-right">
+            <mat-icon class="light-box-nav-icon" (click)="nextImage($event)"
+              >chevron_right</mat-icon
+            >
+          </div>
+        }
+      </div>
       <div class="light-box__label">
         {{ galleryState.imageGallery[galleryState.index].imageLabel }}
       </div>
-      @if (showControls(galleryState.imageGallery.length)) {
-        <div class="nav-controls">
-          <mat-icon class="light-box-nav-icon" (click)="previousImage($event)"
-            >chevron_left</mat-icon
-          >
-          <mat-icon class="light-box-nav-icon" (click)="nextImage($event)"
-            >chevron_right</mat-icon
-          >
-        </div>
-      }
     </div>
   </div>
 }

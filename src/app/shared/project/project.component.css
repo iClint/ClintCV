@@ -11,6 +11,18 @@ p {
   max-width: 960px;
 }
 
+.image {
+  display: block;
+  transition: all 100ms ease-in-out;
+}
+
+.small:hover,
+.medium:hover {
+  transform: translate(-4px, -4px);
+  transition: all 500px ease-in-out;
+  box-shadow: 4px 4px 8px rgb(0, 0, 0, 0.7);
+}
+
 .small,
 .medium,
 .large {

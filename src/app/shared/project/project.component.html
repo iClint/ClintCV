@@ -12,6 +12,7 @@
           <div class="container">
             @for (image of item.images; track $index) {
               <img
+                class="image"
                 [class]="item.previewSize"
                 [src]="image.imageSrc"
                 [alt]="image.imageAlt"

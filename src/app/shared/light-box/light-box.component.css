@@ -105,6 +105,34 @@
   white-space: nowrap;
 }
 
-.index {
+.light-box__index {
+  display: flex;
+  justify-content: center;
   color: white;
+}
+
+.light-box__contol-layout {
+  display: flex;
+  align-items: center;
+}
+
+.nav-controls-left,
+.nav-controls-right {
+  margin: 8px;
+}
+
+@media (max-width: 768px) {
+  .nav-controls-left,
+  .nav-controls-right {
+    position: absolute;
+    margin: 8px;
+  }
+
+  .nav-controls-left {
+    left: 0;
+  }
+
+  .nav-controls-right {
+    right: 0;
+  }
 }
