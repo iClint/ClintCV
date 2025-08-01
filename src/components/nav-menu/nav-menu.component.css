@@ -30,19 +30,21 @@
 .nav-menu__link.active,
 .nav-menu__link:hover {
   opacity: 1;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7);
   background-color: var(--color-primary);
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
 }
 
 .nav-menu__link.active .nav-menu__icon,
 .nav-menu__link:hover .nav-menu__icon {
-  color: var(--color-text-light);
+  color: var(--color-text-dark);
 }
 
 /* Fade active if any other is hovered */
 .nav-menu__container:has(.nav-menu__link:hover)
   .nav-menu__link.active:not(:hover) {
   opacity: 1;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   background-color: transparent;
   color: var(--color-text-light);
 }
