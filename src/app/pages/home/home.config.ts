@@ -31,7 +31,7 @@ export const HomePageContent: HomePageContentModel = {
 
       `I bring more than just code to the table — with a diverse background and wide-ranging skills, I’m comfortable wearing multiple hats and stepping into complex challenges.`,
 
-      `I bring more than just code to the table — with a diverse background and wide-ranging skills, I’m comfortable wearing multiple hats and stepping into complex challenges.`,
+      `I’m also open to opportunities outside of software engineering, including office administration, operational support, or even something completely new where I can apply my problem‑solving skills and make a real impact.`,
     ],
     actions: [
       {
