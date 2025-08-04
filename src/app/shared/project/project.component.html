@@ -4,11 +4,11 @@
       <h1>{{ config.title }}</h1>
       @for (item of config.content; track $index) {
         <!-- sub-heading -->
-        @if (item.type === 'heading') {
+        @if (item.type === contentType.HEADING) {
           <h3>{{ item.content }}</h3>
         }
         <!-- image gallery -->
-        @else if (item.type === 'images') {
+        @else if (item.type === contentType.IMAGES) {
           <div class="container">
             @for (image of item.images; track $index) {
               <img
@@ -23,21 +23,36 @@
           <p class="project__image-label">{{ item.label }}</p>
         }
         <!-- text -->
-        @else if (item.type === 'text') {
+        @else if (item.type === contentType.TEXT) {
           <p>{{ item.content }}</p>
         }
         <!-- list -->
-        @else if (item.type === 'list') {
+        @else if (item.type === contentType.LIST) {
           <ul>
             @for (listItem of item.items; track $index) {
               <li>{{ listItem }}</li>
             }
           </ul>
-        } @else if (item.type === 'component') {
+        } @else if (item.type === contentType.COMPONENT) {
           <ng-container
             [ngComponentOutlet]="item.component"
             [ngComponentOutletInputs]="item.inputs"
           ></ng-container>
+        } @else if (item.type === contentType.VIDEO) {
+          <div class="container">
+            <video
+              class="video"
+              [class]="item.videoSize"
+              autoplay
+              loop
+              muted
+              playsinline
+            >
+              <source [src]="item.src" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <p class="project__image-label">{{ item.label }}</p>
         }
       }
     </div>

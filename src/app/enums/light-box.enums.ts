@@ -4,6 +4,7 @@ export enum ContentType {
   LIST = 'list',
   HEADING = 'heading',
   COMPONENT = 'component',
+  VIDEO = 'video',
 }
 
 export enum PreviewSize {

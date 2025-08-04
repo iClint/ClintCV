@@ -1,5 +1,6 @@
 import { Type } from '@angular/core';
 import { ContentType, PreviewSize } from '../enums/light-box.enums';
+import { VideoSize } from '../enums/video.enums';
 
 export interface ProjectContentModel {
   title: string;
@@ -11,7 +12,15 @@ export type ProjectContent =
   | TextContent
   | ImagesContent
   | ListContent
-  | ComponentContent;
+  | ComponentContent
+  | Video;
+
+export interface Video {
+  type: ContentType.VIDEO;
+  src: string;
+  label: string;
+  videoSize: VideoSize;
+}
 
 export interface SubHeading {
   type: ContentType.HEADING;

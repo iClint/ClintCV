@@ -1,4 +1,5 @@
 import { ContentType, PreviewSize } from '../enums/light-box.enums';
+import { VideoSize } from '../enums/video.enums';
 import { ProjectContentModel } from '../models/project-config.model';
 
 export const ProjectOtpContent: ProjectContentModel = {
@@ -112,15 +113,10 @@ export const ProjectOtpContent: ProjectContentModel = {
       label: '',
     },
     {
-      type: ContentType.IMAGES,
-      previewSize: PreviewSize.MEDIUM,
-      images: [
-        {
-          imageSrc: 'images/project-otp/short-live-map.gif',
-          imageAlt: 'Order Tracking Portal animation',
-          imageLabel: 'Mock Live delivery tracking experience',
-        },
-      ],
+      type: ContentType.VIDEO,
+      src: 'images/project-otp/short-live-map.mp4',
+      label: 'Live tracking using mocked geo-locations',
+      videoSize: VideoSize.SMALL,
     },
   ],
 };

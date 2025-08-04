@@ -55,6 +55,24 @@ p {
   text-align: center;
 }
 
+.video {
+  border: 1px solid black;
+  border-radius: 8px;
+  max-width: 960px;
+  height: auto;
+  object-fit: cover;
+}
+
+.video-small {
+  width: 25%;
+}
+.video-medium {
+  width: 50%;
+}
+.video-large {
+  width: 100%;
+}
+
 @media (max-width: 768px) {
   .small,
   .large {
