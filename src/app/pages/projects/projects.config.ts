@@ -15,6 +15,13 @@ export const ProjectsPageContent: ProjectsPageContentModel = {
       thumbnail: 'images/project-otp/wapple.jpg',
     },
     {
+      url: '/projects/project-otp-custom-tool',
+      title: 'Real-Time Development Utility',
+      description:
+        'A custom tool I built to help our team test and debug real-time features in the Order Tracking Portal. It streamlined workflows, improved visibility into live events, and accelerated delivery.',
+      thumbnail: 'images/project-otp/wapple.jpg',
+    },
+    {
       url: '/projects/project-portfolio',
       title: 'Portfolio website',
       description:

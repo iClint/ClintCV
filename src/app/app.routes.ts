@@ -8,6 +8,7 @@ import { ProjectComponent } from './shared/project/project.component';
 import { ProjectOtpContent } from './configs/project-otp.config';
 import { ProjectPortfolioContent } from './configs/project-portfolio.config';
 import { ModelObjectBuilderComponent } from './pages/model-object-builder/model-object-builder.component';
+import { ProjectOtpCustomToolContent } from './configs/project-otp-custom-tool.config';
 
 export const appRoutes: Route[] = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -18,6 +19,11 @@ export const appRoutes: Route[] = [
     path: 'projects/project-otp',
     component: ProjectComponent,
     data: { config: ProjectOtpContent },
+  },
+  {
+    path: 'projects/project-otp-custom-tool',
+    component: ProjectComponent,
+    data: { config: ProjectOtpCustomToolContent },
   },
   {
     path: 'projects/project-portfolio',
