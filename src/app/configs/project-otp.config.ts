@@ -62,7 +62,7 @@ export const ProjectOtpContent: ProjectContentModel = {
     },
     {
       type: ContentType.IMAGES,
-      previewSize: PreviewSize.MEDIUM,
+      previewSize: PreviewSize.SMALL,
       images: [
         {
           imageSrc: 'images/project-otp/otp-grab-01.png',
@@ -100,6 +100,27 @@ export const ProjectOtpContent: ProjectContentModel = {
         },
       ],
       label: 'Click to expand',
+    },
+    {
+      type: ContentType.HEADING,
+      content: 'Leveraging realtime data:',
+    },
+    {
+      type: ContentType.TEXT,
+      content:
+        'Redesigned the live map tracking component to support both Woolworths fleet and third-party delivery partners (e.g. DoorDash, Uber), ensuring a unified experience across propositions. The solution established a persistent WebSocket connection using SignalR to stream real-time delivery data from the Live Delivery Tracking service to the frontend. The component also included robust business logic to handle network errors and fallback scenarios when tracking data was unavailable. This same SignalR infrastructure was leveraged to push live updates to order status, delivery events, and ETA changes across the customer-facing experience.',
+      label: '',
+    },
+    {
+      type: ContentType.IMAGES,
+      previewSize: PreviewSize.MEDIUM,
+      images: [
+        {
+          imageSrc: 'images/project-otp/short-live-map.gif',
+          imageAlt: 'Order Tracking Portal animation',
+          imageLabel: 'Mock Live delivery tracking experience',
+        },
+      ],
     },
   ],
 };

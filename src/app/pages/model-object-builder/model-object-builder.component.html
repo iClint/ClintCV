@@ -1,0 +1,15 @@
+<h1>Model Object Builder</h1>
+<form action="">
+  <div>
+    <label for="title">Project title:</label
+    ><input type="text" name="title" id="title" />
+  </div>
+  <div>
+    <label for="content">Page elements</label>
+    @for (element of elements; track element) {
+      <app-content [lastElementNumber]="lastElementNumber" />
+    }
+  </div>
+</form>
+<button (click)="onAddElement()">+ Add element</button>
+{{ currentElementNumber }}

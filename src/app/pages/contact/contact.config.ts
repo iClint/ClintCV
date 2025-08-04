@@ -22,7 +22,12 @@ export const ContactContent: ContactContentModel = {
     {
       icon: 'fa-solid fa-file contact__icon',
       url: 'documents/Clint_Kingston_Resume-Current.pdf',
-      label: 'Download CV',
+      label: 'Download Tech-Focused Resume (Software Engineering)',
+    },
+    {
+      icon: 'fa-solid fa-file contact__icon',
+      url: 'documents/Clint_Kingston_Resume-Current.pdf',
+      label: 'Download Versatile Resume (Operations, Admin, Support)',
     },
   ],
 };

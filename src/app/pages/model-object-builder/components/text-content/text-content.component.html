@@ -1,0 +1,22 @@
+<div class="paragraph-container">
+  <div>Paragraph</div>
+  <div class="paragraphs">
+    @for (value of textParagraphValues; track $index) {
+      <div class="text-area-row">
+        <textarea
+          [id]="'paragraph-' + $index"
+          class="text-area"
+          wrap="soft"
+          rows="5"
+          cols="80"
+          [(ngModel)]="textParagraphValues[$index]"
+        ></textarea>
+      </div>
+    }
+  </div>
+  <div class="new-paragraph-container">
+    <button class="button__new-paragraph" (click)="onNewParagraph($event)">
+      +
+    </button>
+  </div>
+</div>

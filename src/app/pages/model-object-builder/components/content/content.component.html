@@ -1,0 +1,25 @@
+<div>
+  <hr />
+  <div class="element-container">
+    <div>{{ lastElementNumber }}</div>
+    <select
+      id="element-selection"
+      class="selcect-box"
+      [(ngModel)]="selectedContent"
+    >
+      @for (element of elementTypes; track element) {
+        <option [value]="element">{{ element }}</option>
+      }
+    </select>
+    @if (selectedContent === 'Text') {
+      <app-text-content />
+    } @else if (selectedContent === 'Sub-heading') {
+      <app-sub-heading />
+    } @else if (selectedContent === 'List') {
+      <app-list-component />
+    } @else if (selectedContent === 'Image gallery') {
+      <app-image-gallery />
+    }
+  </div>
+  <hr />
+</div>

@@ -35,8 +35,12 @@ export const HomePageContent: HomePageContentModel = {
     ],
     actions: [
       {
-        label: '📄 Download CV',
-        href: 'documents/Clint_Kingston_Resume-Current.pdf',
+        label: '📄 Tech-Focused Resume (Software Engineering)',
+        href: 'documents/Clint_Kingston_Resume_Tech_Ver2-4.pdf',
+      },
+      {
+        label: '📄 Versatile Resume (Operations, Admin, Support)',
+        href: 'documents/Clint_Kingston_Resume_Ver1-5.pdf',
       },
       { label: '📧 Contact Me', href: 'mailto:clintkingston@gmail.com' },
     ],

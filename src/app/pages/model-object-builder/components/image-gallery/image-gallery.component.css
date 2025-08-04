@@ -1,0 +1,4 @@
+.image-gallery-container {
+  display: flex;
+  flex-direction: row;
+}

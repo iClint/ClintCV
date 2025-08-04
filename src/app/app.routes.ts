@@ -7,6 +7,7 @@ import { ProjectHomeDiyContent } from './configs/project-home-diy.config';
 import { ProjectComponent } from './shared/project/project.component';
 import { ProjectOtpContent } from './configs/project-otp.config';
 import { ProjectPortfolioContent } from './configs/project-portfolio.config';
+import { ModelObjectBuilderComponent } from './pages/model-object-builder/model-object-builder.component';
 
 export const appRoutes: Route[] = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -29,4 +30,5 @@ export const appRoutes: Route[] = [
     data: { config: ProjectHomeDiyContent },
   },
   { path: 'contact', component: ContactComponent },
+  { path: 'model-object-builder', component: ModelObjectBuilderComponent },
 ];

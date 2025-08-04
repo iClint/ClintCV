@@ -27,12 +27,14 @@ export interface TextContent {
 export interface ImagesContent {
   type: ContentType.IMAGES;
   previewSize: PreviewSize;
-  images: {
-    imageSrc: string;
-    imageAlt: string;
-    imageLabel: string;
-  }[];
+  images: Image[];
   label?: string;
+}
+
+export interface Image {
+  imageSrc: string;
+  imageAlt: string;
+  imageLabel: string;
 }
 
 export interface ListContent {

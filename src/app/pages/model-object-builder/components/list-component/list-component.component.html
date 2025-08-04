@@ -1,0 +1,23 @@
+<div class="list-container">
+  <div>List</div>
+  <div class="list-items">
+    @for (value of listItemValues; track $index) {
+      <div class="text-area-row">
+        <div>⚫️</div>
+        <textarea
+          [id]="'list-item-' + $index"
+          class="text-area"
+          wrap="soft"
+          rows="5"
+          cols="80"
+          [(ngModel)]="listItemValues[$index]"
+        ></textarea>
+      </div>
+    }
+  </div>
+  <div class="new-list-container">
+    <button class="button__new-list-item" (click)="onNewListItem($event)">
+      +
+    </button>
+  </div>
+</div>

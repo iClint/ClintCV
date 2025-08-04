@@ -1,0 +1,29 @@
+.paragraph-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-area {
+  min-height: 64px;
+  resize: vertical;
+}
+
+.text-area-row {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: end;
+  margin: 8px;
+}
+.new-paragraph-container {
+  display: flex;
+  justify-content: end;
+}
+
+.paragraphs {
+  flex-direction: column-reverse;
+}
+
+.button__new-paragraph {
+  width: 36px;
+  height: 36px;
+}
