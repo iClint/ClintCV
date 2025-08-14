@@ -17,9 +17,11 @@ export class NavMenuComponent {
   }[];
 
   private _isNavMenuVisible = false;
+
   get isNavMenuVisible() {
     return this._isNavMenuVisible;
   }
+
   onMenuClick() {
     this._isNavMenuVisible = !this._isNavMenuVisible;
   }

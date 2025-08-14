@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .header__title {
@@ -29,4 +29,8 @@
   color: var(--color-text-light-secondary);
   font-weight: var(--font-subtitle-weight);
   font-size: var(--font-subtitle-size);
+}
+
+.header__nav-menu {
+  margin-left: 12px;
 }

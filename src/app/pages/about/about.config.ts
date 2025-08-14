@@ -51,7 +51,7 @@ export const AboutPageContent: AboutContentModel = {
       { label: 'Experience', content: '3+ years in software engineering' },
       {
         label: 'Current Role',
-        content: 'Associate Software Engineer at Woolworths',
+        content: 'Software Engineer at Biscit',
       },
       { label: 'Philosophy', content: 'Clean code, fast shipping, zero fuss' },
       {

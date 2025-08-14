@@ -41,10 +41,10 @@
 .about__quick-facts {
   margin-top: 1em;
   border-radius: 8px;
-  background: #282828;
-  padding: 0.8em 1em;
-  color: #c7ffed;
-  font-size: 1.05em;
+  background: var(--color-primary);
+  padding: 12px 24px;
+  color: var(--color-dark);
+  font-size: 16px;
 }
 
 /* Mobile-friendly: stack the image above the text */

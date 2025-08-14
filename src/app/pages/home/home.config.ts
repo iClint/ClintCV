@@ -25,24 +25,13 @@ export const HomeTickerConfig: HomeTickerConfigModel = {
 export const HomePageContent: HomePageContentModel = {
   tldr: {
     title: 'The TL;DR',
-    badge: '⭐️ Available for hire ⭐️',
+    badge: '⭐️ Employed by Biscit ⭐️',
     content: [
       `Whether it’s architecting real-time systems, building scalable UIs, improving processes, or bridging technical and non-technical teams, I focus on delivering real value at speed. If you’re hiring or just want to connect, feel free to reach out.`,
 
       `I bring more than just code to the table — with a diverse background and wide-ranging skills, I’m comfortable wearing multiple hats and stepping into complex challenges.`,
-
-      `I’m also open to opportunities outside of software engineering, including office administration, operational support, or even something completely new where I can apply my problem‑solving skills and make a real impact.`,
     ],
     actions: [
-      {
-        label: '📄 Tech-Focused Resume (Software Engineering)',
-        href: 'documents/Clint_Kingston_Resume_Tech_Ver2-4.pdf',
-      },
-      {
-        label: '📄 Versatile Resume (Operations, Admin, Support)',
-        href: 'documents/Clint_Kingston_Resume_Ver1-5.pdf',
-      },
-      { label: '📧 Contact Me', href: 'mailto:clintkingston@gmail.com' },
     ],
   },
   keyProjects: {

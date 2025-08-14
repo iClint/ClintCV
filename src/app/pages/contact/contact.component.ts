@@ -14,11 +14,13 @@ export class ContactComponent {
   content: ContactContentModel = ContactContent;
 
   dynamicDescription = '';
+  visible = false;
 
   onMouseEnterIcon(label: string): void {
     this.dynamicDescription = label;
+    this.visible = true;
   }
   onMouseLeaveIcon(): void {
-    this.dynamicDescription = '';
+    this.visible = false;
   }
 }

@@ -21,7 +21,7 @@
       }
     </div>
     <div class="contact__dynamic-description-container">
-      <p class="contact__dynamic-description">{{ dynamicDescription }}</p>
+      <p class="contact__dynamic-description" [class.show]="visible">{{ dynamicDescription }}</p>
     </div>
   </section>
 </main>

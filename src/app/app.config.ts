@@ -17,7 +17,7 @@ export const Config = {
   header: {
     title: 'Clint Kingston',
     subtitle: 'Fullstack Software Engineer',
-    description: 'Building innovative solutions with .Net, Angular and beyond,',
+    description: 'Building solutions with .Net, Angular and more',
   },
   navMenu: {
     items: [
