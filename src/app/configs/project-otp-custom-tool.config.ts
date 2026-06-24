@@ -3,7 +3,7 @@ import { VideoSize } from '../enums/video.enums';
 import { ProjectContentModel } from '../models/project-config.model';
 
 export const ProjectOtpCustomToolContent: ProjectContentModel = {
-  title: 'Order Tracking Portal – Real-Time Dev Tool',
+  title: 'Order Tracking Portal: Real-Time Dev Tool',
   content: [
     {
       type: ContentType.IMAGES,
@@ -30,7 +30,7 @@ export const ProjectOtpCustomToolContent: ProjectContentModel = {
       type: ContentType.LIST,
       items: [
         'Mocked the real-time SignalR hub used by the production backend, matching the exact message format.',
-        'Enabled developers to simulate the full delivery tracking journey — forward, backward, or skipping stages.',
+        'Enabled developers to simulate the full delivery tracking journey: forward, backward, or skipping stages.',
         'Allowed sending of custom payloads to test edge cases and preview upcoming features.',
         'Provided a live preview window with iframe support for viewing the Order Tracking Portal at various screen sizes.',
         'Converted from a personal console app into a shared Angular front-end for team-wide use.',

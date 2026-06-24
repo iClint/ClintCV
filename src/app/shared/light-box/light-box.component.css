@@ -1,11 +1,3 @@
-.light-box__overlay,
-.nav-controls,
-.light-box-nav-icon,
-.light-box__close,
-.light-box__close-button {
-  display: flex;
-}
-
 .light-box__overlay {
   display: flex;
   position: fixed;
@@ -13,7 +5,7 @@
   align-items: center;
   z-index: 1000;
   inset: 0;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   padding: 12px;
   overflow: hidden;
 }
@@ -27,7 +19,7 @@
 
 .light-box__image {
   display: block;
-  border: 5px solid white;
+  border: 4px solid #fff;
   border-radius: 16px;
   width: auto;
   max-width: min(95vw, 1400px);
@@ -36,59 +28,28 @@
   object-fit: contain;
 }
 
-.nav-controls {
-  display: flex;
-  position: absolute;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1001;
-  inset: 0;
-  padding: 12px;
-  pointer-events: none;
-}
-
+/* White circular nav buttons sit over the dark overlay (theme-independent). */
 .light-box-nav-icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 40%;
+  opacity: 0.5;
   transition: opacity ease-in-out 250ms;
-  cursor: pointer;
-  border-radius: 50%;
-  background: white;
-  width: 48px;
-  height: 48px;
-  pointer-events: auto;
-  color: black;
-  font-weight: 900;
-  font-size: 36px;
+  background: #fff;
+  color: #000;
 }
 
-.light-box-nav-icon:hover {
-  opacity: 100%;
-  transition: opacity ease-in-out 250ms;
+.light-box-nav-icon:hover,
+.light-box-nav-icon:focus-visible {
+  opacity: 1;
 }
 
 .light-box__close {
-  display: flex;
   position: absolute;
-  top: 12px;
-  right: 12px;
-  justify-content: end;
-  width: auto;
-  height: auto;
-}
-
-.light-box__close-button {
-  display: flex;
-  justify-content: end;
-  cursor: pointer;
-  margin-bottom: 8px;
-  width: 24px;
-  height: 24px;
-  color: white;
-  font-weight: 900;
-  font-size: 24px;
+  top: 16px;
+  right: 16px;
+  z-index: 1001;
+  color: #fff;
 }
 
 .light-box__label {
@@ -98,9 +59,8 @@
   box-sizing: border-box;
   margin-top: 8px;
   overflow: visible;
-
-  color: white;
-  font-size: 12px;
+  color: #fff;
+  font-size: 0.75rem;
   text-align: center;
   white-space: nowrap;
 }
@@ -108,12 +68,15 @@
 .light-box__index {
   display: flex;
   justify-content: center;
-  color: white;
+  margin-bottom: 4px;
+  color: #fff;
+  font-size: 0.8125rem;
 }
 
 .light-box__contol-layout {
   display: flex;
   align-items: center;
+  gap: 8px;
 }
 
 .nav-controls-left,
@@ -125,6 +88,8 @@
   .nav-controls-left,
   .nav-controls-right {
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     margin: 8px;
   }
 

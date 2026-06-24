@@ -20,7 +20,7 @@ export const ProjectOtpContent: ProjectContentModel = {
     {
       type: ContentType.TEXT,
       content:
-        'I worked as part of the WooliesX engineering team on the Order Tracking      Portal, used by customers nationwide to track grocery deliveries in real time. While the project was a collaborative effort, I was specifically responsible for designing and building many of the user interface components, ensuring they were accessible, responsive, and aligned with Woolworths’ design system.',
+        'I worked as part of the WooliesX engineering team on the Order Tracking Portal, used by customers nationwide to track grocery deliveries in real time. While the project was a collaborative effort, I was specifically responsible for designing and building many of the user interface components, making sure they were accessible, responsive, and aligned with Woolworths’ design system.',
       label: '',
     },
     {
@@ -32,11 +32,11 @@ export const ProjectOtpContent: ProjectContentModel = {
       items: [
         'Building reusable Angular components for the delivery tracking experience.',
 
-        'Implementing real-time status updates anduser-friendly progress indicators.',
+        'Implementing real-time status updates and user-friendly progress indicators.',
 
-        'Collaborating with designers and backend engineers to deliver seamless',
+        'Collaborating with designers and backend engineers to deliver seamless customer experiences.',
 
-        'customer experiences. Writing automated tests(Cypress, Jest) to maintain reliability during continuous deployment.',
+        'Writing automated tests (Cypress, Jest) to maintain reliability during continuous deployment.',
       ],
       label: '',
     },
@@ -57,7 +57,7 @@ export const ProjectOtpContent: ProjectContentModel = {
 
         'Live map tracking: Implemented live maps showing delivery driver location as orders neared delivery.',
 
-        ' Tooltips & instructional modals: Designed guidance overlays and tooltips to help users understand features and stay informed throughout the delivery process.',
+        'Tooltips and instructional modals: Designed guidance overlays and tooltips to help users understand features and stay informed throughout the delivery process.',
       ],
       label: '',
     },
@@ -68,7 +68,7 @@ export const ProjectOtpContent: ProjectContentModel = {
         {
           imageSrc: 'images/project-otp/otp-grab-01.png',
           imageAlt: 'Order Tracking Portal Screenshot',
-          imageLabel: 'Start of the order tracking Jorney',
+          imageLabel: 'Start of the order tracking journey',
         },
         {
           imageSrc: 'images/project-otp/otp-grab-02.png',
@@ -104,7 +104,7 @@ export const ProjectOtpContent: ProjectContentModel = {
     },
     {
       type: ContentType.HEADING,
-      content: 'Leveraging realtime data:',
+      content: 'Leveraging real-time data:',
     },
     {
       type: ContentType.TEXT,

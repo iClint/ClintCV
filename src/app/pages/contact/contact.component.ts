@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { ContactContentModel } from 'src/app/models/contact-config.model';
 import { ContactContent } from './contact.config';
+import { RevealDirective } from 'src/app/directives/reveal.directive';
 
 @Component({
   selector: 'app-contact',
-  imports: [CommonModule, MatIconModule],
+  imports: [MatCardModule, MatButtonModule, MatTooltipModule, RevealDirective],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css',
 })

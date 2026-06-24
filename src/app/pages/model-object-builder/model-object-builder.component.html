@@ -1,15 +1,50 @@
-<h1>Model Object Builder</h1>
-<form action="">
-  <div>
-    <label for="title">Project title:</label
-    ><input type="text" name="title" id="title" />
+<div class="page-body">
+  <div class="builder content-column">
+    <mat-card appearance="outlined" class="glass builder__editor">
+      <mat-card-header>
+        <mat-card-title>Model Object Builder</mat-card-title>
+        <mat-card-subtitle
+          >Assemble a project's content and copy the JSON.</mat-card-subtitle
+        >
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="builder__title">
+          <mat-label>Project title</mat-label>
+          <input matInput type="text" [(ngModel)]="title" />
+        </mat-form-field>
+
+        @for (element of elements; track element.id; let i = $index) {
+          <app-content
+            [elementNumber]="i + 1"
+            (blockChange)="onBlockChange(element.id, $event)"
+            (remove)="onRemoveElement(element.id)"
+          />
+        }
+
+        <button
+          mat-stroked-button
+          type="button"
+          class="builder__add"
+          (click)="onAddElement()"
+        >
+          <mat-icon>add</mat-icon>
+          Add element
+        </button>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card appearance="outlined" class="glass builder__preview">
+      <mat-card-header>
+        <mat-card-title>JSON output</mat-card-title>
+        <span class="builder__spacer"></span>
+        <button mat-raised-button color="primary" (click)="onCopyJson()">
+          <mat-icon>content_copy</mat-icon>
+          Copy JSON
+        </button>
+      </mat-card-header>
+      <mat-card-content>
+        <pre class="builder__json">{{ json }}</pre>
+      </mat-card-content>
+    </mat-card>
   </div>
-  <div>
-    <label for="content">Page elements</label>
-    @for (element of elements; track element) {
-      <app-content [lastElementNumber]="lastElementNumber" />
-    }
-  </div>
-</form>
-<button (click)="onAddElement()">+ Add element</button>
-{{ currentElementNumber }}
+</div>

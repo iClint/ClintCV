@@ -1,9 +1,6 @@
 import { TickerComponent } from 'src/app/shared/ticker/ticker.component';
 import { ContentType, PreviewSize } from '../enums/light-box.enums';
-import {
-  ProjectContent,
-  ProjectContentModel,
-} from '../models/project-config.model';
+import { ProjectContentModel } from '../models/project-config.model';
 
 export const ProjectPortfolioContent: ProjectContentModel = {
   title: 'Personal Portfolio & Technical Blog',
@@ -11,32 +8,32 @@ export const ProjectPortfolioContent: ProjectContentModel = {
     {
       type: ContentType.TEXT,
       content:
-        'This website is a custom-built portfolio and technical blog designed to showcase my work, share what I’ve learned, and demonstrate my approach to clean, user-focused development. Built with Angular 18 standalone components, it leverages lazy loading and modern routing with provideRouter to ensure maintainability and fast navigation.',
+        'This site is a custom-built portfolio and technical blog where I showcase my work and share what I’ve learned. It’s built with Angular 19 standalone components and Angular Material 3, using lazy loading and the provideRouter API for fast, maintainable navigation.',
       label: '',
     },
     {
       type: ContentType.LIST,
       items: [
-        'Project showcases like the Woolworths Order Tracking Portal, presented with mock data and detailed write-ups.',
+        'Project write-ups like the Woolworths Order Tracking Portal, presented with mock data and screenshots.',
 
-        'Clean, responsive design optimised for both mobile and desktop.',
+        'A responsive, dark-first design that adapts cleanly to mobile and desktop.',
 
-        'Content-first structure, focusing on clarity, speed,and accessibility.',
+        'A config-driven content system, so pages are built from typed data rather than hand-written markup.',
 
-        'A platform for sharing technical insights and frontend experiments with Angular and related technologies.',
+        'Reusable components such as an image lightbox, an animated ticker, and a scroll-reveal directive.',
       ],
       label: '',
     },
     {
       type: ContentType.TEXT,
       content:
-        'This site is actively maintained and version-controlled on GitHub using GitHub Actions to automatically build and deploy to GitHub Pages whenever new commits are pushed, ensuring the latest updates are always live without manual intervention.',
+        'The site is version-controlled on GitHub, with a GitHub Actions pipeline that builds, tests, and deploys on every push to the main branch, so the latest version is always live without manual steps.',
       label: '',
     },
     {
       type: ContentType.TEXT,
       content:
-        'As part of the build pipeline, the full unit test suite is run. Any failing test will cause the build to fail, and the build will not be deployed.',
+        'As part of that pipeline, the full unit test suite runs first. If any test fails, the build fails and nothing is deployed.',
       label: '',
     },
     {
@@ -52,42 +49,24 @@ export const ProjectPortfolioContent: ProjectContentModel = {
       label: 'Design, build and deployment flow',
     },
     {
+      type: ContentType.HEADING,
+      content: 'Angular Material 3 theming',
+    },
+    {
       type: ContentType.TEXT,
       content:
-        'I have deliberately kept the design minimalistic, focusing on usability and performance, and avoided the use of third party libraries even where it might have been easier to do so. some examples include:',
+        'The interface is built on Angular Material 3 with a custom theme I call dark developer-luxe: a near-black canvas, an electric cyan-to-violet accent, and monospace detailing. I drive it through Material’s design tokens, overriding the system colours with light-dark() pairs so the whole site follows the operating system’s light or dark setting automatically, with a manual toggle in the header to override it.',
       label: '',
     },
     {
       type: ContentType.HEADING,
-      content: 'Custom components and pure CSS',
+      content: 'Config-driven content',
     },
     {
       type: ContentType.TEXT,
       content:
-        'The use of CSS and custom components for layout, instead of relying on a UI framework like Angular Material, demonstrates my ability to build from scratch when needed. This approach allows for full control over styling, performance, and responsiveness, and showcases my understanding of layout systems and design consistency without framework dependencies.',
+        'Each page renders from a typed configuration object rather than fixed markup. A small set of content blocks (headings, text, lists, image galleries, and video) is enough to assemble any project write-up, which keeps the content separate from the presentation and makes new pages quick to add.',
       label: '',
-    },
-    {
-      type: ContentType.HEADING,
-      content: 'Pure CSS small device Slideout Navigation',
-    },
-    {
-      type: ContentType.TEXT,
-      content:
-        'The mobile navigation menu is built entirely with CSS, without relying on JavaScript or third-party libraries. This approach keeps the implementation lightweight, performant, and accessible, while still providing smooth toggle animations and responsive behavior across screen sizes.',
-      label: '',
-    },
-    {
-      type: ContentType.IMAGES,
-      previewSize: PreviewSize.MEDIUM,
-      images: [
-        {
-          imageSrc: 'images/project-porfolio/slideout-navigation.gif',
-          imageAlt: 'Slideout navigation menu for mobile devices',
-          imageLabel: 'Slideout navigation menu for mobile devices',
-        },
-      ],
-      label: 'Example of mobile or small screen navigation menu',
     },
     {
       type: ContentType.HEADING,
@@ -96,7 +75,7 @@ export const ProjectPortfolioContent: ProjectContentModel = {
     {
       type: ContentType.TEXT,
       content:
-        'The LightBoxService and LightBoxComponent provide a global, reusable solution for displaying images in an immersive lightbox view. The service manages the state of the lightbox, including whether it is open, which image or gallery is active, and navigation between images. The component subscribes to this state and renders the images in a responsive, fullscreen overlay with smooth transitions. Users can view a single image or navigate through a gallery using built‑in controls, and the implementation ensures accessibility, keyboard navigation support, and a consistent experience across the application without needing to duplicate lightbox logic in multiple components.',
+        'The LightBoxService and LightBoxComponent provide a global, reusable way to display images in an immersive overlay. The service holds the lightbox state, including whether it is open, which gallery is active, and the current image, while the component subscribes to that state and renders a responsive, fullscreen view with smooth transitions. Users can open a single image or step through a gallery using keyboard-accessible controls, all without duplicating lightbox logic across the app.',
       label: '',
     },
     {
@@ -106,7 +85,7 @@ export const ProjectPortfolioContent: ProjectContentModel = {
         {
           imageSrc: 'images/project-otp/otp-grab-01.png',
           imageAlt: 'Order Tracking Portal Screenshot',
-          imageLabel: 'Start of the order tracking Jorney',
+          imageLabel: 'Start of the order tracking journey',
         },
         {
           imageSrc: 'images/project-otp/otp-grab-02.png',
@@ -129,7 +108,7 @@ export const ProjectPortfolioContent: ProjectContentModel = {
     {
       type: ContentType.TEXT,
       content:
-        'The TickerComponent provides an animated, auto‑advancing display for cycling through messages or highlights at the top of a page. It supports optional headings, smooth fade transitions, and both automatic and manual navigation through its content. Users can move between items using chevron buttons or dot indicators, while an optional progress bar visually tracks the timing of each slide. Designed with Angular’s modern template syntax and animations, the component is lightweight, reusable, and ideal for drawing attention to key announcements, promotions, or dynamic page content.',
+        'The TickerComponent is an animated, auto-advancing display for cycling through messages or highlights at the top of a page. It supports optional headings, smooth fade transitions, and both automatic and manual navigation. Users can move between items with chevron buttons or dot indicators, while a progress bar tracks the timing of each slide. Built with Angular’s modern template syntax and animations, it is lightweight and reusable.',
       label: '',
     },
 
@@ -151,7 +130,7 @@ export const ProjectPortfolioContent: ProjectContentModel = {
     {
       type: ContentType.TEXT,
       content:
-        'Achieving complete test coverage ensures that every part of the application is verified, from core business logic to reusable components and UI interactions. My test suite combines unit, integration, and end‑to‑end tests, providing confidence that new features don’t break existing functionality. Automated builds run these tests in CI, and any failure blocks deployment—guaranteeing only thoroughly validated code reaches production. The screenshot highlights a fully passing run with coverage metrics, demonstrating both reliability and maintainability in the development workflow.',
+        'Complete test coverage means every part of the application is verified, from core business logic to reusable components and UI interactions. The suite combines unit, integration, and end-to-end tests, giving me confidence that new features don’t break existing functionality. CI runs these tests on every build, and any failure blocks deployment, so only validated code reaches production. The screenshot shows a fully passing run with coverage metrics.',
       label: '',
     },
     {

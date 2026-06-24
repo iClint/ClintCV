@@ -1,8 +1,14 @@
 @if (galleryState.isGalleryOpen) {
   <div class="light-box__overlay" (click)="closeGallery()">
-    <div class="light-box__close">
-      <mat-icon class="light-box__close-button">cancel</mat-icon>
-    </div>
+    <button
+      mat-icon-button
+      class="light-box__close"
+      type="button"
+      aria-label="Close"
+      (click)="closeGallery()"
+    >
+      <mat-icon class="light-box__close-button">close</mat-icon>
+    </button>
     <div class="light-box__image-container" (click)="$event.stopPropagation()">
       @if (showControls(galleryState.imageGallery.length)) {
         <div class="light-box__index">
@@ -12,9 +18,15 @@
       <div class="light-box__contol-layout">
         @if (showControls(galleryState.imageGallery.length)) {
           <div class="nav-controls-left">
-            <mat-icon class="light-box-nav-icon" (click)="previousImage($event)"
-              >chevron_left</mat-icon
+            <button
+              mat-icon-button
+              class="light-box-nav-icon"
+              type="button"
+              aria-label="Previous image"
+              (click)="previousImage($event)"
             >
+              <mat-icon>chevron_left</mat-icon>
+            </button>
           </div>
         }
         <img
@@ -24,9 +36,15 @@
         />
         @if (showControls(galleryState.imageGallery.length)) {
           <div class="nav-controls-right">
-            <mat-icon class="light-box-nav-icon" (click)="nextImage($event)"
-              >chevron_right</mat-icon
+            <button
+              mat-icon-button
+              class="light-box-nav-icon"
+              type="button"
+              aria-label="Next image"
+              (click)="nextImage($event)"
             >
+              <mat-icon>chevron_right</mat-icon>
+            </button>
           </div>
         }
       </div>

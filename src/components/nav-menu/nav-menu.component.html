@@ -1,14 +1,31 @@
-<mat-icon class="nav-menu__button" (click)="onMenuClick()">menu</mat-icon>
-
-<nav class="nav-menu__container" [class.show-menu]="isNavMenuVisible">
-  @for (item of items; track item) {
-    <a
-      class="nav-menu__link"
-      [routerLink]="item.path"
-      routerLinkActive="active"
-    >
-      <mat-icon class="nav-menu__icon">{{ item.icon }}</mat-icon>
-      <span class="label">{{ item.label }}</span>
-    </a>
-  }
-</nav>
+@if (layout === 'horizontal') {
+  <nav class="nav-menu nav-menu--horizontal">
+    @for (item of items; track item.path) {
+      <a
+        mat-button
+        class="nav-menu__link"
+        [routerLink]="item.path"
+        routerLinkActive="nav-menu__link--active"
+        (click)="navigate.emit()"
+      >
+        <mat-icon>{{ item.icon }}</mat-icon>
+        <span>{{ item.label }}</span>
+      </a>
+    }
+  </nav>
+} @else {
+  <mat-nav-list class="nav-menu nav-menu--vertical">
+    @for (item of items; track item.path) {
+      <a
+        mat-list-item
+        class="nav-menu__link"
+        [routerLink]="item.path"
+        routerLinkActive="nav-menu__link--active"
+        (click)="navigate.emit()"
+      >
+        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+        <span matListItemTitle>{{ item.label }}</span>
+      </a>
+    }
+  </mat-nav-list>
+}

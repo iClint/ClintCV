@@ -1,58 +1,96 @@
 <app-ticker [items]="tickerConfig.items"></app-ticker>
+
 <div class="page-body">
-  <main class="about__content">
-    <section class="about__section card">
-      <h2>{{ content.aboutMe.title }}</h2>
-      <div class="about__profile">
-        <span>
-          <img
-            class="about__img-inline"
-            [src]="content.aboutMe.image.url"
-            [alt]="content.aboutMe.image.alt"
-          />
-        </span>
-        <span>
-          <p>
-            {{ content.aboutMe.content }}
-          </p>
-          <div class="about__quick-facts">
-            <ul>
-              @for (item of content.aboutMe.quickFacts; track item.label) {
-                <li>
-                  <strong>{{ item.label }}:</strong> {{ item.content }}
-                </li>
-              }
-            </ul>
+  <main class="content-column about">
+    <section appReveal>
+      <span class="section-eyebrow">01 / Who I am</span>
+      <mat-card appearance="outlined" class="glass about__section">
+        <mat-card-header>
+          <mat-card-title>{{ content.aboutMe.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="about__profile">
+            <img
+              class="about__avatar"
+              [src]="content.aboutMe.image.url"
+              [alt]="content.aboutMe.image.alt"
+            />
+            <div class="about__bio">
+              <p>{{ content.aboutMe.content }}</p>
+            </div>
           </div>
-        </span>
-      </div>
+
+          <mat-list class="about__quick-facts">
+            @for (item of content.aboutMe.quickFacts; track item.label) {
+              <mat-list-item>
+                <mat-icon matListItemIcon class="about__fact-icon"
+                  >chevron_right</mat-icon
+                >
+                <span matListItemTitle class="about__fact-label">{{
+                  item.label
+                }}</span>
+                <span matListItemLine>{{ item.content }}</span>
+              </mat-list-item>
+            }
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
     </section>
 
-    <section class="about__section card">
-      <h2>{{ content.howIGotHere.title }}</h2>
-      <ul>
-        @for (item of content.howIGotHere.list; track item) {
-          <li>{{ item }}</li>
-        }
-      </ul>
+    <section appReveal>
+      <span class="section-eyebrow">02 / How I got here</span>
+      <mat-card appearance="outlined" class="glass about__section">
+        <mat-card-header>
+          <mat-card-title>{{ content.howIGotHere.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <ol class="timeline">
+            @for (item of content.howIGotHere.list; track item) {
+              <li class="timeline__item">
+                <mat-icon class="timeline__icon" aria-hidden="true"
+                  >history</mat-icon
+                >
+                <span>{{ item }}</span>
+              </li>
+            }
+          </ol>
+        </mat-card-content>
+      </mat-card>
     </section>
 
-    <!-- WooliesX journey -->
-    <section class="about__section card">
-      <h2>{{ content.profesionalJourney.title }}</h2>
-      <ul>
-        @for (item of content.profesionalJourney.list; track item) {
-          <li>{{ item }}</li>
-        }
-      </ul>
+    <section appReveal>
+      <span class="section-eyebrow">03 / The journey</span>
+      <mat-card appearance="outlined" class="glass about__section">
+        <mat-card-header>
+          <mat-card-title>{{
+            content.profesionalJourney.title
+          }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <ol class="timeline">
+            @for (item of content.profesionalJourney.list; track item) {
+              <li class="timeline__item">
+                <mat-icon class="timeline__icon" aria-hidden="true"
+                  >trending_up</mat-icon
+                >
+                <span>{{ item }}</span>
+              </li>
+            }
+          </ol>
+        </mat-card-content>
+      </mat-card>
     </section>
 
-    <!-- Personal interests -->
-    <section class="about__section card">
-      <h2>{{ content.outsideOfWork.title }}</h2>
-      <p>
-        {{ content.outsideOfWork.content }}
-      </p>
+    <section appReveal>
+      <span class="section-eyebrow">04 / Outside of work</span>
+      <mat-card appearance="outlined" class="glass about__section">
+        <mat-card-header>
+          <mat-card-title>{{ content.outsideOfWork.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ content.outsideOfWork.content }}</p>
+        </mat-card-content>
+      </mat-card>
     </section>
   </main>
 </div>

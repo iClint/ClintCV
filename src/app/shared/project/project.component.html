@@ -1,7 +1,10 @@
 @if (config) {
   <div class="page-body">
-    <div class="project__content card">
-      <h1>{{ config.title }}</h1>
+    <mat-card
+      appearance="outlined"
+      class="glass project__content content-column"
+    >
+      <h1 class="gradient-text">{{ config.title }}</h1>
       @for (item of config.content; track $index) {
         <!-- sub-heading -->
         @if (item.type === contentType.HEADING) {
@@ -56,6 +59,6 @@
           <p class="project__image-label">{{ item.label }}</p>
         }
       }
-    </div>
+    </mat-card>
   </div>
 }

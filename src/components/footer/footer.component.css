@@ -2,19 +2,22 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--color-bg-footer);
-  padding: 20px;
-  color: var(--color-text-light);
+  gap: 8px;
+  border-top: 1px solid var(--mat-sys-outline-variant);
+  background-color: var(--mat-sys-surface-container);
+  padding: 24px;
+  color: var(--mat-sys-on-surface);
 }
 
 .footer__text {
-  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 0.875rem;
 }
 
 .footer__disclaimer {
-  margin: 8px 0;
-  width: 400px;
-  color: var(--color-text-light-secondary);
-  font-size: 10px;
+  max-width: 480px;
+  color: var(--mat-sys-on-surface-variant);
+  font-size: 0.6875rem;
+  line-height: 1.5;
   text-align: center;
 }

@@ -9,11 +9,12 @@ import {
   transition,
 } from '@angular/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-ticker',
   standalone: true,
-  imports: [CommonModule, MatProgressBarModule, MatIconModule],
+  imports: [CommonModule, MatProgressBarModule, MatIconModule, MatButtonModule],
   templateUrl: './ticker.component.html',
   styleUrl: './ticker.component.css',
   animations: [
@@ -72,7 +73,7 @@ export class TickerComponent implements OnInit, OnDestroy {
     }, tickRate);
   }
 
-  nextItem(index: number = 1): void {
+  nextItem(index = 1): void {
     this.fadeState = 'hidden';
     this.contentIndex = (this.contentIndex + index) % this.items.length;
     this.fadeState = 'visible';

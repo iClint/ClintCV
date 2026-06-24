@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavMenuComponent } from './nav-menu.component';
-import { CommonModule } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
 
 describe('NavMenuComponent', () => {
@@ -16,12 +14,7 @@ describe('NavMenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        CommonModule,
-        RouterTestingModule,
-        MatIconModule,
-        NavMenuComponent,
-      ],
+      imports: [RouterTestingModule, NavMenuComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(NavMenuComponent);
@@ -32,6 +25,10 @@ describe('NavMenuComponent', () => {
 
   it('should create the component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should default to the horizontal layout', () => {
+    expect(component.layout).toBe('horizontal');
   });
 
   it('should render all nav items', () => {
@@ -47,12 +44,21 @@ describe('NavMenuComponent', () => {
     expect(text).toContain('About');
   });
 
-  it('should toggle nav visibility on click', () => {
-    expect(component.isNavMenuVisible).toBe(false);
-    component.onMenuClick();
-    expect(component.isNavMenuVisible).toBe(true);
-    component.onMenuClick();
-    expect(component.isNavMenuVisible).toBe(false);
+  it('should render a nav list when layout is vertical', () => {
+    component.layout = 'vertical';
+    fixture.detectChanges();
+    const list = fixture.nativeElement.querySelector('.nav-menu--vertical');
+    expect(list).toBeTruthy();
+  });
+
+  it('should emit navigate when a link is clicked', () => {
+    const navigateSpy = jest.fn();
+    component.navigate.subscribe(navigateSpy);
+
+    const firstLink = fixture.debugElement.query(By.css('.nav-menu__link'));
+    firstLink.nativeElement.click();
+
+    expect(navigateSpy).toHaveBeenCalled();
   });
 
   afterEach(() => {

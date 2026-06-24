@@ -1,0 +1,260 @@
+@use '@angular/material' as mat;
+
+// ===========================================================================
+// Dark developer-luxe theme
+// Near-black canvas, electric cyan→violet accent, mono labels, glow + gradient
+// used with restraint. Dark is the designed default; light is a clean fallback.
+// M3 system tokens are overridden with light-dark() pairs so Angular Material
+// components (cards/buttons/chips) inherit the bespoke palette automatically.
+// ===========================================================================
+html {
+  color-scheme: light dark;
+
+  @include mat.theme(
+    (
+      color: (
+        primary: mat.$cyan-palette,
+        tertiary: mat.$violet-palette,
+      ),
+      typography: Roboto,
+      density: 0,
+    )
+  );
+
+  & {
+    // --- Bespoke surface ramp (deep, slightly cool near-blacks) -----------
+    --mat-sys-surface: light-dark(#f7f8fa, #08080c);
+    --mat-sys-surface-container-lowest: light-dark(#ffffff, #0a0a10);
+    --mat-sys-surface-container-low: light-dark(#f2f3f6, #0e0e16);
+    --mat-sys-surface-container: light-dark(#ffffff, #12121c);
+    --mat-sys-surface-container-high: light-dark(#eceef2, #181824);
+    --mat-sys-surface-container-highest: light-dark(#e6e8ee, #1f1f2e);
+
+    // --- Text ---------------------------------------------------------------
+    --mat-sys-on-surface: light-dark(#15151b, #ecedf5);
+    --mat-sys-on-surface-variant: light-dark(#54545f, #9b9bb4);
+    --mat-sys-outline: light-dark(#c4c4cf, rgba(255, 255, 255, 0.18));
+    --mat-sys-outline-variant: light-dark(#dddde4, rgba(255, 255, 255, 0.09));
+
+    // --- Accent (electric cyan, with violet for gradient pairing) ----------
+    --mat-sys-primary: light-dark(#0e7490, #2ad4ee);
+    --mat-sys-on-primary: light-dark(#ffffff, #04222a);
+
+    // Larger, modern corners across all Material surfaces.
+    --mat-sys-corner-large: 20px;
+    --mat-sys-corner-medium: 14px;
+
+    // --- App design tokens --------------------------------------------------
+    --app-accent: light-dark(#0891b2, #2ad4ee);
+    --app-accent-2: light-dark(#7c3aed, #a78bfa);
+    --app-accent-gradient: linear-gradient(
+      120deg,
+      var(--app-accent),
+      var(--app-accent-2)
+    );
+    --app-accent-soft: light-dark(
+      rgba(8, 145, 178, 0.12),
+      rgba(42, 212, 238, 0.14)
+    );
+    --app-glow: 0 0 36px -10px
+      light-dark(rgba(8, 145, 178, 0.45), rgba(42, 212, 238, 0.55));
+    --app-card-border: light-dark(
+      rgba(15, 23, 42, 0.1),
+      rgba(255, 255, 255, 0.08)
+    );
+    --app-card-bg: light-dark(rgba(255, 255, 255, 0.9), rgba(20, 20, 30, 0.6));
+
+    --app-font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+    --app-gutter: 24px;
+    --app-gutter-tight: 12px;
+    --app-content-max-width: 1040px;
+  }
+}
+
+// Manual theme overrides (set by ThemeService). Default = dark (see service).
+html.theme-light {
+  color-scheme: light;
+}
+
+html.theme-dark {
+  color-scheme: dark;
+}
+
+// ===========================================================================
+// Global reset + base typography
+// ===========================================================================
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+// Ambient page glow — two soft accent blooms anchored top-left / top-right,
+// fixed so they sit behind all content as the page scrolls.
+body::before {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  background:
+    radial-gradient(
+      60vw 50vh at 15% -5%,
+      var(--app-accent-soft),
+      transparent 60%
+    ),
+    radial-gradient(
+      50vw 45vh at 95% 0%,
+      light-dark(rgba(124, 58, 237, 0.1), rgba(167, 139, 250, 0.12)),
+      transparent 55%
+    );
+  pointer-events: none;
+  content: '';
+}
+
+h1,
+h2,
+h3 {
+  color: var(--mat-sys-on-surface);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--mat-sys-primary);
+  text-decoration: none;
+}
+
+// ===========================================================================
+// Reusable identity utilities
+// ===========================================================================
+
+// Gradient-filled text (name, accent words).
+.gradient-text {
+  background: var(--app-accent-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+// Monospace eyebrow / label (tech tags, section numbers).
+.mono {
+  font-family: var(--app-font-mono);
+  letter-spacing: 0.04em;
+}
+
+// Numbered section eyebrow, e.g. "01 / Projects".
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--app-accent);
+  font-size: 0.8125rem;
+  font-family: var(--app-font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-eyebrow::before {
+  background: var(--app-accent);
+  width: 22px;
+  height: 1px;
+  content: '';
+}
+
+// Glass surface used for cards across the site.
+.glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  border: 1px solid var(--app-card-border);
+  border-radius: var(--mat-sys-corner-large);
+  background: var(--app-card-bg);
+}
+
+.glass:hover {
+  box-shadow: var(--app-glow);
+  border-color: color-mix(in srgb, var(--app-accent) 45%, transparent);
+}
+
+// ===========================================================================
+// Scroll-reveal motion (driven by appReveal directive)
+// ===========================================================================
+.reveal {
+  transform: translateY(18px);
+  opacity: 0;
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  transform: none;
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transform: none;
+    opacity: 1;
+    transition: none;
+  }
+}
+
+// ===========================================================================
+// Layout primitives shared across pages
+// ===========================================================================
+.page-body {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--app-gutter);
+  z-index: 1;
+  padding: 48px var(--app-gutter);
+  width: 100%;
+}
+
+.content-column {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  gap: var(--app-gutter);
+  z-index: 1;
+  width: 100%;
+  max-width: var(--app-content-max-width);
+}
+
+.centered {
+  text-align: center;
+}
+
+.scrolled {
+  box-shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .page-body {
+    gap: var(--app-gutter-tight);
+    padding: 24px var(--app-gutter-tight);
+  }
+}
