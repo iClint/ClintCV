@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter } from 'rxjs';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { HeaderComponent } from 'src/components/header/header.component';
 import { FooterComponent } from 'src/components/footer/footer.component';
+import { NavMenuComponent } from 'src/components/nav-menu/nav-menu.component';
 import { Config } from './app.config';
 import { LightBoxComponent } from 'src/app/shared/light-box/light-box.component';
 
@@ -11,7 +13,14 @@ declare let goatcounter: any;
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, HeaderComponent, FooterComponent, LightBoxComponent],
+  imports: [
+    RouterModule,
+    MatSidenavModule,
+    HeaderComponent,
+    FooterComponent,
+    NavMenuComponent,
+    LightBoxComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

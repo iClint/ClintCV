@@ -1,4 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -7,11 +9,13 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HeaderComponent],
+      imports: [HeaderComponent, NoopAnimationsModule],
+      providers: [provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
+    component.navMenuItems = [];
     fixture.detectChanges();
   });
 
@@ -19,22 +23,29 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should render header content', () => {
+  it('should render the title and subtitle', () => {
     component.title = 'website title';
     component.subtitle = 'website subtitle';
-    component.description = 'website description';
     fixture.detectChanges();
 
     const headerTitle = fixture.nativeElement.querySelector('.header__title');
     const headerSubtitle =
       fixture.nativeElement.querySelector('.header__subtitle');
-    const headerDescription = fixture.nativeElement.querySelector(
-      '.header__description',
-    );
 
-    expect(headerTitle.textContent).toEqual('website title');
-    expect(headerSubtitle.textContent).toEqual('website subtitle');
-    expect(headerDescription.textContent).toEqual('website description');
+    expect(headerTitle.textContent).toContain('website title');
+    expect(headerSubtitle.textContent).toContain('website subtitle');
+  });
+
+  it('should emit menuToggle when the menu button is pressed', () => {
+    const toggleSpy = jest.fn();
+    component.menuToggle.subscribe(toggleSpy);
+
+    const menuButton = fixture.nativeElement.querySelector(
+      '.header__menu-button',
+    );
+    menuButton.click();
+
+    expect(toggleSpy).toHaveBeenCalled();
   });
 
   it('should render the nav menu', () => {

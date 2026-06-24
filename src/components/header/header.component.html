@@ -1,20 +1,35 @@
-<header class="header__container" appScrollShadow>
-  <div class="header__title-block">
-    <!-- TOP ROW: title + nav menu -->
-    <div class="header__top-row">
-      <div>
-        <h1 class="header__title">{{ title }}</h1>
-        <div class="header__middle-row">
-          <h2 class="header__subtitle">{{ subtitle }}</h2>
-        </div>
-        <div class="header__bottom-row">
-          <div class="header__description">{{ description }}</div>
-        </div>
-      </div>
-      <app-nav-menu
-        class="header__nav-menu"
-        [items]="navMenuItems"
-      ></app-nav-menu>
-    </div>
+<mat-toolbar class="header" appScrollShadow>
+  <div class="header__brand">
+    <span class="header__title">{{ title }}</span>
+    <span class="header__subtitle">{{ subtitle }}</span>
   </div>
-</header>
+
+  <span class="header__spacer"></span>
+
+  <app-nav-menu
+    class="header__nav"
+    [items]="navMenuItems"
+    layout="horizontal"
+  ></app-nav-menu>
+
+  <button
+    mat-icon-button
+    class="header__theme-toggle"
+    type="button"
+    [matTooltip]="theme.label"
+    [attr.aria-label]="theme.label"
+    (click)="theme.cycleMode()"
+  >
+    <mat-icon>{{ theme.icon }}</mat-icon>
+  </button>
+
+  <button
+    mat-icon-button
+    class="header__menu-button"
+    type="button"
+    aria-label="Open navigation menu"
+    (click)="menuToggle.emit()"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>

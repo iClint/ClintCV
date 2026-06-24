@@ -3,6 +3,46 @@ import {
   HomeTickerConfigModel,
 } from 'src/app/models/home-config.model';
 
+export interface HeroAction {
+  label: string;
+  icon: string;
+  route?: string;
+  href?: string;
+  primary?: boolean;
+}
+
+export interface HomeHeroConfigModel {
+  availability: string;
+  name: string;
+  role: string;
+  tagline: string;
+  techTags: string[];
+  actions: HeroAction[];
+}
+
+export const HomeHeroConfig: HomeHeroConfigModel = {
+  availability: 'Available for opportunities',
+  name: 'Clint Kingston',
+  role: 'Fullstack Software Engineer',
+  tagline:
+    'I build real-time, high-performance web platforms with .NET, Angular, and Azure. Most of my recent work runs at national scale.',
+  techTags: ['.NET', 'Angular', 'Azure', 'TypeScript', 'C#', 'RxJS'],
+  actions: [
+    {
+      label: 'View projects',
+      icon: 'arrow_forward',
+      route: '/projects',
+      primary: true,
+    },
+    { label: 'Get in touch', icon: 'mail', route: '/contact' },
+    {
+      label: 'Résumé',
+      icon: 'description',
+      href: 'documents/Clint_Kingston_Resume-Current.pdf',
+    },
+  ],
+};
+
 export const HomeTickerConfig: HomeTickerConfigModel = {
   title: '',
   items: [
@@ -15,8 +55,8 @@ export const HomeTickerConfig: HomeTickerConfigModel = {
     'Shipped a real-time driver rating feature from scratch, end-to-end, with full Cypress coverage.',
     'Built observable-driven UIs and maintained consistent test coverage across unit, integration, and E2E layers.',
 
-    'Skilled across Angular, .NET, Azure, MongoDB, Cypress, and Docker — and always learning more.',
-    'Fluent in Agile delivery — whether it’s two-week sprints, Kanban flows, or navigating a Jira board in tab hell.',
+    'Skilled across Angular, .NET, Azure, MongoDB, Cypress, and Docker, and always picking up more.',
+    'Comfortable with Agile delivery, whether that means two-week sprints, Kanban flows, or a Jira board lost in tab hell.',
 
     'Known for clean commits, practical architecture, and getting things shipped without drama.',
   ],
@@ -25,14 +65,12 @@ export const HomeTickerConfig: HomeTickerConfigModel = {
 export const HomePageContent: HomePageContentModel = {
   tldr: {
     title: 'The TL;DR',
-    badge: '⭐️ Employed by Biscit ⭐️',
     content: [
-      `Whether it’s architecting real-time systems, building scalable UIs, improving processes, or bridging technical and non-technical teams, I focus on delivering real value at speed. If you’re hiring or just want to connect, feel free to reach out.`,
+      `I work across real-time systems, scalable UIs, process improvements, and the gap between technical and non-technical teams. The common thread is shipping useful results quickly. If you’re hiring or just want to connect, get in touch.`,
 
-      `I bring more than just code to the table — with a diverse background and wide-ranging skills, I’m comfortable wearing multiple hats and stepping into complex challenges.`,
+      `I bring more than code. A background outside of tech means I’m comfortable taking on unfamiliar problems and working across different roles.`,
     ],
-    actions: [
-    ],
+    actions: [],
   },
   keyProjects: {
     title: 'Key Projects',
@@ -70,9 +108,9 @@ export const HomePageContent: HomePageContentModel = {
   },
   techStack: {
     title: 'Tech Stack',
-    content: `I’m fluent in Angular, .NET, Azure, MongoDB, Cypress, and Docker.
-        I’m always learning more — whether it’s the latest Angular features or
-        new tools to improve my workflow.`,
+    content: `I’m fluent in Angular, .NET, Azure, MongoDB, Cypress, and Docker,
+        and always picking up more, whether that’s the latest Angular features
+        or new tools to improve my workflow.`,
     techStackIcons: [
       { file: 'Angular.svg', label: 'Angular' },
       { file: 'Apple.svg', label: 'Apple' },

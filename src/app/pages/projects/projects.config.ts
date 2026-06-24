@@ -2,8 +2,8 @@ import { ProjectsPageContentModel } from 'src/app/models/projects-config.model';
 
 export const ProjectsPageContent: ProjectsPageContentModel = {
   title: 'Projects',
-  description: `This page showcases a collection of projects I'm proud of. It's a work in
-      progress, so check back regularly for updates as I continue to add more of
+  description: `A collection of projects I'm proud of. It's a work in
+      progress, so check back now and then as I add more of
       what I've been building.`,
   heading: 'Projects I Have Shipped:',
   projects: [
@@ -25,14 +25,14 @@ export const ProjectsPageContent: ProjectsPageContentModel = {
       url: '/projects/project-portfolio',
       title: 'Portfolio website',
       description:
-        'A showcase of my work, skills, experience in software engineering and online resume.',
+        'A showcase of my work, skills, and software engineering experience that doubles as my online resume.',
       thumbnail: 'images/Clint-CV-Pic.png',
     },
     {
       url: '/projects/project-home-diy',
       title: 'Not just a computer nerd',
       description:
-        'A home renovation project where I built a media wall with electric fireplace.',
+        'A home renovation project where I built a media wall with a built-in electric fireplace.',
       thumbnail: 'images/project-home-diy/IMG_0821.webp',
     },
   ],

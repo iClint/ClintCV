@@ -1,25 +1,40 @@
-<div>
-  <hr />
-  <div class="element-container">
-    <div>{{ lastElementNumber }}</div>
-    <select
-      id="element-selection"
-      class="selcect-box"
-      [(ngModel)]="selectedContent"
+<div class="element">
+  <div class="element__header">
+    <span class="element__number">Element {{ elementNumber }}</span>
+
+    <mat-form-field appearance="outline" class="element__type">
+      <mat-label>Content type</mat-label>
+      <mat-select [(ngModel)]="selectedType" (ngModelChange)="onTypeChange()">
+        @for (option of typeOptions; track option.value) {
+          <mat-option [value]="option.value">{{ option.label }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <button
+      mat-icon-button
+      type="button"
+      aria-label="Remove element"
+      (click)="remove.emit()"
     >
-      @for (element of elementTypes; track element) {
-        <option [value]="element">{{ element }}</option>
-      }
-    </select>
-    @if (selectedContent === 'Text') {
-      <app-text-content />
-    } @else if (selectedContent === 'Sub-heading') {
-      <app-sub-heading />
-    } @else if (selectedContent === 'List') {
-      <app-list-component />
-    } @else if (selectedContent === 'Image gallery') {
-      <app-image-gallery />
-    }
+      <mat-icon>close</mat-icon>
+    </button>
   </div>
-  <hr />
+
+  @switch (selectedType) {
+    @case (contentType.TEXT) {
+      <app-text-content (blockChange)="onBlockChange($event)" />
+    }
+    @case (contentType.HEADING) {
+      <app-sub-heading (blockChange)="onBlockChange($event)" />
+    }
+    @case (contentType.LIST) {
+      <app-list-component (blockChange)="onBlockChange($event)" />
+    }
+    @case (contentType.IMAGES) {
+      <app-image-gallery (blockChange)="onBlockChange($event)" />
+    }
+  }
+
+  <mat-divider class="element__divider"></mat-divider>
 </div>

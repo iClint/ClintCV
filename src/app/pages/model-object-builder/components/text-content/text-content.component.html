@@ -1,22 +1,40 @@
-<div class="paragraph-container">
-  <div>Paragraph</div>
-  <div class="paragraphs">
-    @for (value of textParagraphValues; track $index) {
-      <div class="text-area-row">
+<div class="builder-block">
+  <mat-form-field appearance="outline" class="builder-field">
+    <mat-label>Section label</mat-label>
+    <input
+      matInput
+      type="text"
+      [(ngModel)]="label"
+      (ngModelChange)="onChange()"
+    />
+  </mat-form-field>
+
+  @for (value of textParagraphValues; track $index) {
+    <div class="builder-row">
+      <mat-form-field appearance="outline" class="builder-field">
+        <mat-label>Paragraph {{ $index + 1 }}</mat-label>
         <textarea
-          [id]="'paragraph-' + $index"
-          class="text-area"
-          wrap="soft"
-          rows="5"
-          cols="80"
+          matInput
+          rows="3"
           [(ngModel)]="textParagraphValues[$index]"
+          (ngModelChange)="onChange()"
         ></textarea>
-      </div>
-    }
-  </div>
-  <div class="new-paragraph-container">
-    <button class="button__new-paragraph" (click)="onNewParagraph($event)">
-      +
-    </button>
-  </div>
+      </mat-form-field>
+      @if (textParagraphValues.length > 1) {
+        <button
+          mat-icon-button
+          type="button"
+          aria-label="Remove paragraph"
+          (click)="removeParagraph($index)"
+        >
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+      }
+    </div>
+  }
+
+  <button mat-stroked-button type="button" (click)="onNewParagraph($event)">
+    <mat-icon>add</mat-icon>
+    Add paragraph
+  </button>
 </div>

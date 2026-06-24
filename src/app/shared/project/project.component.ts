@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule, NgComponentOutlet } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 import { LightBoxService } from 'src/app/services/light-box/light-box.service';
 import { ImageGallery } from 'src/app/models/light-box.model';
 import { ActivatedRoute } from '@angular/router';
@@ -9,7 +10,7 @@ import { ContentType } from 'src/app/enums/light-box.enums';
 @Component({
   selector: 'app-project',
   standalone: true,
-  imports: [CommonModule, NgComponentOutlet],
+  imports: [CommonModule, NgComponentOutlet, MatCardModule],
   templateUrl: './project.component.html',
   styleUrl: './project.component.css',
 })

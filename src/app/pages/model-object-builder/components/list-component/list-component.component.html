@@ -1,23 +1,40 @@
-<div class="list-container">
-  <div>List</div>
-  <div class="list-items">
-    @for (value of listItemValues; track $index) {
-      <div class="text-area-row">
-        <div>⚫️</div>
-        <textarea
-          [id]="'list-item-' + $index"
-          class="text-area"
-          wrap="soft"
-          rows="5"
-          cols="80"
+<div class="builder-block">
+  <mat-form-field appearance="outline" class="builder-field">
+    <mat-label>List label</mat-label>
+    <input
+      matInput
+      type="text"
+      [(ngModel)]="label"
+      (ngModelChange)="onChange()"
+    />
+  </mat-form-field>
+
+  @for (value of listItemValues; track $index) {
+    <div class="builder-row">
+      <mat-form-field appearance="outline" class="builder-field">
+        <mat-label>Item {{ $index + 1 }}</mat-label>
+        <input
+          matInput
+          type="text"
           [(ngModel)]="listItemValues[$index]"
-        ></textarea>
-      </div>
-    }
-  </div>
-  <div class="new-list-container">
-    <button class="button__new-list-item" (click)="onNewListItem($event)">
-      +
-    </button>
-  </div>
+          (ngModelChange)="onChange()"
+        />
+      </mat-form-field>
+      @if (listItemValues.length > 1) {
+        <button
+          mat-icon-button
+          type="button"
+          aria-label="Remove item"
+          (click)="removeListItem($index)"
+        >
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+      }
+    </div>
+  }
+
+  <button mat-stroked-button type="button" (click)="onNewListItem($event)">
+    <mat-icon>add</mat-icon>
+    Add item
+  </button>
 </div>

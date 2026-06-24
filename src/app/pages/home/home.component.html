@@ -1,62 +1,132 @@
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="hero__inner content-column">
+    <span class="hero__availability mono">
+      <span class="hero__status-dot"></span>
+      {{ hero.availability }}
+    </span>
+
+    <h1 class="hero__name">
+      <span class="gradient-text">{{ hero.name }}</span>
+    </h1>
+
+    <p class="hero__role mono">
+      {{ hero.role }}<span class="hero__cursor">_</span>
+    </p>
+
+    <p class="hero__tagline">{{ hero.tagline }}</p>
+
+    <ul class="hero__tags">
+      @for (tag of hero.techTags; track tag) {
+        <li class="hero__tag mono">{{ tag }}</li>
+      }
+    </ul>
+
+    <div class="hero__actions">
+      @for (action of hero.actions; track action.label) {
+        @if (action.route) {
+          <a
+            mat-flat-button
+            [class.hero__cta--primary]="action.primary"
+            class="hero__cta"
+            [routerLink]="action.route"
+          >
+            <mat-icon>{{ action.icon }}</mat-icon>
+            {{ action.label }}
+          </a>
+        } @else {
+          <a
+            mat-stroked-button
+            class="hero__cta"
+            [href]="action.href"
+            target="_blank"
+            rel="noopener"
+          >
+            <mat-icon>{{ action.icon }}</mat-icon>
+            {{ action.label }}
+          </a>
+        }
+      }
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HIGHLIGHTS TICKER ===================== -->
 <app-ticker [items]="tickerConfig.items"></app-ticker>
+
+<!-- ===================== CONTENT ===================== -->
 <div class="page-body">
-  <main class="home__content">
-    <section class="home__section card">
-      <h2>{{ content.tldr.title }}</h2>
-      @if (content.tldr.badge) {
-        <div class="home__badge-container">
-          <div class="badge">{{ content.tldr.badge }}</div>
-        </div>
-      }
-      @for (item of content.tldr.content; track $index) {
-        <p>
-          {{ item }}
-        </p>
-      }
-      <div class="home__tldr-actions">
-        @for (action of content.tldr.actions; track action.label) {
-          <a [href]="action.href" class="button" target="_blank">{{
-            action.label
-          }}</a>
-        }
-      </div>
+  <main class="content-column home">
+    <section class="home__section" appReveal>
+      <span class="section-eyebrow">01 / About</span>
+      <mat-card appearance="outlined" class="glass home__card">
+        <mat-card-content>
+          @if (content.tldr.badge) {
+            <mat-chip-set class="home__badge">
+              <mat-chip highlighted>{{ content.tldr.badge }}</mat-chip>
+            </mat-chip-set>
+          }
+          <h2 class="home__title">{{ content.tldr.title }}</h2>
+          @for (item of content.tldr.content; track $index) {
+            <p>{{ item }}</p>
+          }
+        </mat-card-content>
+      </mat-card>
     </section>
 
-    <section class="home__section card">
-      <h2>{{ content.keyProjects.title }}</h2>
-      <p>
-        {{ content.keyProjects.content }}
-      </p>
-      <ul class="achievement-list">
-        @for (item of content.keyProjects.list; track item.label) {
-          <li>
-            <strong>{{ item.label }}:</strong> {{ item.content }}
-          </li>
-        }
-      </ul>
+    <section class="home__section" appReveal>
+      <span class="section-eyebrow">02 / Key projects</span>
+      <mat-card appearance="outlined" class="glass home__card">
+        <mat-card-content>
+          <h2 class="home__title">{{ content.keyProjects.title }}</h2>
+          <p>{{ content.keyProjects.content }}</p>
+          <div class="home__achievements">
+            @for (item of content.keyProjects.list; track item.label) {
+              <div class="home__achievement">
+                <mat-icon class="home__achievement-icon" aria-hidden="true"
+                  >bolt</mat-icon
+                >
+                <div>
+                  <strong>{{ item.label }}</strong>
+                  <span>{{ item.content }}</span>
+                </div>
+              </div>
+            }
+          </div>
+        </mat-card-content>
+      </mat-card>
     </section>
 
-    <section class="home__section card">
-      <h2>{{ content.howIWork.title }}</h2>
-      <p>
-        {{ content.howIWork.content }}
-      </p>
+    <section class="home__section" appReveal>
+      <span class="section-eyebrow">03 / How I work</span>
+      <mat-card appearance="outlined" class="glass home__card">
+        <mat-card-content>
+          <h2 class="home__title">{{ content.howIWork.title }}</h2>
+          <p>{{ content.howIWork.content }}</p>
+        </mat-card-content>
+      </mat-card>
     </section>
 
-    <section class="home__section tech-stack card">
-      <h2>{{ content.techStack.title }}</h2>
-      <p>{{ content.techStack.content }}</p>
-      <ul class="tech-stack__list">
-        @for (item of content.techStack.techStackIcons; track item.file) {
-          <li>
-            <img
-              src="/images/tech-stack-icons/{{ item.file }}"
-              alt="{{ item.label }}"
-              title="{{ item.label }}"
-            />
-          </li>
-        }
-      </ul>
+    <section class="home__section" appReveal>
+      <span class="section-eyebrow">04 / Tech stack</span>
+      <mat-card appearance="outlined" class="glass home__card">
+        <mat-card-content>
+          <h2 class="home__title">{{ content.techStack.title }}</h2>
+          <p>{{ content.techStack.content }}</p>
+          <ul class="tech-stack">
+            @for (item of content.techStack.techStackIcons; track item.file) {
+              <li class="tech-stack__item" [title]="item.label">
+                <img
+                  class="tech-stack__icon"
+                  src="/images/tech-stack-icons/{{ item.file }}"
+                  [alt]="item.label"
+                />
+                <span class="tech-stack__label">{{ item.label }}</span>
+              </li>
+            }
+          </ul>
+        </mat-card-content>
+      </mat-card>
     </section>
   </main>
 </div>

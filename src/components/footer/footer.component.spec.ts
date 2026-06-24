@@ -38,7 +38,7 @@ describe('FooterComponent', () => {
 
   it('should return the disclaimer text', () => {
     const expectedDisclaimer =
-      'Opinions expressed are solely my own and do not represent my employer or clients. All screenshots use mock data—no real customer information is displayed.';
+      'Opinions expressed are solely my own and do not represent my employer or clients. All screenshots use mock data, so no real customer information is displayed.';
 
     expect(component.disclaimer).toBe(expectedDisclaimer);
   });

@@ -2,11 +2,11 @@ import { ContentType, PreviewSize } from 'src/app/enums/light-box.enums';
 import { ProjectContentModel } from '../models/project-config.model';
 
 export const ProjectHomeDiyContent: ProjectContentModel = {
-  title: 'Fireplace Media Wall – Custom DIY Project',
+  title: 'Fireplace Media Wall: Custom DIY Project',
   content: [
     {
       type: ContentType.TEXT,
-      content: `To transform a plain section of our living/dining room into a warm and inviting space for guests, my partner and I envisioned a minimalist media wall. The goal was to mount the TV cleanly, integrate an electric fireplace, conceal home security equipment, and create storage and decorative shelving — all with a polished, built-in look.`,
+      content: `To transform a plain section of our living/dining room into a warm and inviting space for guests, my partner and I envisioned a minimalist media wall. The goal was to mount the TV cleanly, integrate an electric fireplace, conceal home security equipment, and create storage and decorative shelving, all with a polished, built-in look.`,
       label: '',
     },
     {
@@ -145,7 +145,7 @@ export const ProjectHomeDiyContent: ProjectContentModel = {
     },
     {
       type: ContentType.TEXT,
-      content: `The design included a concealed cavity — styled like a chimney breast — which discreetly houses our CCTV and home security equipment. A matching hardwood shelf, cut to size, encloses this cavity and opens for access, doubling as general storage.`,
+      content: `The design included a concealed cavity, styled like a chimney breast, which discreetly houses our CCTV and home security equipment. A matching hardwood shelf, cut to size, encloses this cavity and opens for access, doubling as general storage.`,
       label: '',
     },
     {
@@ -192,7 +192,7 @@ export const ProjectHomeDiyContent: ProjectContentModel = {
     },
     {
       type: ContentType.TEXT,
-      content: `The entire project took two weeks from initial CAD design to final touches, all done alongside full-time responsibilities. It’s a project I’m proud of — not just for the outcome, but as a demonstration of the hands-on, cross-disciplinary problem solving I enjoy bringing to any challenge.`,
+      content: `The entire project took two weeks from initial CAD design to final touches, all done alongside full-time responsibilities. It’s a project I’m proud of, not only for the result but for the hands-on, cross-disciplinary problem solving it took.`,
       label: '',
     },
     {
@@ -203,8 +203,8 @@ export const ProjectHomeDiyContent: ProjectContentModel = {
       images: [
         {
           imageSrc: 'images/project-home-diy/before.webp',
-          imageAlt: 'Completed media wall with mounted TV and fireplace',
-          imageLabel: 'Completed media wall with mounted TV and fireplace',
+          imageAlt: 'The original wall before the build',
+          imageLabel: 'The original wall before the build',
         },
       ],
     },

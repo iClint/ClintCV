@@ -7,10 +7,11 @@ import {
 } from 'src/app/models/light-box.model';
 import { Subscription } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-light-box',
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule, MatIconModule, MatButtonModule],
   templateUrl: './light-box.component.html',
   styleUrl: './light-box.component.css',
 })

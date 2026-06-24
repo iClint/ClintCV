@@ -1,4 +1,21 @@
-.image-gallery-container {
+.builder-block {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.builder-field {
+  width: 100%;
+}
+
+.builder-row,
+.image-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.builder-field--size {
+  min-width: 160px;
 }

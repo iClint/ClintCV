@@ -1,42 +1,93 @@
-p {
-  margin: 8px;
-  text-align: left;
-}
-
-a {
-  cursor: pointer;
-  color: inherit;
-  text-decoration: none;
-}
-
-li {
-  margin-bottom: 16px;
-  list-style: none;
-}
-
-.project__title-block {
+.projects__intro {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.projects__intro h1 {
+  margin: 0;
+  font-size: 1.75rem;
+}
+
+.projects__intro p {
+  margin: 0;
+  color: var(--mat-sys-on-surface-variant);
+  line-height: 1.6;
+}
+
+.projects__heading {
+  margin: 8px 0 0;
+  color: var(--mat-sys-on-surface-variant);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.projects__card {
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.projects__card:hover,
+.projects__card:focus-visible {
+  transform: translateY(-4px);
+  outline: none;
+  box-shadow: var(--mat-sys-level2);
+  border-color: var(--mat-sys-primary);
+}
+
+.projects__thumbnail {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* Interior padding for the text regions (thumbnail stays full-bleed). */
+.projects__card mat-card-header {
+  padding: 20px 20px 0;
+}
+
+.projects__card mat-card-content {
+  flex: 1 1 auto;
+  padding: 12px 20px;
+}
+
+.projects__card mat-card-actions {
+  padding: 0 20px 18px;
+}
+
+.projects__card mat-card-content p {
+  margin: 0;
+  color: var(--mat-sys-on-surface-variant);
+  line-height: 1.55;
+}
+
+.projects__cta {
+  display: inline-flex;
   align-items: center;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 1px 3px var(--color-card-shadow);
-  border-radius: 8px;
-  background-color: #f1f8ff;
-  padding: 16px;
+  gap: 4px;
+  color: var(--mat-sys-primary);
+  font-weight: 600;
+  font-size: 0.875rem;
 }
 
-.project__title-block:hover {
-  translate: -4px -4px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 4px 8px var(--color-card-shadow);
-  background-color: var(--color-primary);
+.projects__cta mat-icon {
+  transition: transform 0.2s ease;
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
 }
 
-.project__thumbnail {
-  margin: 12px;
-  border-radius: 8px;
-  width: 64px;
+.projects__card:hover .projects__cta mat-icon {
+  transform: translateX(4px);
 }

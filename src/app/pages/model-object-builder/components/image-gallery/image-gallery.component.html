@@ -1,12 +1,69 @@
-<div>Image gallery</div>
-<div class="image-gallery-container">
-  <label>Image src</label>
-  <input type="text" />
-  <label>Image alt</label>
-  <input type="text" />
-  <label>Image label</label>
-  <input type="text" />
-</div>
-<div class="new-image-container">
-  <button class="button__new-image" (click)="onNewImage($event)">+</button>
+<div class="builder-block">
+  <div class="builder-row">
+    <mat-form-field appearance="outline" class="builder-field">
+      <mat-label>Gallery label</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="label"
+        (ngModelChange)="onChange()"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="builder-field--size">
+      <mat-label>Preview size</mat-label>
+      <mat-select [(ngModel)]="previewSize" (ngModelChange)="onChange()">
+        @for (size of previewSizes; track size) {
+          <mat-option [value]="size">{{ size }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  @for (image of images; track $index) {
+    <div class="image-row">
+      <mat-form-field appearance="outline" class="builder-field">
+        <mat-label>Image {{ $index + 1 }} src</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="images[$index].imageSrc"
+          (ngModelChange)="onChange()"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="builder-field">
+        <mat-label>Alt text</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="images[$index].imageAlt"
+          (ngModelChange)="onChange()"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="builder-field">
+        <mat-label>Caption</mat-label>
+        <input
+          matInput
+          type="text"
+          [(ngModel)]="images[$index].imageLabel"
+          (ngModelChange)="onChange()"
+        />
+      </mat-form-field>
+      @if (images.length > 1) {
+        <button
+          mat-icon-button
+          type="button"
+          aria-label="Remove image"
+          (click)="removeImage($index)"
+        >
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+      }
+    </div>
+  }
+
+  <button mat-stroked-button type="button" (click)="onNewImage($event)">
+    <mat-icon>add</mat-icon>
+    Add image
+  </button>
 </div>

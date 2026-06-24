@@ -1,4 +1,9 @@
-<div class="sub-heading-container">
-  <div>Sub-heading</div>
-  <input type="text" />
-</div>
+<mat-form-field appearance="outline" class="builder-field">
+  <mat-label>Sub-heading</mat-label>
+  <input
+    matInput
+    type="text"
+    [(ngModel)]="content"
+    (ngModelChange)="onChange()"
+  />
+</mat-form-field>

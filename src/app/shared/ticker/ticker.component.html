@@ -11,17 +11,29 @@
   <div class="ticker__controls">
     <div class="ticker__indicators">
       <!-- Chevron for navigation -->
-      <mat-icon class="ticker__cheveron" (click)="onClickNavigation(-1)"
-        >chevron_left</mat-icon
+      <button
+        mat-icon-button
+        class="ticker__cheveron"
+        type="button"
+        aria-label="Previous"
+        (click)="onClickNavigation(-1)"
       >
+        <mat-icon>chevron_left</mat-icon>
+      </button>
       <!-- Dots for each item -->
       @for (item of items; track $index) {
-        <div class="dot" [class.filled]="contentIndex == $index"></div>
+        <div class="dot" [class.filled]="contentIndex === $index"></div>
       }
       <!-- Chevron for navigation -->
-      <mat-icon class="ticker__cheveron" (click)="onClickNavigation(1)"
-        >chevron_right</mat-icon
+      <button
+        mat-icon-button
+        class="ticker__cheveron"
+        type="button"
+        aria-label="Next"
+        (click)="onClickNavigation(1)"
       >
+        <mat-icon>chevron_right</mat-icon>
+      </button>
     </div>
     <!-- Progress bar -->
     @if (!showProgressBar) {

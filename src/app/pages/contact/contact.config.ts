@@ -1,7 +1,7 @@
 import { ContactContentModel } from 'src/app/models/contact-config.model';
 
 export const ContactContent: ContactContentModel = {
-  title: 'Lets connect',
+  title: 'Let’s connect',
   description: 'Open to new opportunities, collaborations, or a quick chat.',
   links: [
     {

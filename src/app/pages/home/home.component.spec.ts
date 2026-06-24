@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HomeComponent } from './home.component';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideRouter } from '@angular/router';
 import { TickerComponent } from 'src/app/shared/ticker/ticker.component';
 
 describe('HomeComponent', () => {
@@ -10,7 +11,7 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HomeComponent, TickerComponent],
-      providers: [provideAnimations()],
+      providers: [provideAnimations(), provideRouter([])],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);

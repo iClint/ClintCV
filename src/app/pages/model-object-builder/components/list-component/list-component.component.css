@@ -1,30 +1,21 @@
-.list-container {
+.builder-block {
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 
-.text-area {
-  min-height: 64px;
-  resize: vertical;
+.builder-field {
+  width: 100%;
 }
 
-.text-area-row {
+.builder-row,
+.image-row {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
-  margin: 8px;
-}
-.new-list-container {
-  display: flex;
-  justify-content: end;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
 }
 
-.list-items {
-  flex-direction: column-reverse;
-}
-
-.button__new-list-item {
-  width: 36px;
-  height: 36px;
+.builder-field--size {
+  min-width: 160px;
 }

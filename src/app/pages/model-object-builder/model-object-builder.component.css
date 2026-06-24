@@ -1,0 +1,44 @@
+.builder {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-gutter);
+}
+
+.builder__editor mat-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.builder__title {
+  width: 100%;
+  max-width: 480px;
+}
+
+.builder__add {
+  align-self: flex-start;
+}
+
+.builder__preview mat-card-header {
+  display: flex;
+  align-items: center;
+}
+
+.builder__spacer {
+  flex: 1 1 auto;
+}
+
+.builder__json {
+  margin: 0;
+  border-radius: 12px;
+  background-color: var(--mat-sys-surface-container-highest);
+  padding: 16px;
+  max-height: 420px;
+  overflow: auto;
+  color: var(--mat-sys-on-surface);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  font-family: 'Roboto Mono', ui-monospace, monospace;
+  white-space: pre-wrap;
+  word-break: break-word;
+}

@@ -1,11 +1,27 @@
-.element-container {
+.element {
   display: flex;
-  flex-direction: row;
-  align-items: start;
-  gap: 8px;
-  margin: 4px;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.selcect-box {
-  height: fit-content;
+.element__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.element__number {
+  flex: 0 0 auto;
+  color: var(--mat-sys-on-surface-variant);
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.element__type {
+  flex: 1 1 auto;
+  max-width: 240px;
+}
+
+.element__divider {
+  margin-top: 8px;
 }

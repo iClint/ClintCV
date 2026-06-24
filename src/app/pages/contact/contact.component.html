@@ -1,27 +1,41 @@
 <main class="page-body">
-  <section class="contact__section card">
-    <h2>{{ content.title }}</h2>
-    <p>{{ content.description }}</p>
-    <div class="contact__links">
-      @for (link of content.links; track link.icon) {
-        <a
-          [href]="link.url"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="contact__link"
-          title="{{ link.label }}"
-          [attr.aria-label]="link.label"
-          ><i
-            class="contact__icons"
-            [class]="link.icon"
+  <mat-card
+    appearance="outlined"
+    class="glass contact content-column"
+    appReveal
+  >
+    <mat-card-header class="contact__header">
+      <span class="section-eyebrow contact__eyebrow">// Say hello</span>
+      <mat-card-title class="gradient-text">{{ content.title }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p class="contact__lead">{{ content.description }}</p>
+
+      <div class="contact__links">
+        @for (link of content.links; track link.icon) {
+          <a
+            mat-fab
+            class="contact__link"
+            [href]="link.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            [matTooltip]="link.label"
+            [attr.aria-label]="link.label"
             (mouseenter)="onMouseEnterIcon(link.label)"
             (mouseleave)="onMouseLeaveIcon()"
-          ></i
-        ></a>
-      }
-    </div>
-    <div class="contact__dynamic-description-container">
-      <p class="contact__dynamic-description" [class.show]="visible">{{ dynamicDescription }}</p>
-    </div>
-  </section>
+            (focus)="onMouseEnterIcon(link.label)"
+            (blur)="onMouseLeaveIcon()"
+          >
+            <i class="contact__icon" [class]="link.icon" aria-hidden="true"></i>
+          </a>
+        }
+      </div>
+
+      <div class="contact__description-slot">
+        <p class="contact__dynamic-description" [class.show]="visible">
+          {{ dynamicDescription }}
+        </p>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </main>
