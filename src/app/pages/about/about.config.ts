@@ -48,7 +48,7 @@ export const AboutPageContent: AboutContentModel = {
             through complexity, and still like to ship fast.`,
     quickFacts: [
       { label: 'Location', content: 'Central Coast, NSW, Australia' },
-      { label: 'Experience', content: '3+ years in software engineering' },
+      { label: 'Experience', content: '5+ years in software engineering' },
       {
         label: 'Current Role',
         content: 'Fullstack Software Engineer',
